@@ -1,0 +1,26 @@
+.feature-page .cursor,
+.feature-page .headline-lens {
+  display: none;
+}
+
+.feature-page,
+.feature-page a,
+.feature-page button,
+.feature-page [data-cursor-label] {
+  cursor: auto;
+}
+
+.feature-page a,
+.feature-page button,
+.feature-page summary,
+.feature-page input,
+.feature-page select,
+.feature-page textarea,
+.feature-page [role='button'] {
+  cursor: pointer;
+}
+
+.feature-page input,
+.feature-page textarea {
+  cursor: text;
+}

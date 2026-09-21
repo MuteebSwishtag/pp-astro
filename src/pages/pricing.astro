@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PricingPlans from '../components/PricingPlans.astro';
+import '../styles/legacy/homepage.css';
+import '../styles/legacy/navigation.css';
+import '../styles/legacy/pricing-page.css';
+---
+<BaseLayout title="Pricing | PromoPlus" description="Compare PromoPlus Starter, Pro, and Custom plans." bodyClass="pricing-page">
+  <Header active="pricing" />
+  <main id="top">
+    <PricingPlans />
+  </main>
+  <Footer />
+  <script is:inline src="/custom-plan.js"></script>
+</BaseLayout>
+

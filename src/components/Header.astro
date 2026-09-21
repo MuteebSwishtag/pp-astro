@@ -1,0 +1,48 @@
+---
+import '../styles/legacy/navigation.css';
+const { active = '', announcement = true } = Astro.props;
+type FeatureLink = [label: string, href: string, desc: string];
+type FeatureGroup = [group: string, links: FeatureLink[]];
+
+const featureLinks: FeatureGroup[] = [
+  ['Create & organize', [
+    ['Product Catalog Integration', '/features/product-catalog-integration.html', 'Explore feature'],
+    ['Centralized Project Workspace', '/features/centralized-project-workspace.html', 'Explore feature'],
+    ['Team Collaboration', '/features/team-collaboration.html', 'Explore feature'],
+  ]],
+  ['Design & control', [
+    ['Online Mockup Designer', '/features/online-mockup-designer.html', 'Explore feature'],
+    ['Artwork Version Control', '/features/artwork-version-control.html', 'Explore feature'],
+  ]],
+  ['Approve & produce', [
+    ['Customer Approval Portal', '/features/customer-approval-portal.html', 'Explore feature'],
+    ['Production-Ready File Generation', '/features/production-ready-file-generation.html', 'Explore feature'],
+    ['Workflow Progress Dashboard', '/features/workflow-progress-dashboard.html', 'Explore feature'],
+  ]],
+];
+---
+{announcement && <div class="pn-announcement"><span>From mockup to production, all in one place.</span><a class="pn-announcement-link" data-nav-route="signup" data-cro-event="announcement_signup_click" href="https://app.promoplus.io/signup">Sign Up <span aria-hidden="true">→</span></a></div>}
+<header class="pn-header" data-cursor-theme="light">
+  <div class="pn-bar">
+    <a class="pn-logo" href="/index.html" aria-label="PromoPlus home">Promo<span>Plus</span></a>
+    <nav class="pn-navigation" id="pn-navigation" aria-label="Main navigation">
+      <div class="pn-menu-group">
+        <button type="button" class="pn-trigger" id="pn-product-trigger" aria-controls="pn-product-panel" aria-expanded="false" data-cro-event="nav_features_open">Features<svg class="pn-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="pn-panel pn-product-panel" id="pn-product-panel" aria-labelledby="pn-product-trigger" hidden>
+          {featureLinks.map(([group, links]) => <div class="pn-column"><h2>{group}</h2>{links.map(([label, href, desc]) => <a class="pn-item" href={href} data-cro-event="nav_feature_click" data-nav-group="features" data-nav-feature={label}><span class="pn-item-icon" aria-hidden="true">+</span><span><b>{label}</b><small>{desc} <span aria-hidden="true">↗</span></small></span></a>)}</div>)}
+        </div>
+      </div>
+      <a class:list={["pn-pricing", active === 'insights' && 'is-active']} data-nav-route="insights" data-cro-event="nav_insights_click" href="/features/index.html">Insights</a>
+      <a class:list={["pn-pricing", active === 'pricing' && 'is-active']} data-nav-route="pricing" data-cro-event="nav_pricing_click" href="/pricing.html">Pricing</a>
+      <a class="pn-mobile-auth" data-nav-route="login" data-cro-event="nav_login_click" href="https://app.promoplus.io/login">Login</a>
+      <a class="pn-mobile-auth pn-mobile-auth-primary" data-nav-route="signup" data-cro-event="nav_signup_click" href="https://app.promoplus.io/signup">Sign Up <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="pn-actions">
+      <a class="pn-secondary" data-nav-route="login" data-cro-event="nav_login_click" href="https://app.promoplus.io/login">Login</a>
+      <a class="pn-primary" data-nav-route="signup" data-cro-event="nav_signup_click" href="https://app.promoplus.io/signup">Sign Up <span aria-hidden="true">↗</span></a>
+    </div>
+    <button type="button" class="pn-mobile-toggle" aria-label="Open navigation" aria-controls="pn-navigation" aria-expanded="false"><span class="pn-menu-lines" aria-hidden="true"></span><span class="pn-mobile-label">Menu</span></button>
+  </div>
+</header>
+<script is:inline src="/navigation.js"></script>
+

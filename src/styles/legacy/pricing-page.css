@@ -1,0 +1,29 @@
+/* The dedicated pricing page uses the existing homepage plan and comparison styles. */
+body{background:#fcfafc}
+.pricing-section{min-height:calc(100vh - 160px);padding-top:96px;padding-bottom:105px}
+.pricing-section .pricing-intro{margin-bottom:52px}
+.pricing-page .pn-pricing{color:#765bd6;font-weight:750}
+.pricing-section .custom-plan-contact{
+  width:100vw;
+  max-width:none;
+  margin:56px 0 0 calc(50% - 50vw);
+  padding:clamp(46px,6vw,78px) clamp(22px,7vw,120px);
+  grid-template-columns:minmax(0,430px) minmax(0,635px);
+  justify-content:center;
+  border-left:0;
+  border-right:0;
+  border-radius:0;
+}
+@media(max-width:900px){
+  .pricing-section .custom-plan-contact{
+    grid-template-columns:minmax(0,680px);
+    gap:28px;
+    padding-left:clamp(18px,5vw,40px);
+    padding-right:clamp(18px,5vw,40px);
+  }
+}
+@media(max-width:640px){
+  .pricing-section{padding-top:65px;padding-bottom:70px}
+  .pricing-section .custom-plan-contact{margin-top:40px}
+}
+

@@ -1,0 +1,55 @@
+<section class="pricing-section section-shell" id="pricing" aria-labelledby="pricing-title">
+        <header class="pricing-intro"><p>SIMPLE PRICING</p><h2 id="pricing-title">Start small.<br><span>Scale when you need more.</span></h2><p>Everything you need to create mockups, manage approvals, and generate production-ready files.</p></header>
+        <div class="pricing-plans">
+          <article class="pricing-plan"><h3>Starter</h3><p class="pricing-fit">For individuals and smaller promo teams getting their approval workflow organized.</p><p class="pricing-price"><strong>$30</strong> /month</p><p class="pricing-trial">30 days free</p><dl><div><dt>Production files / month</dt><dd>30</dd></div><div><dt>Cloud storage</dt><dd>30 GB</dd></div></dl><p class="pricing-overage">After 30 included files:<br><strong>$3 per additional production file.</strong></p><a class="pricing-button" href="signup.html" data-signup-plan="starter" data-cro-event="pricing_starter_cta_click">Start 30-Day Free Trial</a></article>
+          <article class="pricing-plan pricing-pro"><h3>Pro</h3><p class="pricing-fit">For growing teams producing more mockups and production files every month.</p><p class="pricing-price"><strong>$100</strong> /month</p><p class="pricing-trial" aria-label="No free trial">—</p><dl><div><dt>Production files / month</dt><dd>100</dd></div><div><dt>Cloud storage</dt><dd>100 GB</dd></div></dl><p class="pricing-overage">After 100 included files:<br><strong>$1 per additional production file.</strong></p><a class="pricing-button" href="signup.html" data-signup-plan="pro" data-cro-event="pricing_pro_cta_click">Choose Pro</a></article>
+          <article class="pricing-plan pricing-custom"><h3>Custom</h3><p class="pricing-fit">For teams that need higher production volume, additional storage, team controls, or integrations.</p><p class="pricing-price pricing-custom-price"><strong>Talk to Sales</strong></p><p class="pricing-trial" aria-label="No free trial">—</p><dl><div><dt>Production files / month</dt><dd>Custom</dd></div><div><dt>Cloud storage</dt><dd>Custom</dd></div></dl><p class="pricing-overage">Additional production files:<br><strong>Volume pricing.</strong></p><a class="pricing-button" href="#custom-plan-form" data-cro-event="pricing_custom_click">Talk to Sales</a></article>
+        </div>
+        <div class="pricing-comparison"><h3>Compare plans</h3><div class="pricing-table-wrap"><table><caption class="sr-only">PromoPlus plan comparison</caption><thead><tr><th scope="col">Included</th><th scope="col">Starter</th><th scope="col">Pro</th><th scope="col">Custom</th></tr></thead><tbody>
+          <tr><th scope="row">Monthly price</th><td>$30/month</td><td>$100/month</td><td>Talk to Sales</td></tr>
+          <tr><th scope="row">Free trial</th><td>30 days</td><td>—</td><td>—</td></tr>
+          <tr><th scope="row">Production files included</th><td>30/month</td><td>100/month</td><td>Custom</td></tr>
+          <tr><th scope="row">Additional production file</th><td>$3 each</td><td>$1 each</td><td>Volume pricing</td></tr>
+          <tr><th scope="row">Cloud storage</th><td>30 GB</td><td>100 GB</td><td>Custom</td></tr>
+          <tr><th scope="row">Mockups</th><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><th scope="row">Online approvals</th><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><th scope="row">SVG logo editor</th><td>Included</td><td>Included</td><td>Included</td></tr>
+          <tr><th scope="row">Logo color editing</th><td>Included</td><td>Included</td><td>Included</td></tr>
+          <tr><th scope="row">Decoration positions</th><td>Front / Back / Side included</td><td>Front / Back / Side included</td><td>Included</td></tr>
+          <tr><th scope="row">Re-download existing files</th><td>Free</td><td>Free</td><td>Free</td></tr>
+          <tr><th scope="row">Brand library</th><td>Basic</td><td>Advanced</td><td>Custom</td></tr>
+          <tr><th scope="row">Team features</th><td>Basic</td><td>Advanced</td><td>Custom</td></tr>
+          <tr><th scope="row">API / integrations</th><td>Not included</td><td>Not included</td><td>Available</td></tr>
+        </tbody></table></div></div>
+        <p class="pricing-note">A production file is generated from an approved product mockup and includes the information your team needs for production handoff.</p>
+        <div class="custom-plan-contact" id="custom-plan-form" aria-labelledby="custom-plan-heading">
+          <div class="custom-plan-copy">
+            <p class="eyebrow">CUSTOM PLAN</p>
+            <h3 id="custom-plan-heading">Let's build a plan<br>around your workflow.</h3>
+            <p>Tell us about your business and what you need from PromoPlus. We'll help shape a plan that fits your team.</p>
+            <ul class="custom-plan-reasons" aria-label="Custom plan options">
+              <li>Higher production volume</li>
+              <li>Flexible storage and team needs</li>
+              <li>API &amp; integrations</li>
+            </ul>
+          </div>
+          <div class="custom-plan-panel">
+            <form class="custom-plan-form" action="/custom_sales.php" method="post" data-endpoint="/custom_sales.php">
+              <input type="hidden" name="source_plan" value="Custom Plan">
+              <input type="text" name="website" value="" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
+              <div class="custom-plan-fields">
+                <div class="custom-plan-field"><label for="custom-name">Full name <span aria-hidden="true">*</span></label><input id="custom-name" name="name" autocomplete="name" required></div>
+                <div class="custom-plan-field"><label for="custom-email">Work email <span aria-hidden="true">*</span></label><input id="custom-email" name="email" type="email" autocomplete="email" required></div>
+                <div class="custom-plan-field"><label for="custom-company">Company <span aria-hidden="true">*</span></label><input id="custom-company" name="company" autocomplete="organization" required></div>
+                <div class="custom-plan-field"><label for="custom-phone">Phone</label><input id="custom-phone" name="phone" type="tel" autocomplete="tel"></div>
+                <div class="custom-plan-field custom-plan-field-wide"><label for="custom-needs">Tell us what you need</label><textarea id="custom-needs" name="needs" rows="5" placeholder="Share your expected production volume, team requirements, integrations, storage needs, or anything else we should know."></textarea></div>
+              </div>
+              <button type="submit">Request Custom Plan</button>
+              <p class="custom-plan-note">We will route your request to the PromoPlus team.</p>
+              <p class="custom-plan-message" role="status" aria-live="polite" hidden></p>
+            </form>
+            <div class="custom-plan-success" role="status" tabindex="-1" hidden><span aria-hidden="true">✓</span><h4>Request received.</h4><p>We'll review your requirements and get back to you shortly.</p></div>
+          </div>
+        </div>
+      </section>
+
