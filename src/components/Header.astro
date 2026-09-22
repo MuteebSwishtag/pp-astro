@@ -1,35 +1,45 @@
 ---
 import '../styles/legacy/navigation.css';
-const { active = '', announcement = true } = Astro.props;
-type FeatureLink = [label: string, href: string, desc: string];
+const { active = '', announcement = false } = Astro.props;
+type FeatureLink = [label: string, href: string, desc: string, icon: string];
 type FeatureGroup = [group: string, links: FeatureLink[]];
 
+const icons = {
+  catalog: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>',
+  mockup: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3-5 4 3 4 2-1v11h8V10l2 1 3-4-5-4c0 3-8 3-8 0Z"/></svg>',
+  project: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18v16H3ZM8 4v16M12 9h5M12 14h3"/></svg>',
+  approval: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 6v6c0 5 9 10 9 10s9-5 9-10V6ZM8 12l3 3 5-6"/></svg>',
+  comments: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H9l-5 4V4Z"/></svg>',
+  version: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9a8 8 0 1 1 0 7M4 3v6h6M12 7v5l3 2"/></svg>',
+  files: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2h9l5 5v15H5ZM14 2v6h5M9 13h6M9 17h6"/></svg>',
+};
+
 const featureLinks: FeatureGroup[] = [
-  ['Create & organize', [
-    ['Product Catalog Integration', '/features/product-catalog-integration.html', 'Explore feature'],
-    ['Centralized Project Workspace', '/features/centralized-project-workspace.html', 'Explore feature'],
-    ['Team Collaboration', '/features/team-collaboration.html', 'Explore feature'],
+  ['Create', [
+    ['Product Catalog Integration', '/features/product-catalog-integration.html', 'Find the right product for every project.', icons.catalog],
+    ['Online Mockup Designer', '/features/online-mockup-designer.html', 'Place artwork on products in minutes.', icons.mockup],
+    ['Centralized Project Workspace', '/features/centralized-project-workspace.html', 'Keep project details in one workspace.', icons.project],
   ]],
-  ['Design & control', [
-    ['Online Mockup Designer', '/features/online-mockup-designer.html', 'Explore feature'],
-    ['Artwork Version Control', '/features/artwork-version-control.html', 'Explore feature'],
+  ['Review', [
+    ['Customer Approval Portal', '/features/customer-approval-portal.html', 'One link for review and approval.', icons.approval],
+    ['Team Collaboration', '/features/team-collaboration.html', 'Keep team feedback beside the work.', icons.comments],
+    ['Artwork Version Control', '/features/artwork-version-control.html', 'Keep every revision in context.', icons.version],
   ]],
-  ['Approve & produce', [
-    ['Customer Approval Portal', '/features/customer-approval-portal.html', 'Explore feature'],
-    ['Production-Ready File Generation', '/features/production-ready-file-generation.html', 'Explore feature'],
-    ['Workflow Progress Dashboard', '/features/workflow-progress-dashboard.html', 'Explore feature'],
+  ['Produce', [
+    ['Production-Ready File Generation', '/features/production-ready-file-generation.html', 'Turn approvals into production output.', icons.files],
+    ['Workflow Progress Dashboard', '/features/workflow-progress-dashboard.html', 'See what is moving and what is waiting.', icons.project],
   ]],
 ];
 ---
-{announcement && <div class="pn-announcement"><span>From mockup to production, all in one place.</span><a class="pn-announcement-link" data-nav-route="signup" data-cro-event="announcement_signup_click" href="https://app.promoplus.io/signup">Sign Up <span aria-hidden="true">→</span></a></div>}
+{announcement && <div class="pn-announcement"><span>From mockup to production, all in one place.</span><a class="pn-announcement-link" data-nav-route="signup" data-cro-event="announcement_signup_click" href="https://app.promoplus.io/signup">Sign up <span aria-hidden="true">→</span></a></div>}
 <header class="pn-header" data-cursor-theme="light">
   <div class="pn-bar">
-    <a class="pn-logo" href="/index.html" aria-label="PromoPlus home">Promo<span>Plus</span></a>
+    <a class="pn-logo" href="/index.html" aria-label="PromoPlus home"><img src="/favicon.svg" alt="PromoPlus" width="64" height="64" /></a>
     <nav class="pn-navigation" id="pn-navigation" aria-label="Main navigation">
       <div class="pn-menu-group">
         <button type="button" class="pn-trigger" id="pn-product-trigger" aria-controls="pn-product-panel" aria-expanded="false" data-cro-event="nav_features_open">Features<svg class="pn-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="pn-panel pn-product-panel" id="pn-product-panel" aria-labelledby="pn-product-trigger" hidden>
-          {featureLinks.map(([group, links]) => <div class="pn-column"><h2>{group}</h2>{links.map(([label, href, desc]) => <a class="pn-item" href={href} data-cro-event="nav_feature_click" data-nav-group="features" data-nav-feature={label}><span class="pn-item-icon" aria-hidden="true">+</span><span><b>{label}</b><small>{desc} <span aria-hidden="true">↗</span></small></span></a>)}</div>)}
+          {featureLinks.map(([group, links]) => <div class="pn-column"><h2>{group}</h2>{links.map(([label, href, desc, icon]) => <a class="pn-item" href={href} data-cro-event="nav_feature_click" data-nav-group="product" data-nav-feature={label}><span class="pn-item-icon" aria-hidden="true" set:html={icon} /><span><b>{label}</b><small>{desc}</small></span></a>)}</div>)}
         </div>
       </div>
       <a class:list={["pn-pricing", active === 'insights' && 'is-active']} data-nav-route="insights" data-cro-event="nav_insights_click" href="/features/index.html">Insights</a>

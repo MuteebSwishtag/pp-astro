@@ -80,7 +80,7 @@
       if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
     }
   });
-  function scrollState(){header.classList.toggle('is-sticky',scrollY>document.querySelector('.pn-announcement').offsetHeight);if(mobileOpen)positionMobile();}
+  function scrollState(){header.classList.toggle('is-sticky',scrollY>(document.querySelector('.pn-announcement')?.offsetHeight||0));if(mobileOpen)positionMobile();}
   addEventListener('scroll',scrollState,{passive:true});scrollState();
   addEventListener('resize',()=>{if(mobileOpen)positionMobile();},{passive:true});
   mobile.addEventListener('change',()=>{if(mobileOpen)setMobile(false);closeMenu();});
