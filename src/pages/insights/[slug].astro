@@ -1,0 +1,29 @@
+---
+import PostPage from '../post.astro';
+
+export async function getStaticPaths() {
+  const API_URL = 'https://dei.bcv.mybluehost.me/website_27c75ff3/wp-json/wp/v2/posts?per_page=100';
+  const fallbackSlugs = [
+    'from-artwork-to-production-a-better-promotional-product-proofing-workflow',
+    'how-promotional-product-mockup-software-speeds-up-client-approvals',
+    'what-is-an-artwork-proof-in-promotional-products',
+  ];
+  let slugs = fallbackSlugs;
+
+  try {
+    const signal = AbortSignal.timeout?.(3500);
+    const response = await fetch(API_URL, { headers: { Accept: 'application/json' }, signal });
+    if (response.ok) {
+      const posts = await response.json();
+      if (Array.isArray(posts) && posts.length) {
+        slugs = posts.map((post) => post?.slug).filter(Boolean);
+      }
+    }
+  } catch {
+    slugs = fallbackSlugs;
+  }
+
+  return [...new Set(slugs)].map((slug) => ({ params: { slug } }));
+}
+---
+<PostPage />

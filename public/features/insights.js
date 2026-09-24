@@ -19,16 +19,16 @@
     ['Team', 'Operations tagged design on a source-file question.'],
   ];
   const postImages = [
-    '../assets/features/approval-portal/approval-feedback.png',
-    '../assets/features/workflow-dashboard/dashboard-hero.png',
-    '../assets/features/catalog/catalog-search-buyer.png',
-    '../assets/features/mockup-workflow-hands.png',
-    '../assets/features/version-control/version-comparison.png',
-    '../assets/features/production-files/production-handoff.png',
+    '/assets/features/approval-portal/approval-feedback.png',
+    '/assets/features/workflow-dashboard/dashboard-hero.png',
+    '/assets/features/catalog/catalog-search-buyer.png',
+    '/assets/features/mockup-workflow-hands.png',
+    '/assets/features/version-control/version-comparison.png',
+    '/assets/features/production-files/production-handoff.png',
   ];
   const imageBySlug = {
-    'how-promotional-product-mockup-software-speeds-up-client-approvals': '../assets/features/approval-portal/approval-feedback.png',
-    'hello-world': '../assets/features/workflow-dashboard/dashboard-hero.png',
+    'how-promotional-product-mockup-software-speeds-up-client-approvals': '/assets/features/approval-portal/approval-feedback.png',
+    'hello-world': '/assets/features/workflow-dashboard/dashboard-hero.png',
   };
 
   function formatTime(date) {
@@ -119,7 +119,7 @@
   }
 
   function getPostUrl(slug) {
-    return `../post.html?slug=${encodeURIComponent(slug || '')}`;
+    return `/insights/${encodeURIComponent(slug || '')}/`;
   }
 
   function renderPostCards(posts) {

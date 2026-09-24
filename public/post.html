@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting to PromoPlus insights</title>
+    <meta name="robots" content="noindex">
+    <script>
+      const slug = new URLSearchParams(window.location.search).get('slug');
+      window.location.replace(slug ? `/insights/${encodeURIComponent(slug)}/` : '/insights/');
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/insights/">PromoPlus insights</a>.</p>
+  </body>
+</html>

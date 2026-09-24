@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/legacy/promo-base.css';
+import '../../styles/legacy/feature-page.css';
+import '../../styles/feature-cursor.css';
+import '../../styles/legacy/insights.css';
+---
+<BaseLayout title="Insights | PromoPlus" description="Live PromoPlus workflow insights for catalog activity, mockup creation, approvals, artwork versions, and production handoff." bodyClass="feature-page insights-page">
+  <Header active="insights" />
+  <main id="main-content">
+    <section class="insights-hero feature-shell" aria-labelledby="insights-title">
+      <div class="insights-hero-copy">
+        <p class="feature-kicker">Live PromoPlus Insights</p>
+        <h1 id="insights-title">A real-time view of the work behind every approval.</h1>
+        <p class="feature-lede">PromoPlus connects product selection, artwork placement, customer feedback, version history, approval records, and production-ready files into one live operating picture.</p>
+        <div class="live-meta" aria-label="Live workspace status">
+          <span><i></i> Workspace live</span>
+          <span>Updated <time id="liveTimestamp" datetime="">just now</time></span>
+        </div>
+        <div class="insights-metrics" aria-label="Live PromoPlus metrics">
+          <article><span>Active projects</span><strong data-live-number="86">86</strong><small>Across catalog, proofing, approval, and production</small></article>
+          <article><span>Client decisions</span><strong data-live-number="74">74</strong><small>Approvals and revision requests captured this month</small></article>
+          <article><span>Production handoffs</span><strong data-live-number="128">128</strong><small>Approved PDFs generated from locked versions</small></article>
+        </div>
+      </div>
+      <figure class="insights-hero-panel">
+        <img src="/assets/features/workflow-dashboard/dashboard-visibility.png" alt="PromoPlus workflow dashboard showing project visibility across stages">
+        <figcaption><b>Workflow pulse</b><span id="heroPulse">12 projects need attention</span></figcaption>
+      </figure>
+    </section>
+
+   
+
+    <section class="insights-stories feature-shell" aria-labelledby="insights-stories-title">
+      <header class="insights-section-heading">
+        <p class="feature-kicker">Realtime insight articles</p>
+        <h2 id="insights-stories-title">Fresh reads from the PromoPlus workflow.</h2>
+        <p>Each article is built from the product, artwork, approval, and production signals already represented in this PromoPlus site.</p>
+      </header>
+      <div class="story-grid" id="storyGrid">
+        <a class="story-card" href="/insights/from-artwork-to-production-a-better-promotional-product-proofing-workflow/">
+          <figure><img src="/assets/features/production-files/production-handoff.png" alt="PromoPlus production handoff workflow for approved promotional product artwork"></figure>
+          <div>
+            <small>PromoPlus insight</small>
+            <h3>From Artwork to Production: A Better Promotional Product Proofing Workflow</h3>
+            <p>Discover a streamlined workflow for managing promotional product artwork, mockups, client feedback, approvals, and production-ready files.</p>
+            <span>Aug 21, 2026 &middot; 2 min read</span>
+            <b class="story-cta">Read insight <i>&nearr;</i></b>
+          </div>
+        </a>
+        <a class="story-card" href="/insights/how-promotional-product-mockup-software-speeds-up-client-approvals/">
+          <figure><img src="/assets/features/approval-portal/approval-feedback.png" alt="PromoPlus approval feedback attached to a product mockup"></figure>
+          <div>
+            <small>PromoPlus insight</small>
+            <h3>How Promotional Product Mockup Software Speeds Up Client Approvals</h3>
+            <p>Learn how promotional product mockup software helps distributors create proofs faster, collect feedback, reduce revisions, and move approved artwork into production.</p>
+            <span>Aug 21, 2026 &middot; 2 min read</span>
+            <b class="story-cta">Read insight <i>&nearr;</i></b>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="signal-map feature-shell" aria-labelledby="signal-map-title">
+      <div class="signal-copy">
+        <p class="feature-kicker">Connected data map</p>
+        <h2 id="signal-map-title">Every insight starts as a project record.</h2>
+        <p>The page updates its visible time, activity feed, and status labels in the browser. In a connected PromoPlus workspace, these same UI slots would be backed by live project events.</p>
+      </div>
+      <div class="signal-stack" aria-label="PromoPlus record types">
+        <span><b>Product</b><i>Catalog item selected</i></span>
+        <span><b>Artwork</b><i>Source file attached</i></span>
+        <span><b>Mockup</b><i>Front placement ready</i></span>
+        <span><b>Version</b><i>V3 locked</i></span>
+        <span><b>Approval</b><i>Client accepted</i></span>
+        <span><b>Production</b><i>PDF generated</i></span>
+      </div>
+    </section>
+
+    <section class="feature-cta feature-shell" id="insights-contact">
+      <div><p class="feature-kicker">Use your own live records</p><h2>Turn every product approval into a workflow insight your team can act on.</h2></div>
+      <a class="press-button" href="/pricing#custom-plan-form">Request Custom Plan <i>&nearr;</i></a>
+    </section>
+  </main>
+  <Footer variant="feature" label="Insights" top="#main-content" />
+  <div class="cursor" aria-hidden="true"><span class="cursor-ring"><span class="cursor-label"></span></span><span class="cursor-dot"></span></div>
+  <script is:inline src="/features/feature-page.js"></script>
+  <script is:inline src="/blog-data.js"></script>
+  <script is:inline src="/features/insights.js"></script>
+</BaseLayout>

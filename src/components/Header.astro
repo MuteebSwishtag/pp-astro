@@ -32,7 +32,7 @@ const featureLinks: FeatureGroup[] = [
           {featureLinks.map(([group, links]) => <div class="pn-column"><h2>{group}</h2>{links.map(([number, label, href, desc]) => <a class="pn-item" href={href} data-cro-event="nav_feature_click" data-nav-group="product" data-nav-feature={label}><span class="pn-item-icon pn-item-number" aria-hidden="true">{number}</span><span><b>{label}</b><small>{desc}</small></span></a>)}</div>)}
         </div>
       </div>
-      <a class:list={["pn-pricing", active === 'insights' && 'is-active']} data-nav-route="insights" data-cro-event="nav_insights_click" href="/features">Insights</a>
+      <a class:list={["pn-pricing", active === 'insights' && 'is-active']} data-nav-route="insights" data-cro-event="nav_insights_click" href="/insights/">Insights</a>
       <a class:list={["pn-pricing", active === 'pricing' && 'is-active']} data-nav-route="pricing" data-cro-event="nav_pricing_click" href="/pricing">Pricing</a>
       <a class="pn-mobile-auth" data-nav-route="login" data-cro-event="nav_login_click" href="https://app.promoplus.io/login" target="_blank" >Login</a>
       <a class="pn-mobile-auth pn-mobile-auth-primary" data-nav-route="signup" data-cro-event="nav_signup_click" href="https://app.promoplus.io/signup" target="_blank" >Sign Up <span aria-hidden="true">↗</span></a>

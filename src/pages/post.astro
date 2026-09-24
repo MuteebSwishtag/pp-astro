@@ -9,13 +9,53 @@ import '../styles/legacy/insights.css';
 import '../styles/legacy/blog-post.css';
 ---
 <BaseLayout title="PromoPlus Insight" description="PromoPlus blog article." bodyClass="feature-page insights-page blog-post-page">
-<Header active="insights" />
-<Fragment set:html={"<main id=\"main-content\" data-blog-post-page>\n  <article class=\"blog-post-shell\" aria-live=\"polite\">\n    <section class=\"blog-post-hero feature-shell\">\n      <div class=\"blog-post-copy\">\n        <a class=\"blog-back-link\" href=\"/features\"><span aria-hidden=\"true\">&larr;</span> Back to insights</a>\n        <p class=\"feature-kicker\" id=\"blogKicker\">PromoPlus insight</p>\n        <h1 id=\"blogTitle\">Loading insight...</h1>\n        <p class=\"blog-excerpt\" id=\"blogExcerpt\">Fetching the selected article from the PromoPlus WordPress feed.</p>\n        <div class=\"blog-meta\">\n          <span id=\"blogDate\">Live feed</span>\n          <span id=\"blogReadingTime\">Reading time</span>\n          <span id=\"blogSource\">WordPress API</span>\n        </div>\n      </div>\n      <figure class=\"blog-hero-image\">\n        <img id=\"blogImage\" src=\"assets/features/workflow-dashboard/dashboard-hero.png\" alt=\"PromoPlus workflow insight\">\n        <figcaption><b id=\"blogImageLabel\">Selected insight</b><span id=\"blogSlug\">/{slug}</span></figcaption>\n      </figure>\n    </section>\n\n    <section class=\"blog-body-wrap feature-shell\">\n      <aside class=\"blog-side-panel\">\n        <p class=\"feature-kicker\">Article signals</p>\n        <div class=\"blog-signal-list\">\n          <span><b>Source</b><i>WordPress REST</i></span>\n          <span><b>Status</b><i id=\"blogStatus\">Loading</i></span>\n          <span><b>Theme</b><i>PromoPlus workflow</i></span>\n        </div>\n      </aside>\n      <div class=\"blog-content\" id=\"blogContent\">\n        <p>Loading article content...</p>\n      </div>\n    </section>\n  </article>\n\n  <section class=\"blog-related feature-shell\">\n    <header class=\"insights-section-heading\">\n      <p class=\"feature-kicker\">More insights</p>\n      <h2>Keep reading from the PromoPlus workflow.</h2>\n    </header>\n    <div class=\"story-grid\" id=\"relatedPosts\"></div>\n  </section>\n</main>"} />
-<Footer variant="feature" label="Insight article" top="#main-content" />
-<div class="cursor" aria-hidden="true"><span class="cursor-ring"><span class="cursor-label"></span></span><span class="cursor-dot"></span></div>
-<script is:inline src="/features/feature-page.js"></script>
-<script is:inline src="/blog-data.js"></script>
-<script is:inline src="/blog-post.js"></script>
+  <Header active="insights" />
+  <main id="main-content" data-blog-post-page>
+    <article class="blog-post-shell" aria-live="polite">
+      <section class="blog-post-hero feature-shell">
+        <div class="blog-post-copy">
+          <a class="blog-back-link" href="/insights/"><span aria-hidden="true">&larr;</span> Back to insights</a>
+          <p class="feature-kicker" id="blogKicker">PromoPlus insight</p>
+          <h1 id="blogTitle">Loading insight...</h1>
+          <p class="blog-excerpt" id="blogExcerpt">Fetching the selected article from the PromoPlus WordPress feed.</p>
+          <div class="blog-meta">
+            <span id="blogDate">Live feed</span>
+            <span id="blogReadingTime">Reading time</span>
+            <span id="blogSource">WordPress API</span>
+          </div>
+        </div>
+        <figure class="blog-hero-image">
+          <img id="blogImage" src="/assets/features/workflow-dashboard/dashboard-hero.png" alt="PromoPlus workflow insight">
+          <figcaption><b id="blogImageLabel">Selected insight</b><span id="blogSlug">/insight-slug/</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="blog-body-wrap feature-shell">
+        <aside class="blog-side-panel">
+          <p class="feature-kicker">Article signals</p>
+          <div class="blog-signal-list">
+            <span><b>Source</b><i>WordPress REST</i></span>
+            <span><b>Status</b><i id="blogStatus">Loading</i></span>
+            <span><b>Theme</b><i>PromoPlus workflow</i></span>
+          </div>
+        </aside>
+        <div class="blog-content" id="blogContent">
+          <p>Loading article content...</p>
+        </div>
+      </section>
+    </article>
+
+    <section class="blog-related feature-shell">
+      <header class="insights-section-heading">
+        <p class="feature-kicker">More insights</p>
+        <h2>Keep reading from the PromoPlus workflow.</h2>
+      </header>
+      <div class="story-grid" id="relatedPosts"></div>
+    </section>
+  </main>
+  <Footer variant="feature" label="Insight article" top="#main-content" />
+  <div class="cursor" aria-hidden="true"><span class="cursor-ring"><span class="cursor-label"></span></span><span class="cursor-dot"></span></div>
+  <script is:inline src="/features/feature-page.js"></script>
+  <script is:inline src="/blog-data.js"></script>
+  <script is:inline src="/blog-post.js"></script>
 </BaseLayout>
-
-

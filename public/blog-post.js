@@ -2,16 +2,16 @@
   const API_URL = 'https://dei.bcv.mybluehost.me/website_27c75ff3/wp-json/wp/v2/posts?per_page=100';
   const FALLBACK_POSTS = window.PROMOPLUS_BLOG_POSTS || [];
   const ASSET_BY_SLUG = {
-    'how-promotional-product-mockup-software-speeds-up-client-approvals': 'assets/features/approval-portal/approval-feedback.png',
-    'hello-world': 'assets/features/workflow-dashboard/dashboard-hero.png',
+    'how-promotional-product-mockup-software-speeds-up-client-approvals': '/assets/features/approval-portal/approval-feedback.png',
+    'hello-world': '/assets/features/workflow-dashboard/dashboard-hero.png',
   };
   const DEFAULT_IMAGES = [
-    'assets/features/workflow-dashboard/dashboard-hero.png',
-    'assets/features/catalog/catalog-search-buyer.png',
-    'assets/features/mockup-workflow-hands.png',
-    'assets/features/approval-portal/approval-feedback.png',
-    'assets/features/version-control/version-comparison.png',
-    'assets/features/production-files/production-handoff.png',
+    '/assets/features/workflow-dashboard/dashboard-hero.png',
+    '/assets/features/catalog/catalog-search-buyer.png',
+    '/assets/features/mockup-workflow-hands.png',
+    '/assets/features/approval-portal/approval-feedback.png',
+    '/assets/features/version-control/version-comparison.png',
+    '/assets/features/production-files/production-handoff.png',
   ];
 
   const $ = (selector) => document.querySelector(selector);
@@ -97,7 +97,7 @@
   }
 
   function getPostUrl(slug) {
-    return `post.html?slug=${encodeURIComponent(slug || '')}`;
+    return `/insights/${encodeURIComponent(slug || '')}/`;
   }
 
   function formatDate(value) {
