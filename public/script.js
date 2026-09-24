@@ -545,8 +545,10 @@ function initTypographyMotion() {
 function initHeadlineMagnifier() {
   if (!finePointer || reducedMotion) return;
   const lens = document.querySelector('.headline-lens');
+  if (!lens) return;
   const lensCopy = lens.querySelector('.headline-lens-copy');
   const cursor = document.querySelector('.cursor');
+  if (!lensCopy || !cursor) return;
   document.querySelectorAll('.section-intro h2').forEach((heading) => heading.classList.add('section-title'));
   document.querySelectorAll('.parallax-copy h2, #rotation-title, .cta-section h2').forEach((heading) => heading.classList.add('display-title'));
   document.querySelectorAll('.story-visual h2').forEach((heading) => heading.classList.add('story-title'));

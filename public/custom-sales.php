@@ -24,7 +24,7 @@ function respond(bool $ok, string $message, int $status = 200, string $field = '
     }
 
     $state = $ok ? 'sent' : 'error';
-    header('Location: pricing.html?custom_sales=' . $state . '#custom-plan-form');
+    header('Location: /pricing?custom_sales=' . $state . '#custom-plan-form');
     exit;
 }
 

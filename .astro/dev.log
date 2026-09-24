@@ -1,0 +1,55 @@
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 1ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
+{"message":" astro  v7.3.3 ready in 900 ms\n┃ Local    http://127.0.0.1:4321/","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[200] /features/centralized-project-workspace 289ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 287ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 10ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 6ms","label":null,"level":"info"}
+{"message":"[200] /pricing 171ms","label":null,"level":"info"}
+{"message":"[200] / 960ms","label":null,"level":"info"}
+{"message":"[200] / 960ms","label":null,"level":"info"}
+{"message":"[200] / 24ms","label":null,"level":"info"}
+{"message":"[200] /features/centralized-project-workspace 202ms","label":null,"level":"info"}
+{"message":"[200] /features/centralized-project-workspace 202ms","label":null,"level":"info"}
+{"message":"[200] / 15ms","label":null,"level":"info"}
+{"message":"[200] /features/centralized-project-workspace 11ms","label":null,"level":"info"}
+{"message":"[200] /features/centralized-project-workspace 4ms","label":null,"level":"info"}
+{"message":"/src/styles/legacy/connected-workflow.css","label":"watch","level":"info"}
+{"message":"[200] / 122ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 15ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 3ms","label":null,"level":"info"}
+{"message":"[200] /features/workflow-progress-dashboard 12ms","label":null,"level":"info"}
+{"message":"[200] /features/production-ready-file-generation 22ms","label":null,"level":"info"}
+{"message":"[200] /features/production-ready-file-generation 5ms","label":null,"level":"info"}
+{"message":"[200] /features/production-ready-file-generation 5ms","label":null,"level":"info"}
+{"message":"[200] / 380ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 1463ms","label":null,"level":"info"}
+{"message":"[200] / 1037ms","label":null,"level":"info"}
+{"message":"[200] /features/workflow-progress-dashboard 199ms","label":null,"level":"info"}
+{"message":"[200] / 9ms","label":null,"level":"info"}
+{"message":"/src/styles/legacy/connected-workflow.css","label":"watch","level":"info"}
+{"message":"[404] /src/styles/legacy/connected-workflow.css 12ms","label":null,"level":"info"}
+{"message":"[console.error] [vite] Failed to reload /src/styles/legacy/connected-workflow.css. This could be due to syntax errors or importing non-existent modules. (see errors above)","label":"vite","level":"error"}
+{"message":"/src/styles/legacy/connected-workflow.css","label":"watch","level":"info"}
+{"message":"[200] /features/product-catalog-integration 192ms","label":null,"level":"info"}
+{"message":"[200] /features/artwork-version-control 781ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 17ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 22ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 25ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 249ms","label":null,"level":"info"}
+{"message":"/src/styles/legacy/connected-workflow.css","label":"watch","level":"info"}
+{"message":"[200] /features/artwork-version-control 213ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 674ms","label":null,"level":"info"}
+{"message":"[200] /pricing 68ms","label":null,"level":"info"}
+{"message":"[200] /pricing 2ms","label":null,"level":"info"}
+{"message":"[200] /features/online-mockup-designer 188ms","label":null,"level":"info"}
+{"message":"[200] /pricing 3ms","label":null,"level":"info"}
+{"message":"/src/styles/legacy/feature-design-system.css","label":"watch","level":"info"}
+{"message":"[200] / 949ms","label":null,"level":"info"}
+{"message":"[200] / 3850ms","label":null,"level":"info"}
+{"message":"[200] /pricing 85ms","label":null,"level":"info"}
+{"message":"[200] /features/product-catalog-integration 1624ms","label":null,"level":"info"}
+{"message":"[200] /features/production-ready-file-generation 2085ms","label":null,"level":"info"}

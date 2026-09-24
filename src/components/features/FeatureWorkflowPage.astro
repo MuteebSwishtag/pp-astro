@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import ChooseProduct from './panels/ProductCatalogIntegration.astro';
+import CreateMockup from './panels/OnlineMockupDesigner.astro';
+import ReviseArtwork from './panels/ArtworkVersionControl.astro';
+import ApproveDesign from './panels/CustomerApprovalPortal.astro';
+import OrganizeProject from './panels/CentralizedProjectWorkspace.astro';
+import Collaborate from './panels/TeamCollaboration.astro';
+import MonitorProgress from './panels/WorkflowProgressDashboard.astro';
+import ProduceFiles from './panels/ProductionReadyFileGeneration.astro';
+import '../../styles/feature-cursor.css';
+import '../../styles/legacy/feature-reference.css';
+import '../../styles/legacy/connected-workflow.css';
+
+const features = [
+  {
+    step: 'ChooseProduct',
+    shortLabel: 'Choose',
+    title: 'Product Catalog Integration',
+    pageTitle: 'Product Catalog Integration | PromoPlus',
+    description: 'Search integrated supplier catalogs and start product projects instantly with PromoPlus Product Catalog Integration.',
+    route: '/features/product-catalog-integration',
+    bodyClass: 'catalog-page',
+  },
+  {
+    step: 'CreateMockup',
+    shortLabel: 'Create',
+    title: 'Online Mockup Designer',
+    pageTitle: 'Online Mockup Designer | PromoPlus',
+    description: 'Create professional product mockups directly in the browser with PromoPlus Online Mockup Designer.',
+    route: '/features/online-mockup-designer',
+    bodyClass: '',
+  },
+  {
+    step: 'ReviseArtwork',
+    shortLabel: 'Revise',
+    title: 'Artwork Version Control',
+    pageTitle: 'Artwork Version Control | PromoPlus',
+    description: 'Track, compare, and restore every artwork revision with PromoPlus Artwork Version Control.',
+    route: '/features/artwork-version-control',
+    bodyClass: 'version-page',
+  },
+  {
+    step: 'ApproveDesign',
+    shortLabel: 'Approve',
+    title: 'Customer Approval Portal',
+    pageTitle: 'Customer Approval Portal | PromoPlus',
+    description: 'Share mockups, collect feedback, and record approvals through the PromoPlus Customer Approval Portal.',
+    route: '/features/customer-approval-portal',
+    bodyClass: 'approval-page',
+  },
+  {
+    step: 'OrganizeProject',
+    shortLabel: 'Organize',
+    title: 'Centralized Project Workspace',
+    pageTitle: 'Centralized Project Workspace | PromoPlus',
+    description: 'Keep products, artwork, customer information, approvals, notes, production files, and project history together in PromoPlus.',
+    route: '/features/centralized-project-workspace',
+    bodyClass: 'workspace-page',
+  },
+  {
+    step: 'Collaborate',
+    shortLabel: 'Collaborate',
+    title: 'Team Collaboration',
+    pageTitle: 'Team Collaboration | PromoPlus',
+    description: 'Bring sales, design, operations, and business owners together with PromoPlus Team Collaboration.',
+    route: '/features/team-collaboration',
+    bodyClass: 'collaboration-page',
+  },
+  {
+    step: 'MonitorProgress',
+    shortLabel: 'Monitor',
+    title: 'Workflow Progress Dashboard',
+    pageTitle: 'Workflow Progress Dashboard | PromoPlus',
+    description: 'Track every artwork project from creation to production with the PromoPlus Workflow Progress Dashboard.',
+    route: '/features/workflow-progress-dashboard',
+    bodyClass: 'dashboard-page',
+  },
+  {
+    step: 'ProduceFiles',
+    shortLabel: 'Produce',
+    title: 'Production-Ready File Generation',
+    pageTitle: 'Production-Ready File Generation | PromoPlus',
+    description: 'Generate production-ready PDF files with approved artwork and placement details in PromoPlus.',
+    route: '/features/production-ready-file-generation',
+    bodyClass: 'production-files-page',
+  },
+];
+
+const { activeStep = 'ChooseProduct' } = Astro.props;
+const activeIndex = Math.max(0, features.findIndex((feature) => feature.step === activeStep));
+const activeFeature = features[activeIndex] ?? features[0];
+---
+<BaseLayout title={activeFeature.pageTitle} description={activeFeature.description} bodyClass={['feature-page', 'feature-workflow-page', activeFeature.bodyClass].filter(Boolean).join(' ')}>
+  <Header active="features" />
+  <main id="main-content" class="connected-feature-workflow" data-feature-workflow data-active-index={activeIndex}>
+    <nav class="connected-workflow-nav" aria-label="Connected workflow">
+      <div class="connected-workflow-inner">
+        <span class="connected-workflow-label">CONNECTED WORKFLOW</span>
+        <div class="connected-workflow-steps" role="tablist" aria-label="Feature workflow">
+          {features.map((feature, index) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={index === activeIndex ? 'true' : 'false'}
+              class:list={['connected-workflow-step', index === activeIndex && 'is-active']}
+              data-feature-tab={feature.step}
+              data-feature-route={feature.route}
+              data-feature-title={feature.pageTitle}
+              data-feature-description={feature.description}
+              data-feature-body-class={feature.bodyClass}
+            >
+              <span aria-hidden="true">{index === activeIndex ? '✓' : String(index + 1).padStart(2, '0')}</span>
+              {feature.shortLabel}
+            </button>
+          ))}
+        </div>
+      </div>
+    </nav>
+
+    <div class="feature-workflow-panels">
+      <ChooseProduct active={activeFeature.step === 'ChooseProduct'} />
+      <CreateMockup active={activeFeature.step === 'CreateMockup'} />
+      <ReviseArtwork active={activeFeature.step === 'ReviseArtwork'} />
+      <ApproveDesign active={activeFeature.step === 'ApproveDesign'} />
+      <OrganizeProject active={activeFeature.step === 'OrganizeProject'} />
+      <Collaborate active={activeFeature.step === 'Collaborate'} />
+      <MonitorProgress active={activeFeature.step === 'MonitorProgress'} />
+      <ProduceFiles active={activeFeature.step === 'ProduceFiles'} />
+    </div>
+
+    <div class="feature-step-arrows" aria-label="Feature navigation">
+      <button type="button" class="feature-step-arrow feature-step-prev" data-feature-direction="-1" aria-label="Previous feature">
+        <span aria-hidden="true">←</span>
+      </button>
+      <button type="button" class="feature-step-arrow feature-step-next" data-feature-direction="1" aria-label="Next feature">
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </main>
+  <Footer variant="feature" label={activeFeature.title} top="#main-content" />
+  <div class="cursor" aria-hidden="true"><span class="cursor-ring"><span class="cursor-label"></span></span><span class="cursor-dot"></span></div>
+  <script is:inline>window['reducedMotion'] = window.matchMedia('(prefers-reduced-motion: reduce)').matches;</script>
+  <script is:inline src="/features/feature-page.js"></script>
+  <script is:inline src="/features/product-catalog.js"></script>
+  <script is:inline src="/features/artwork-version-control.js"></script>
+  <script is:inline src="/features/customer-approval-portal.js"></script>
+  <script is:inline src="/features/centralized-workspace.js"></script>
+  <script is:inline src="/features/team-collaboration.js"></script>
+  <script is:inline src="/features/workflow-progress-dashboard.js"></script>
+  <script is:inline src="/features/production-ready-files.js"></script>
+  <script is:inline src="/connected-workflow.js?v=3"></script>
+</BaseLayout>
