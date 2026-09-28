@@ -26,7 +26,11 @@ PP_ADMIN_USER=your_admin_name
 PP_ADMIN_PASS=your_admin_password
 ```
 
-The table `custom_plan_requests` is created automatically on the first valid submission or first admin load. If your Hostinger plan does not expose environment variables to PHP, create `promoplus-config.php` one level above `public_html` with the same values as an array:
+The table `custom_plan_requests` is created automatically on the first valid submission or first admin load.
+
+If your Hostinger plan does not expose environment variables to PHP, create a real `.env` file one level above `public_html` using `.env.example` as the template. Do not upload `.env` into `public_html`.
+
+As an alternative, create `promoplus-config.php` one level above `public_html` with the same values as an array:
 
 ```php
 <?php

@@ -21,7 +21,69 @@ function pp_env(string $key, string $default = ''): string
         return (string)$_SERVER[$key];
     }
 
+    $dotenv = pp_dotenv_values();
+    if (isset($dotenv[$key]) && $dotenv[$key] !== '') {
+        return $dotenv[$key];
+    }
+
     return $default;
+}
+
+function pp_dotenv_paths(): array
+{
+    $paths = [dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env'];
+    $documentRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
+
+    if ($documentRoot !== '') {
+        $paths[] = rtrim($documentRoot, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '.env';
+    }
+
+    return array_values(array_unique($paths));
+}
+
+function pp_dotenv_values(): array
+{
+    static $values = null;
+
+    if ($values !== null) {
+        return $values;
+    }
+
+    $values = [];
+
+    foreach (pp_dotenv_paths() as $path) {
+        if (!is_file($path) || !is_readable($path)) {
+            continue;
+        }
+
+        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        if ($lines === false) {
+            continue;
+        }
+
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if ($line === '' || str_starts_with($line, '#') || !str_contains($line, '=')) {
+                continue;
+            }
+
+            [$name, $value] = array_map('trim', explode('=', $line, 2));
+            if ($name === '') {
+                continue;
+            }
+
+            if (
+                (str_starts_with($value, '"') && str_ends_with($value, '"'))
+                || (str_starts_with($value, "'") && str_ends_with($value, "'"))
+            ) {
+                $value = substr($value, 1, -1);
+            }
+
+            $values[$name] = $value;
+        }
+    }
+
+    return $values;
 }
 
 function pp_config_paths(): array
