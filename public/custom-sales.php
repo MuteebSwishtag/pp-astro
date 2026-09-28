@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/promoplus-server.php';
+
 $isJson = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false
     || strtolower($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'xmlhttprequest';
 
@@ -248,21 +250,24 @@ try {
         fail_validation('Please keep your message to 1800 characters or fewer.', 'needs');
     }
 
-    $config = load_mail_config();
-    $rawRecipients = $config['to'] ?? 'hello@promoplus.app';
-    $recipients = is_array($rawRecipients) ? $rawRecipients : preg_split('/[,;]/', (string)$rawRecipients);
-    $recipients = array_values(array_filter(array_map('trim', $recipients ?: []), static function (string $email): bool {
-        return (bool)filter_var($email, FILTER_VALIDATE_EMAIL);
-    }));
+    $submission = [
+        'source_plan' => $sourcePlan,
+        'name' => $name,
+        'email' => $email,
+        'company' => $company,
+        'phone' => $phone,
+        'needs' => $needs,
+        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? '',
+        'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? '',
+    ];
 
-    if ($recipients === []) {
-        throw new RuntimeException('No valid recipient is configured.');
-    }
+    $requestId = pp_store_custom_plan_request($submission);
 
     $subject = 'PromoPlus custom plan request from ' . $company;
     $body = implode("\n", [
         'New PromoPlus custom plan request',
         '',
+        'Request ID: ' . $requestId,
         'Plan: ' . $sourcePlan,
         'Name: ' . $name,
         'Work email: ' . $email,
@@ -276,10 +281,23 @@ try {
         'IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown'),
     ]);
 
-    if (($config['host'] ?? '') !== '') {
-        send_smtp_mail($config, $recipients, $subject, $body, $email, $name);
-    } else {
-        send_native_mail($config, $recipients, $subject, $body, $email, $name);
+    try {
+        $config = load_mail_config();
+        $rawRecipients = $config['to'] ?? 'hello@promoplus.app';
+        $recipients = is_array($rawRecipients) ? $rawRecipients : preg_split('/[,;]/', (string)$rawRecipients);
+        $recipients = array_values(array_filter(array_map('trim', $recipients ?: []), static function (string $email): bool {
+            return (bool)filter_var($email, FILTER_VALIDATE_EMAIL);
+        }));
+
+        if ($recipients !== []) {
+            if (($config['host'] ?? '') !== '') {
+                send_smtp_mail($config, $recipients, $subject, $body, $email, $name);
+            } else {
+                send_native_mail($config, $recipients, $subject, $body, $email, $name);
+            }
+        }
+    } catch (Throwable $mailError) {
+        error_log('[PromoPlus custom-sales mail] ' . $mailError->getMessage());
     }
 
     respond(true, 'Thanks. Your custom plan request was sent successfully.');
