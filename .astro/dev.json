@@ -1,5 +1,5 @@
 {
-	"pid": 14752,
+	"pid": 16820,
 	"port": 4321,
 	"url": "http://127.0.0.1:4321",
 	"urls": {
@@ -10,5 +10,5 @@
 		"networkInterfaceNames": []
 	},
 	"background": false,
-	"startedAt": "2026-09-30T11:40:41.134Z"
+	"startedAt": "2026-09-30T14:58:33.217Z"
 }
