@@ -8,13 +8,16 @@
 .pn-logo{flex-shrink:0;display:inline-flex;align-items:center;line-height:0;color:#29242e;text-decoration:none}
 .pn-logo img{display:block;width:64px;height:64px;object-fit:contain}
 .pn-logo-svg{display:block;width:70px;height:70px;overflow:visible}
-.pn-logo-frame{stroke-dasharray:1;stroke-dashoffset:1;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(4,196,219,.38)) drop-shadow(0 0 18px rgba(78,95,225,.22));animation:pn-logo-draw-frame 10s linear infinite;will-change:stroke-dashoffset}
-.pn-logo-mark{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.72) rotate(-10deg);filter:drop-shadow(0 0 10px rgba(104,31,252,.34));animation:pn-logo-pop-mark 10s cubic-bezier(.2,1.1,.35,1) infinite;will-change:opacity,transform}
-.pn-logo-word,.pn-logo-tagline{fill:#000;font-family:Inter,"Plus Jakarta Sans",Arial,sans-serif;opacity:0;transform-box:fill-box;transform-origin:left center;will-change:opacity,transform}
+.pn-logo-frame{stroke-dasharray:1;stroke-dashoffset:0;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(4,196,219,.38)) drop-shadow(0 0 18px rgba(78,95,225,.22));will-change:stroke-dashoffset}
+.pn-logo-mark{opacity:1;transform-box:fill-box;transform-origin:center;transform:scale(1) rotate(0deg);filter:drop-shadow(0 0 10px rgba(104,31,252,.34));will-change:opacity,transform}
+.pn-logo-word,.pn-logo-tagline{fill:#000;font-family:Inter,"Plus Jakarta Sans",Arial,sans-serif;opacity:1;transform-box:fill-box;transform-origin:left center;transform:translateY(0) scale(1);will-change:opacity,transform}
 .pn-logo-word{font-size:378px;font-weight:750;letter-spacing:-12px}
-.pn-logo-word-one{animation:pn-logo-text-motion-one 10s cubic-bezier(.2,.9,.22,1) infinite}
-.pn-logo-word-two{animation:pn-logo-text-motion-two 10s cubic-bezier(.2,.9,.22,1) infinite}
-.pn-logo-tagline{font-size:76px;font-weight:500;letter-spacing:-1px;animation:pn-logo-tagline-motion 10s cubic-bezier(.2,.9,.22,1) infinite}
+.pn-logo-tagline{font-size:76px;font-weight:500;letter-spacing:-1px}
+.pn-logo.is-scroll-animating .pn-logo-frame{animation:pn-logo-draw-frame 10s linear 1 both}
+.pn-logo.is-scroll-animating .pn-logo-mark{animation:pn-logo-pop-mark 10s cubic-bezier(.2,1.1,.35,1) 1 both}
+.pn-logo.is-scroll-animating .pn-logo-word-one{animation:pn-logo-text-motion-one 10s cubic-bezier(.2,.9,.22,1) 1 both}
+.pn-logo.is-scroll-animating .pn-logo-word-two{animation:pn-logo-text-motion-two 10s cubic-bezier(.2,.9,.22,1) 1 both}
+.pn-logo.is-scroll-animating .pn-logo-tagline{animation:pn-logo-tagline-motion 10s cubic-bezier(.2,.9,.22,1) 1 both}
 .pn-navigation{display:flex;align-items:center;flex:1;gap:7px;margin-left:45px}
 .pn-menu-group{display:contents}
 .pn-header button,.pn-header a,.pn-announcement button,.pn-announcement a{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -45,11 +48,11 @@
 .pn-resources-panel{left:calc(4vw + 325px);right:auto;width:340px;display:block;padding:15px}.pn-resources-list .pn-item{padding:16px 12px}
 .pn-mobile-toggle{display:none}
 @keyframes pn-open{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pn-logo-draw-frame{0%{stroke-dashoffset:.995}1.5%{stroke-dashoffset:.86}26%,99.7%{stroke-dashoffset:0}99.8%,100%{stroke-dashoffset:1}}
-@keyframes pn-logo-pop-mark{0%,27%{opacity:0;transform:scale(.72) rotate(-10deg)}34%,99.7%{opacity:1;transform:scale(1) rotate(0deg);animation-timing-function:steps(1,end)}99.8%,100%{opacity:0;transform:scale(.72) rotate(-10deg)}}
-@keyframes pn-logo-text-motion-one{0%,30%{opacity:0;transform:translateY(90px) scale(.96)}37%,99.7%{opacity:1;transform:translateY(0) scale(1);animation-timing-function:steps(1,end)}99.8%,100%{opacity:0;transform:translateY(90px) scale(.96)}}
-@keyframes pn-logo-text-motion-two{0%,32.5%{opacity:0;transform:translateY(90px) scale(.96)}39.5%,99.7%{opacity:1;transform:translateY(0) scale(1);animation-timing-function:steps(1,end)}99.8%,100%{opacity:0;transform:translateY(90px) scale(.96)}}
-@keyframes pn-logo-tagline-motion{0%,36%{opacity:0;transform:translateY(38px)}42%,99.7%{opacity:1;transform:translateY(0);animation-timing-function:steps(1,end)}99.8%,100%{opacity:0;transform:translateY(38px)}}
+@keyframes pn-logo-draw-frame{0%{stroke-dashoffset:.995}1.5%{stroke-dashoffset:.86}26%,100%{stroke-dashoffset:0}}
+@keyframes pn-logo-pop-mark{0%,27%{opacity:0;transform:scale(.72) rotate(-10deg)}34%,100%{opacity:1;transform:scale(1) rotate(0deg);animation-timing-function:steps(1,end)}}
+@keyframes pn-logo-text-motion-one{0%,30%{opacity:0;transform:translateY(90px) scale(.96)}37%,100%{opacity:1;transform:translateY(0) scale(1);animation-timing-function:steps(1,end)}}
+@keyframes pn-logo-text-motion-two{0%,32.5%{opacity:0;transform:translateY(90px) scale(.96)}39.5%,100%{opacity:1;transform:translateY(0) scale(1);animation-timing-function:steps(1,end)}}
+@keyframes pn-logo-tagline-motion{0%,36%{opacity:0;transform:translateY(38px)}42%,100%{opacity:1;transform:translateY(0);animation-timing-function:steps(1,end)}}
 /* Keep anchor destinations visible beneath the sticky navigation. */
 html{scroll-padding-top:90px}
 @media(max-width:1100px) and (min-width:901px){.pn-navigation{margin-left:10px;gap:0}.pn-bar{gap:14px}.pn-panel{gap:8px;padding:18px;grid-template-columns:repeat(3,minmax(0,1fr)) 195px}.pn-item{gap:7px;padding:13px 7px}.pn-item-icon{width:27px;height:28px}.pn-item b{font-size:11px}.pn-item small{font-size:10px}.pn-featured{padding:18px 15px}.pn-featured>strong{font-size:20px}}

@@ -4,10 +4,12 @@
   const header=document.querySelector('.pn-header');
   if(!header)return;
   const toggle=header.querySelector('.pn-mobile-toggle');
+  const logo=header.querySelector('.pn-logo');
   const triggers=[...header.querySelectorAll('.pn-trigger')];
   const mobile=matchMedia('(max-width:900px)');
   const hover=matchMedia('(hover:hover) and (pointer:fine)');
-  let active=null,openTimer,closeTimer,mobileOpen=false,previousOverflow='',inertElements=[];
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  let active=null,openTimer,closeTimer,mobileOpen=false,previousOverflow='',inertElements=[],logoPlayed=false,logoReady=false;
   function emit(element){
     // A site analytics adapter can subscribe to this event or the data attributes.
     document.dispatchEvent(new CustomEvent('promoplus:navigation',{detail:{
@@ -80,8 +82,14 @@
       if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
     }
   });
-  function scrollState(){header.classList.toggle('is-sticky',scrollY>(document.querySelector('.pn-announcement')?.offsetHeight||0));if(mobileOpen)positionMobile();}
-  addEventListener('scroll',scrollState,{passive:true});scrollState();
+  function logoScrollAnimation(){
+    if(!logo||reducedMotion.matches)return;
+    if(scrollY<=2){logoPlayed=false;logo.classList.remove('is-scroll-animating');return;}
+    if(!logoReady||logoPlayed)return;
+    logo.classList.remove('is-scroll-animating');logo.getBoundingClientRect();logo.classList.add('is-scroll-animating');logoPlayed=true;
+  }
+  function scrollState(){header.classList.toggle('is-sticky',scrollY>(document.querySelector('.pn-announcement')?.offsetHeight||0));logoScrollAnimation();if(mobileOpen)positionMobile();}
+  addEventListener('scroll',scrollState,{passive:true});scrollState();logoReady=true;
   addEventListener('resize',()=>{if(mobileOpen)positionMobile();},{passive:true});
   mobile.addEventListener('change',()=>{if(mobileOpen)setMobile(false);closeMenu();});
 })();
