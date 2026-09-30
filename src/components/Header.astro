@@ -24,7 +24,41 @@ const featureLinks: FeatureGroup[] = [
 {announcement && <div class="pn-announcement"><span>From mockup to production, all in one place.</span><a class="pn-announcement-link" data-nav-route="signup" data-cro-event="announcement_signup_click" href="https://app.promoplus.io/signup">Sign up <span aria-hidden="true">→</span></a></div>}
 <header class="pn-header" data-cursor-theme="light">
   <div class="pn-bar">
-    <a class="pn-logo" href="/" aria-label="PromoPlus home"><img src="/favicon.svg" alt="PromoPlus" width="64" height="64" /></a>
+    <a class="pn-logo" href="/" aria-label="PromoPlus home">
+      <svg class="pn-logo-svg" viewBox="600 600 1750 1750" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="pn-logo-frame-gradient" x1="1483.62" y1="701.023" x2="1483.62" y2="2119" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#04C4DB" />
+            <stop offset="1" stop-color="#4E5FE1" />
+          </linearGradient>
+          <linearGradient id="pn-logo-mark-gradient-a" x1="1960" y1="842" x2="1960" y2="1086" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#355DFA" />
+            <stop offset="1" stop-color="#681FFC" />
+          </linearGradient>
+          <linearGradient id="pn-logo-mark-gradient-b" x1="2111" y1="935" x2="2111" y2="1179" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#355DFA" />
+            <stop offset="1" stop-color="#681FFC" />
+          </linearGradient>
+        </defs>
+        <path
+          class="pn-logo-frame"
+          d="M 757.131 793.655 Q 757.131 683.523 867.263 683.523 H 2099.979 Q 2210.111 683.523 2210.111 793.655 V 2026.371 Q 2210.111 2136.503 2099.979 2136.503 H 867.263 Q 757.131 2136.503 757.131 2026.371 V 793.655 Z"
+          stroke="url(#pn-logo-frame-gradient)"
+          stroke-width="46"
+          fill="none"
+          pathLength="1"
+        />
+        <g class="pn-logo-mark">
+          <rect x="1931" y="842" width="58" height="244" rx="10" fill="url(#pn-logo-mark-gradient-a)" />
+          <rect x="2082" y="935" width="58" height="244" rx="10" transform="rotate(90 2082 935)" fill="url(#pn-logo-mark-gradient-b)" />
+        </g>
+        <g class="pn-logo-text">
+          <text class="pn-logo-word pn-logo-word-one" x="850" y="1632">Promo</text>
+          <text class="pn-logo-word pn-logo-word-two" x="850" y="1952">Plus</text>
+          <text class="pn-logo-tagline" x="860" y="2250">From mockup to Production. Faster.</text>
+        </g>
+      </svg>
+    </a>
     <nav class="pn-navigation" id="pn-navigation" aria-label="Main navigation">
       <div class="pn-menu-group">
         <button type="button" class="pn-trigger" id="pn-product-trigger" aria-controls="pn-product-panel" aria-expanded="false" data-cro-event="nav_features_open">Features<svg class="pn-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
