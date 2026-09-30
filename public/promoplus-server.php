@@ -8,19 +8,6 @@ if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
 
 function pp_env(string $key, string $default = ''): string
 {
-    $value = getenv($key);
-    if ($value !== false && $value !== '') {
-        return (string)$value;
-    }
-
-    if (isset($_ENV[$key]) && $_ENV[$key] !== '') {
-        return (string)$_ENV[$key];
-    }
-
-    if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') {
-        return (string)$_SERVER[$key];
-    }
-
     $dotenv = pp_dotenv_values();
     if (isset($dotenv[$key]) && $dotenv[$key] !== '') {
         return $dotenv[$key];
@@ -106,51 +93,6 @@ function pp_dotenv_values(): array
     return $values;
 }
 
-function pp_config_paths(): array
-{
-    $paths = [dirname(__DIR__) . DIRECTORY_SEPARATOR . 'promoplus-config.php'];
-    $documentRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
-
-    if ($documentRoot !== '') {
-        $paths[] = rtrim($documentRoot, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'promoplus-config.php';
-    }
-
-    return array_values(array_unique($paths));
-}
-
-function pp_external_config(): array
-{
-    static $config = null;
-
-    if ($config !== null) {
-        return $config;
-    }
-
-    foreach (pp_config_paths() as $path) {
-        if (is_file($path)) {
-            $loaded = require $path;
-            if (is_array($loaded)) {
-                $config = $loaded;
-                return $config;
-            }
-        }
-    }
-
-    $config = [];
-    return $config;
-}
-
-function pp_external_config_path(): string
-{
-    foreach (pp_config_paths() as $path) {
-        if (is_file($path)) {
-            return $path;
-        }
-    }
-
-    return '';
-}
-
 function pp_source_file(string $path): string
 {
     if ($path === '') {
@@ -166,63 +108,11 @@ function pp_source_file(string $path): string
 
 function pp_config_value(string $configKey, string $envKey, string $default = ''): string
 {
-    $config = pp_external_config();
-    if (isset($config[$configKey]) && (string)$config[$configKey] !== '') {
-        return (string)$config[$configKey];
-    }
-
     return pp_env($envKey, $default);
 }
 
 function pp_config_source(string $configKey, string $envKey, string $default = ''): array
 {
-    $config = pp_external_config();
-    if (isset($config[$configKey]) && (string)$config[$configKey] !== '') {
-        $path = pp_external_config_path();
-        return [
-            'key' => $envKey,
-            'config_key' => $configKey,
-            'source' => 'promoplus-config.php',
-            'file' => pp_source_file($path),
-            'path' => $path,
-            'value' => (string)$config[$configKey],
-        ];
-    }
-
-    $value = getenv($envKey);
-    if ($value !== false && $value !== '') {
-        return [
-            'key' => $envKey,
-            'config_key' => $configKey,
-            'source' => 'getenv',
-            'file' => 'server environment',
-            'path' => 'server environment',
-            'value' => (string)$value,
-        ];
-    }
-
-    if (isset($_ENV[$envKey]) && $_ENV[$envKey] !== '') {
-        return [
-            'key' => $envKey,
-            'config_key' => $configKey,
-            'source' => '$_ENV',
-            'file' => 'server environment',
-            'path' => 'server environment',
-            'value' => (string)$_ENV[$envKey],
-        ];
-    }
-
-    if (isset($_SERVER[$envKey]) && $_SERVER[$envKey] !== '') {
-        return [
-            'key' => $envKey,
-            'config_key' => $configKey,
-            'source' => '$_SERVER',
-            'file' => 'server environment',
-            'path' => 'server environment',
-            'value' => (string)$_SERVER[$envKey],
-        ];
-    }
-
     $dotenv = pp_dotenv_entries();
     if (isset($dotenv[$envKey]) && (string)($dotenv[$envKey]['value'] ?? '') !== '') {
         $path = (string)($dotenv[$envKey]['path'] ?? '');
@@ -257,13 +147,6 @@ function pp_config_debug_snapshot(): array
                 'readable' => is_readable($path),
             ];
         }, pp_dotenv_paths()),
-        'config_paths' => array_map(static function (string $path): array {
-            return [
-                'path' => $path,
-                'exists' => is_file($path),
-                'readable' => is_readable($path),
-            ];
-        }, pp_config_paths()),
         'values' => [
             pp_config_source('admin_user', 'PP_ADMIN_USER'),
             pp_config_source('admin_pass', 'PP_ADMIN_PASS'),
