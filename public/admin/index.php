@@ -93,6 +93,24 @@ function admin_date(?string $value): string
     $time = strtotime($value);
     return $time ? date('M j, Y H:i', $time) : $value;
 }
+
+function admin_console_config_debug(): array
+{
+    $snapshot = pp_config_debug_snapshot();
+
+    foreach ($snapshot['values'] as &$entry) {
+        $key = (string)($entry['key'] ?? '');
+        $value = (string)($entry['value'] ?? '');
+        $isSecret = str_contains($key, 'PASS') || str_contains($key, 'HASH');
+
+        $entry['value'] = $isSecret
+            ? ($value !== '' ? '[hidden, ' . strlen($value) . ' chars]' : '')
+            : $value;
+    }
+    unset($entry);
+
+    return $snapshot;
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -254,6 +272,17 @@ function admin_date(?string $value): string
             </div>
         </section>
     </main>
+<?php endif; ?>
+<?php if ($isAuthed): ?>
+    <script>
+        (() => {
+            const debug = <?php echo json_encode(admin_console_config_debug(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>;
+            console.group('PromoPlus config source debug');
+            console.log('Document root:', debug.document_root);
+            console.table(debug.values);
+            console.groupEnd();
+        })();
+    </script>
 <?php endif; ?>
 </body>
 </html>
