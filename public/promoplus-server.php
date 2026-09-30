@@ -99,10 +99,6 @@ function pp_source_file(string $path): string
         return '';
     }
 
-    if ($path === 'server environment') {
-        return $path;
-    }
-
     return basename($path);
 }
 
