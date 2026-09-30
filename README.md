@@ -14,7 +14,7 @@ The PHP demo endpoint is preserved in `public/book-demo.php`. It requires a PHP-
 
 Custom Plan form submissions are handled by `public/custom_sales.php`, saved to MySQL, and then sent by email when mail is configured. The admin view is available at `/admin/`.
 
-Create a real `.env` file one level above `public_html` before using the form:
+Create a real `.env` file one level above the web document root before using the form. On Hostinger this means one level above `public_html`:
 
 ```txt
 PP_DB_HOST=127.0.0.1
@@ -28,4 +28,4 @@ PP_ADMIN_PASS=your_admin_password
 
 The table `custom_plan_requests` is created automatically on the first valid submission or first admin load.
 
-The PHP endpoints intentionally read these values only from `.env` files, not Hostinger runtime environment variables or `promoplus-config.php`. Do not upload `.env` into `public_html`.
+The PHP endpoints intentionally read these values only from the `.env` file outside the web document root, not Hostinger runtime environment variables, `promoplus-config.php`, or any `.env` inside `public_html`.

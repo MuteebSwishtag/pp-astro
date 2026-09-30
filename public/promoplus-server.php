@@ -18,14 +18,15 @@ function pp_env(string $key, string $default = ''): string
 
 function pp_dotenv_paths(): array
 {
-    $paths = [dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env'];
     $documentRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
 
-    if ($documentRoot !== '') {
-        $paths[] = rtrim($documentRoot, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '.env';
+    if ($documentRoot === '') {
+        return [];
     }
 
-    return array_values(array_unique($paths));
+    return [
+        dirname(rtrim($documentRoot, DIRECTORY_SEPARATOR)) . DIRECTORY_SEPARATOR . '.env',
+    ];
 }
 
 function pp_dotenv_entries(): array
