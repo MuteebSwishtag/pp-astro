@@ -151,6 +151,19 @@ function pp_external_config_path(): string
     return '';
 }
 
+function pp_source_file(string $path): string
+{
+    if ($path === '') {
+        return '';
+    }
+
+    if ($path === 'server environment') {
+        return $path;
+    }
+
+    return basename($path);
+}
+
 function pp_config_value(string $configKey, string $envKey, string $default = ''): string
 {
     $config = pp_external_config();
@@ -165,11 +178,13 @@ function pp_config_source(string $configKey, string $envKey, string $default = '
 {
     $config = pp_external_config();
     if (isset($config[$configKey]) && (string)$config[$configKey] !== '') {
+        $path = pp_external_config_path();
         return [
             'key' => $envKey,
             'config_key' => $configKey,
             'source' => 'promoplus-config.php',
-            'path' => pp_external_config_path(),
+            'file' => pp_source_file($path),
+            'path' => $path,
             'value' => (string)$config[$configKey],
         ];
     }
@@ -180,6 +195,7 @@ function pp_config_source(string $configKey, string $envKey, string $default = '
             'key' => $envKey,
             'config_key' => $configKey,
             'source' => 'getenv',
+            'file' => 'server environment',
             'path' => 'server environment',
             'value' => (string)$value,
         ];
@@ -190,6 +206,7 @@ function pp_config_source(string $configKey, string $envKey, string $default = '
             'key' => $envKey,
             'config_key' => $configKey,
             'source' => '$_ENV',
+            'file' => 'server environment',
             'path' => 'server environment',
             'value' => (string)$_ENV[$envKey],
         ];
@@ -200,6 +217,7 @@ function pp_config_source(string $configKey, string $envKey, string $default = '
             'key' => $envKey,
             'config_key' => $configKey,
             'source' => '$_SERVER',
+            'file' => 'server environment',
             'path' => 'server environment',
             'value' => (string)$_SERVER[$envKey],
         ];
@@ -207,11 +225,13 @@ function pp_config_source(string $configKey, string $envKey, string $default = '
 
     $dotenv = pp_dotenv_entries();
     if (isset($dotenv[$envKey]) && (string)($dotenv[$envKey]['value'] ?? '') !== '') {
+        $path = (string)($dotenv[$envKey]['path'] ?? '');
         return [
             'key' => $envKey,
             'config_key' => $configKey,
             'source' => '.env',
-            'path' => (string)($dotenv[$envKey]['path'] ?? ''),
+            'file' => pp_source_file($path),
+            'path' => $path,
             'value' => (string)$dotenv[$envKey]['value'],
         ];
     }
@@ -220,6 +240,7 @@ function pp_config_source(string $configKey, string $envKey, string $default = '
         'key' => $envKey,
         'config_key' => $configKey,
         'source' => $default !== '' ? 'default' : 'missing',
+        'file' => '',
         'path' => '',
         'value' => $default,
     ];
