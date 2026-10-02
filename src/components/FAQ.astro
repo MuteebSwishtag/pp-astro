@@ -1,30 +1,38 @@
+---
+const defaultItems: readonly (readonly [string, string])[] = [
+  ['What kinds of custom products can PromoPlus manage?', 'Any item that needs artwork placement and approval, including apparel, bags, drinkware, signage, packaging, and more.'],
+  ['Can each product side be approved separately?', 'Yes. Front, Back, Sleeve, or any custom surface can keep its own artwork, comments, version, and approval status.'],
+  ['How do clients review and approve a mockup?', 'One shareable review link lets a client view the current mockup, leave comments, request changes, or approve the version.'],
+  ['What happens when the artwork changes?', 'Every revision remains connected to its product side, comments, and status, so the latest approved version is always clear.'],
+  ['What is included in the production-ready file?', 'The final handoff brings together the approved mockup, artwork, product sides, version, approver, and timestamp in one PDF.'],
+];
+const {
+  eyebrow = 'Frequently asked questions',
+  title = 'Questions, answered before production starts.',
+  description = 'Quick answers about product setup, artwork, approvals, and the final handoff.',
+  items = defaultItems,
+} = Astro.props as {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  items?: readonly (readonly [string, string])[];
+};
+const number = (index: number) => String(index + 1).padStart(2, '0');
+const cursorKinds = ['dashboard', 'dashboard', 'approval', 'version', 'dashboard'];
+---
 <section class="faq-section section-shell" id="faq" aria-labelledby="faq-title">
-        <div class="faq-intro">
-          <p class="eyebrow">Frequently asked questions</p>
-          <h2 class="section-title" id="faq-title">Questions, answered before production starts.</h2>
-          <p>Quick answers about product setup, artwork, approvals, and the final handoff.</p>
-        </div>
-        <div class="faq-list">
-          <details open="">
-            <summary data-cursor-kind="dashboard" data-cursor-label="OPEN"><span>01</span><strong>What kinds of custom products can PromoPlus manage?</strong></summary>
-            <p>Any item that needs artwork placement and approval, including apparel, bags, drinkware, signage, packaging, and more.</p>
-          </details>
-          <details>
-            <summary data-cursor-kind="dashboard" data-cursor-label="OPEN"><span>02</span><strong>Can each product side be approved separately?</strong></summary>
-            <p>Yes. Front, Back, Sleeve, or any custom surface can keep its own artwork, comments, version, and approval status.</p>
-          </details>
-          <details>
-            <summary data-cursor-kind="approval" data-cursor-label="APPROVE"><span>03</span><strong>How do clients review and approve a mockup?</strong></summary>
-            <p>One shareable review link lets a client view the current mockup, leave comments, request changes, or approve the version.</p>
-          </details>
-          <details>
-            <summary data-cursor-kind="version" data-cursor-label="COMPARE"><span>04</span><strong>What happens when the artwork changes?</strong></summary>
-            <p>Every revision remains connected to its product side, comments, and status, so the latest approved version is always clear.</p>
-          </details>
-          <details>
-            <summary data-cursor-kind="dashboard" data-cursor-label="OPEN"><span>05</span><strong>What is included in the production-ready file?</strong></summary>
-            <p>The final handoff brings together the approved mockup, artwork, product sides, version, approver, and timestamp in one PDF.</p>
-          </details>
-        </div>
-      </section>
+  <div class="faq-intro">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 class="section-title" id="faq-title">{title}</h2>
+    <p>{description}</p>
+  </div>
+  <div class="faq-list">
+    {items.map(([question, answer]: readonly [string, string], index: number) => (
+      <details open={index === 0}>
+        <summary data-cursor-kind={cursorKinds[index % cursorKinds.length]} data-cursor-label="OPEN"><span>{number(index)}</span><strong>{question}</strong></summary>
+        <p>{answer}</p>
+      </details>
+    ))}
+  </div>
+</section>
 

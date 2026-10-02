@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import PricingPlans from './PricingPlans.astro';
+import FAQ from './FAQ.astro';
+import type { IndustryPageData, IndustrySlug } from '../data/industries';
+import '../styles/legacy/homepage.css';
+import '../styles/legacy/pricing-page.css';
+import '../styles/legacy/industry-page.css';
+
+type TextRow = readonly [string, string];
+const { industry, slug } = Astro.props as { industry: IndustryPageData; slug: IndustrySlug };
+const faqJson = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: industry.faqs.map(([question, answer]: TextRow) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: answer,
+    },
+  })),
+};
+
+const number = (index: number) => String(index + 1).padStart(2, '0');
+const criteriaContains = 'contain' in industry.criteria && industry.criteria.contain;
+---
+<BaseLayout title={industry.title} description={industry.description} bodyClass={industry.bodyClass}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://promoplus.io/industries/promotional-products-${slug}-software`} />
+    <meta property="og:title" content={industry.title} />
+    <meta property="og:description" content={industry.description} />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json" set:html={JSON.stringify(faqJson)} />
+  </Fragment>
+  <Header active="industries" />
+  <main id="main-content">
+    <section class="industry-hero">
+      <div class="industry-hero-copy">
+        <p class="industry-kicker">{industry.kicker}</p>
+        <h1>{industry.headline[0]}<strong>{industry.headline[1]}</strong></h1>
+        <p class="industry-lede">{industry.lede}</p>
+        <div class="industry-actions">
+          <a class="industry-primary" href={industry.primaryHref}>{industry.primaryCta} <span aria-hidden="true">-&gt;</span></a>
+          <a class="industry-secondary" href={industry.secondaryHref}>{industry.secondaryCta} <span aria-hidden="true">-&gt;</span></a>
+        </div>
+      </div>
+      <div class="industry-hero-visual">
+        <div class:list={['industry-hero-frame', industry.heroFrameClass]}>
+          <img src={industry.heroImage} alt={industry.heroAlt} />
+          <div class="industry-hero-label"><small>{industry.heroLabel[0]}</small><strong>{industry.heroLabel[1]}</strong></div>
+        </div>
+        <span class="industry-proof-chip">{industry.heroChip}</span>
+      </div>
+    </section>
+
+    <section class="industry-section industry-problem" id="problem">
+      <div class="industry-shell">
+        <header class="story-heading">
+          <p class="industry-kicker">{industry.problem.kicker}</p>
+          <h2>{industry.problem.title}</h2>
+          <p>{industry.problem.text}</p>
+        </header>
+        <div class="problem-story">
+          <figure class="problem-photo">
+            <img src={industry.problem.image} alt={industry.problem.alt} />
+            <figcaption><span>Where work slows down</span><strong>{industry.problem.caption}</strong></figcaption>
+          </figure>
+          <div class="problem-list">
+            {industry.problem.rows.map(([title, text]: TextRow, index: number) => (
+              <article class="problem-row"><span>{number(index)}</span><div><h3>{title}</h3><p>{text}</p></div></article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="industry-section industry-features" id="capabilities">
+      <div class="industry-shell">
+        <header class="story-heading compact">
+          <p class="industry-kicker">What you get</p>
+          <h2>{industry.capabilities.title}</h2>
+          <p>{industry.capabilities.text}</p>
+        </header>
+        <div class="feature-story">
+          <figure class="feature-product">
+            <div class="feature-product-bar"><span>PromoPlus workspace</span><b>{industry.capabilities.label}</b></div>
+            <img src={industry.capabilities.image} alt={industry.capabilities.alt} />
+            <figcaption><span>ONE CONNECTED PROJECT</span><strong>Mockup -&gt; approval -&gt; production proof</strong></figcaption>
+          </figure>
+          <div class="feature-list">
+            {industry.capabilities.rows.map(([title, text]: TextRow, index: number) => (
+              <article class="feature-row"><span>{number(index)}</span><div><h3>{title}</h3><p>{text}</p></div></article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="industry-section industry-steps" id="how-it-works">
+      <div class="industry-shell">
+        <header class="story-heading steps-heading">
+          <p class="industry-kicker">How it works</p>
+          <h2>{industry.steps.title}</h2>
+          <p>{industry.steps.text}</p>
+        </header>
+        <div class="journey-line">
+          {industry.steps.rows.map(([title, text]: TextRow, index: number) => (
+            <article class="journey-step"><span>{number(index)}</span><div><h3>{title}</h3><p>{text}</p></div></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="industry-section industry-criteria">
+      <div class="industry-shell criteria-layout">
+        <figure class:list={['criteria-visual', criteriaContains && 'is-contain']}>
+          <img src={industry.criteria.image} alt={industry.criteria.alt} />
+        </figure>
+        <div class="criteria-copy">
+          <p class="industry-kicker">Choose with confidence</p>
+          <h2>{industry.criteria.title}</h2>
+          <p>{industry.criteria.text}</p>
+          <div class="criteria-list">
+            {industry.criteria.rows.map(([title, text]: TextRow, index: number) => (
+              <article class="criterion"><span>{number(index)}</span><div><h3>{title}</h3><p>{text}</p></div></article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="industry-section industry-audience" id="who-its-for">
+      <div class="industry-shell audience-layout">
+        <header class="audience-intro">
+          <p class="industry-kicker">Who it's for</p>
+          <h2>{industry.audience.title}</h2>
+          <p>{industry.audience.text}</p>
+        </header>
+        <div class="audience-band">
+          {industry.audience.rows.map(([title, text]: TextRow, index: number) => (
+            <article class="audience-row"><span>{number(index)}</span><h3>{title}</h3><p>{text}</p><b aria-hidden="true">-&gt;</b></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="industry-section industry-proof" id="sample-proof">
+      <div class="industry-shell">
+        <header class="section-intro">
+          <p class="industry-kicker">Sample production proof</p>
+          <h2>{industry.proofTitle}</h2>
+          <p>{industry.proofText}</p>
+        </header>
+        <div class="proof-pages">
+          <article class="proof-page"><header><span>01 / Product proof</span><b>A4 AirFlex Long Sleeve Tee</b></header><img src="/assets/promoplus/sample-production-proof-page-1.png" alt="Complete first page of the supplied production PDF, showing product mockup, item details, imprint colors, and proof notes" /></article>
+          <article class="proof-page"><header><span>02 / Artwork inspection</span><b>Vector artwork sheet</b></header><img src="/assets/promoplus/sample-production-proof-page-2.png" alt="Complete second page of the supplied production PDF, showing the artwork inspection sheet" /></article>
+        </div>
+        <div class="proof-actions"><a class="proof-download" href="/assets/promoplus/sample-production-proof.pdf" download="proof.pdf">Download the original two-page PDF <span aria-hidden="true">v</span></a></div>
+      </div>
+    </section>
+
+    <PricingPlans
+      title="Start small."
+      titleAccent={industry.pricingTitle.replace('Start small. ', '')}
+      description="Every plan includes mockups, online artwork approval, and production-ready proof files."
+    />
+
+    <section class="industry-trust" aria-label="Independent review ratings">
+      <p>Trusted by promotional product teams</p>
+      <div class="trust-row"><strong>Trustpilot 4.9 / 5</strong><span>Independent rating</span><strong>REVIEWS.io 4.9 / 5</strong><span>Independent rating</span></div>
+    </section>
+
+    <section class="industry-final">
+      <div class="industry-final-panel">
+        <div>
+          <h2>{industry.finalTitle}</h2>
+          <p>{industry.finalText}</p>
+          <div class="industry-actions">
+            <a class="industry-primary" href={industry.primaryHref}>{industry.primaryCta} <span aria-hidden="true">-&gt;</span></a>
+            <a class="industry-secondary" href={industry.secondaryHref}>{industry.secondaryCta} <span aria-hidden="true">-&gt;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <FAQ title={industry.faqTitle} description={industry.faqText} items={industry.faqs} />
+  </main>
+  <Footer top="#main-content" />
+  <script is:inline src="/custom-plan.js"></script>
+</BaseLayout>

@@ -20,6 +20,12 @@ const featureLinks: FeatureGroup[] = [
     ['08', 'Produce Files', '/features/production-ready-file-generation', 'Send the approved proof and artwork forward.'],
   ]],
 ];
+
+const industryLinks = [
+  ['For Distributors', '/industries/promotional-products-distributor-software', 'Move client mockups and approvals forward faster.', 'M3 7h18v13H3ZM7 7V4h10v3M7 12h10M7 16h6'],
+  ['For Suppliers', '/industries/promotional-products-supplier-software', 'Standardize artwork and production details.', 'M4 9 12 4l8 5v10H4ZM8 12h8M8 16h8'],
+  ['For Decorators', '/industries/promotional-products-decorator-software', 'Start every job with a proof you can trust.', 'M5 3h14v6H5ZM7 9v12h10V9M9 14h6'],
+];
 ---
 {announcement && <div class="pn-announcement"><span>From mockup to production, all in one place.</span><a class="pn-announcement-link" data-nav-route="signup" data-cro-event="announcement_signup_click" href="https://app.promoplus.io/signup">Sign up <span aria-hidden="true">→</span></a></div>}
 <header class="pn-header" data-cursor-theme="light">
@@ -66,8 +72,22 @@ const featureLinks: FeatureGroup[] = [
           {featureLinks.map(([group, links]) => <div class="pn-column"><h2>{group}</h2>{links.map(([number, label, href, desc]) => <a class="pn-item" href={href} data-cro-event="nav_feature_click" data-nav-group="product" data-nav-feature={label}><span class="pn-item-icon pn-item-number" aria-hidden="true">{number}</span><span><b>{label}</b><small>{desc}</small></span></a>)}</div>)}
         </div>
       </div>
+      <div class="pn-menu-group">
+        <button type="button" class="pn-trigger" id="pn-industries-trigger" aria-controls="pn-industries-panel" aria-expanded="false" data-cro-event="nav_industries_open">Industries<svg class="pn-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="pn-panel pn-resources-panel pn-industries-panel" id="pn-industries-panel" aria-labelledby="pn-industries-trigger" hidden>
+          <div class="pn-resources-list">
+            {industryLinks.map(([label, href, desc, iconPath]) => (
+              <a class="pn-item" href={href} data-cro-event="nav_feature_click" data-nav-group="industries" data-nav-feature={label} aria-current={active === 'industries' && Astro.url.pathname.startsWith(href) ? 'page' : undefined}>
+                <span class="pn-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={iconPath} /></svg></span>
+                <span><b>{label}</b><small>{desc}</small></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
       <a class:list={["pn-pricing", active === 'insights' && 'is-active']} data-nav-route="insights" data-cro-event="nav_insights_click" href="/insights/">Insights</a>
       <a class:list={["pn-pricing", active === 'pricing' && 'is-active']} data-nav-route="pricing" data-cro-event="nav_pricing_click" href="/pricing">Pricing</a>
+      
       <a class="pn-mobile-auth" data-nav-route="login" data-cro-event="nav_login_click" href="https://app.promoplus.io/login" target="_blank" >Login</a>
       <a class="pn-mobile-auth pn-mobile-auth-primary" data-nav-route="signup" data-cro-event="nav_signup_click" href="https://app.promoplus.io/signup" target="_blank" >Sign Up <span aria-hidden="true">↗</span></a>
     </nav>

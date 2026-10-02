@@ -2,17 +2,13 @@
   background: #f7f6ff;
 }
 
-.feature-workflow-page .pn-header {
-  position: relative;
-}
-
 .connected-feature-workflow {
   overflow: hidden;
 }
 
 .connected-workflow-nav {
   position: sticky;
-  top: 0;
+  top: 80px;
   z-index: 90;
   border-top: 1px solid #d7cff8;
   border-bottom: 1px solid #d7cff8;
@@ -180,7 +176,7 @@
 
 @media (max-width: 900px) {
   .connected-workflow-nav {
-    top: 0;
+    top: 72px;
   }
 }
 
