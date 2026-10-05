@@ -107,7 +107,7 @@ export const industryPages = {
     primaryCta: 'Start 30-Day Free Trial',
     primaryHref: 'https://app.promoplus.io/signup',
     secondaryCta: 'Talk to Sales',
-    secondaryHref: 'mailto:hello@promoplus.app?subject=PromoPlus%20for%20suppliers',
+    secondaryHref: 'mailto:hello@swishtag.com?subject=PromoPlus%20for%20suppliers',
     heroImage: '/assets/features/catalog/catalog-search-buyer.png',
     heroAlt: 'Supplier using a digital promotional product catalog',
     heroLabel: ['SUPPLIERS', 'Products ready to decorate'],

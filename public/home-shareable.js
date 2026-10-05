@@ -330,7 +330,7 @@ initStorytelling();
       'What we need:',
       data.get('needs')||'—'
     ].join('\n');
-    const url=`mailto:hello@promoplus.app?subject=${encodeURIComponent('PromoPlus custom plan request')}&body=${encodeURIComponent(body)}`;
+    const url=`mailto:hello@swishtag.com?subject=${encodeURIComponent('PromoPlus custom plan request')}&body=${encodeURIComponent(body)}`;
     message.textContent='Your email draft is ready. Send it from your email app to complete the request.';
     message.hidden=false;
     location.href=url;

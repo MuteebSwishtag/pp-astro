@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/legacy/hub-pages.css';
+
+const industries = [
+  {
+    number: '01',
+    label: 'For Distributors',
+    title: 'Promotional Products Distributor Software',
+    text: 'Build mockups, collect client approvals, and hand decorators a proof that keeps the order moving.',
+    href: '/industries/promotional-products-distributor-software',
+    tone: 'violet',
+  },
+  {
+    number: '02',
+    label: 'For Suppliers',
+    title: 'Promotional Products Supplier Software',
+    text: 'Standardize product details, approved artwork, and production proof formats across incoming orders.',
+    href: '/industries/promotional-products-supplier-software',
+    tone: 'lime',
+  },
+  {
+    number: '03',
+    label: 'For Decorators',
+    title: 'Promotional Products Decorator Software',
+    text: 'Start production with approved artwork, imprint size, colors, and product details in one trusted file.',
+    href: '/industries/promotional-products-decorator-software',
+    tone: 'plum',
+  },
+];
+
+const sharedNeeds = [
+  ['Clear mockups', 'Show the product, artwork, placement, and product side before anyone approves.'],
+  ['Recorded approval', 'Keep the current version, comments, approval status, and timestamp together.'],
+  ['Production handoff', 'Send the approved proof and artwork inspection details in a consistent format.'],
+  ['Shared workspace', 'Keep sales, artwork, client decisions, and production context connected.'],
+];
+---
+
+<BaseLayout
+  title="Industries | PromoPlus"
+  description="PromoPlus for promotional product distributors, suppliers, and decorators who need clearer mockups, approvals, and production-ready proofs."
+  bodyClass="hub-page industry-hub-page"
+>
+  <Header active="industries" />
+  <main id="main-content">
+    <section class="hub-hero" aria-labelledby="industries-title">
+      <div class="hub-hero-copy">
+        <p class="hub-kicker">PromoPlus Industries</p>
+        <h1 id="industries-title">Built for every team touching <span>the promo order.</span></h1>
+        <p>Distributors, suppliers, and decorators all need the same thing: clear artwork, clean approval, and production details that are ready before the job reaches the line.</p>
+        <div class="hub-actions">
+          <a class="hub-primary" href="https://app.promoplus.io/signup">Start 30-Day Free Trial <span aria-hidden="true">-&gt;</span></a>
+          <a class="hub-secondary" href="#industry-list">Explore Industries <span aria-hidden="true">-&gt;</span></a>
+        </div>
+      </div>
+      <div class="hub-hero-visual">
+        <div class="hub-hero-frame">
+          <img src="/assets/promoplus/hero-mockup-v2.png" alt="PromoPlus mockup workspace showing a promotional product approval workflow" />
+          <div class="hub-hero-label"><small>PROMO TEAMS</small><strong>One approval workflow across roles</strong></div>
+        </div>
+        <span class="hub-proof-chip">Distributor - supplier - decorator</span>
+      </div>
+    </section>
+
+    <section class="hub-section is-white" id="industry-list">
+      <div class="hub-shell">
+        <header class="hub-section-header">
+          <p class="hub-kicker">Industry Paths</p>
+          <h2>Choose the workflow closest to your team.</h2>
+          <p>Each page focuses on the same PromoPlus system from a different role in the promotional products process.</p>
+        </header>
+        <div class="hub-card-grid is-industries">
+          {industries.map((industry) => (
+            <a class="hub-card" href={industry.href}>
+              <div class:list={['hub-card-color', `is-${industry.tone}`]} aria-hidden="true">
+                <span>{industry.number}</span>
+                <strong>{industry.label}</strong>
+              </div>
+              <div class="hub-card-body">
+                <div class="hub-card-top"><span>{industry.label}</span><span>{industry.number}</span></div>
+                <h3>{industry.title}</h3>
+                <p>{industry.text}</p>
+                <span class="hub-card-cta">Explore industry -&gt;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="hub-section is-dark">
+      <div class="hub-shell">
+        <header class="hub-section-header">
+          <p class="hub-kicker">Shared workflow needs</p>
+          <h2>Different roles. The same need for clarity.</h2>
+          <p>PromoPlus keeps the approval record and the production handoff consistent no matter which side of the order you work on.</p>
+        </header>
+        <div class="hub-flow">
+          {sharedNeeds.map(([title, text], index) => (
+            <article class="hub-flow-step">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="hub-final">
+      <div class="hub-final-panel">
+        <div>
+          <h2>Ready to make every handoff clearer?</h2>
+          <p>Use one connected workflow for mockups, approvals, and production-ready proofs across your promotional product team.</p>
+          <div class="hub-actions">
+            <a class="hub-primary" href="https://app.promoplus.io/signup">Start 30-Day Free Trial <span aria-hidden="true">-&gt;</span></a>
+            <a class="hub-secondary" href="/pricing#custom-plan-form">Book a Demo <span aria-hidden="true">-&gt;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer top="#main-content" />
+</BaseLayout>

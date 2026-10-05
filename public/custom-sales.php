@@ -195,7 +195,7 @@ function send_smtp_mail(array $config, array $recipients, string $subject, strin
 
 function send_native_mail(array $config, array $recipients, string $subject, string $body, string $replyToEmail, string $replyToName): void
 {
-    $fromAddress = (string)($config['from_address'] ?? 'hello@promoplus.app');
+    $fromAddress = (string)($config['from_address'] ?? 'hello@swishtag.com');
     $fromName = (string)($config['from_name'] ?? $config['app_name'] ?? 'PromoPlus');
     $headers = [
         'From: ' . mailbox($fromName, $fromAddress),
@@ -283,7 +283,7 @@ try {
 
     try {
         $config = load_mail_config();
-        $rawRecipients = $config['to'] ?? 'hello@promoplus.app';
+        $rawRecipients = $config['to'] ?? 'hello@swishtag.com';
         $recipients = is_array($rawRecipients) ? $rawRecipients : preg_split('/[,;]/', (string)$rawRecipients);
         $recipients = array_values(array_filter(array_map('trim', $recipients ?: []), static function (string $email): bool {
             return (bool)filter_var($email, FILTER_VALIDATE_EMAIL);

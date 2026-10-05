@@ -7,8 +7,7 @@
 }
 
 .connected-workflow-nav {
-  position: sticky;
-  top: 80px;
+  position: relative;
   z-index: 90;
   border-top: 1px solid #d7cff8;
   border-bottom: 1px solid #d7cff8;
@@ -171,12 +170,6 @@
 
   .connected-workflow-steps {
     grid-template-columns: repeat(4, minmax(90px, 1fr));
-  }
-}
-
-@media (max-width: 900px) {
-  .connected-workflow-nav {
-    top: 72px;
   }
 }
 
