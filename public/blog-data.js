@@ -72,4 +72,31 @@ window.PROMOPLUS_BLOG_POSTS = [
     },
     jetpack_featured_media_url: '',
   },
+  {
+    id: 9,
+    slug: 'what-is-an-artwork-proof-in-promotional-products',
+    date: '2026-08-21T12:18:00',
+    modified: '2026-08-21T12:18:00',
+    title: { rendered: 'What Is an Artwork Proof in Promotional Products?' },
+    excerpt: {
+      rendered: '<p>Learn what an artwork proof is, why it matters before production, and how a clear approval process helps prevent costly promotional product mistakes.</p>',
+    },
+    content: {
+      rendered: `
+        <h3>What Is an Artwork Proof in Promotional Products?</h3>
+        <p>An artwork proof is the visual checkpoint a customer reviews before a promotional product order moves into production.</p>
+        <p>It usually shows the selected product, the uploaded logo or design, placement, scale, color notes, and any production details the decorator or supplier needs to confirm.</p>
+        <h3>Why Artwork Proofs Matter</h3>
+        <p>A proof gives the customer a chance to catch problems before the order is produced. Logo size, placement, spelling, colors, and product choice can all be reviewed in one place.</p>
+        <p>That review step protects both the customer and the production team because the approved proof becomes the shared reference for the job.</p>
+        <h3>What a Good Proof Should Include</h3>
+        <p>A clear proof should identify the product, show the artwork on the item, include important production notes, and make the approval decision easy to understand.</p>
+        <p><strong>Product -> Artwork -> Placement -> Review -> Approval -> Production</strong></p>
+        <h3>How Promo Plus Helps</h3>
+        <p>Promo Plus helps teams organize artwork, mockups, customer feedback, approvals, and production-ready files around the same project record.</p>
+        <p>That connected workflow makes it easier to keep everyone aligned from first proof to final handoff.</p>
+      `,
+    },
+    jetpack_featured_media_url: '',
+  },
 ];

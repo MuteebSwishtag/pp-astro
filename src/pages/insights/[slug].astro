@@ -1,24 +1,20 @@
 ---
 import PostPage from '../post.astro';
+import { localBlogPosts } from '../../data/blogPosts';
 
 export async function getStaticPaths() {
   const API_URL = 'https://dei.bcv.mybluehost.me/website_27c75ff3/wp-json/wp/v2/posts';
-  const fallbackSlugs = [
-    'from-artwork-to-production-a-better-promotional-product-proofing-workflow',
-    'how-promotional-product-mockup-software-speeds-up-client-approvals',
-    'what-is-an-artwork-proof-in-promotional-products',
-  ];
-  let slugs = fallbackSlugs;
+  let posts = localBlogPosts;
 
   try {
-    const fetchedSlugs = [];
+    const fetchedPosts = [];
     let totalPages = 1;
 
     for (let page = 1; page <= totalPages; page += 1) {
       const url = new URL(API_URL);
       url.searchParams.set('per_page', '100');
       url.searchParams.set('page', String(page));
-      url.searchParams.set('_fields', 'slug');
+      url.searchParams.set('_fields', 'id,slug,date,status,title,excerpt,content,jetpack_featured_media_url');
 
       const signal = AbortSignal.timeout?.(5000);
       const response = await fetch(url, { headers: { Accept: 'application/json' }, signal });
@@ -28,17 +24,31 @@ export async function getStaticPaths() {
       const posts = await response.json();
       if (!Array.isArray(posts) || !posts.length) break;
 
-      fetchedSlugs.push(...posts.map((post) => post?.slug).filter(Boolean));
+      fetchedPosts.push(
+        ...posts
+          .filter((post) => post?.slug)
+          .map((post) => ({
+            id: post.id,
+            slug: post.slug,
+            date: post.date,
+            status: post.status || 'Published',
+            title: post.title?.rendered || 'PromoPlus insight',
+            excerpt: post.excerpt?.rendered || '',
+            content: post.content?.rendered || '',
+            image: post.jetpack_featured_media_url || '',
+          }))
+      );
     }
 
-    if (fetchedSlugs.length) {
-      slugs = fetchedSlugs;
+    if (fetchedPosts.length) {
+      posts = fetchedPosts;
     }
   } catch {
-    slugs = fallbackSlugs;
+    posts = localBlogPosts;
   }
 
-  return [...new Set(slugs)].map((slug) => ({ params: { slug } }));
+  const uniquePosts = [...new Map(posts.map((post) => [post.slug, post])).values()];
+  return uniquePosts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 ---
 <PostPage />
