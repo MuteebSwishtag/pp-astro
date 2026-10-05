@@ -4,8 +4,8 @@ const { active = false } = Astro.props;
 <section class:list={["feature-workflow-panel","dashboard-page"].concat(active ? ['is-active'] : [])} data-feature-panel="MonitorProgress" hidden={!active}>
 <section class="dashboard-hero" aria-labelledby="dashboard-title">
     <div class="dashboard-hero-copy">
-      <p class="feature-kicker">Workflow Progress Dashboard</p>
-      <h1 id="dashboard-title">See every project. <strong>Move the right work forward.</strong></h1>
+      <h1 class="feature-kicker" id="dashboard-title">Workflow Progress Dashboard</h1>
+      <h2>See every project. <strong>Move the right work forward.</strong></h2>
       <p class="feature-lede">Track every artwork project from creation to production. Business owners always know where work is moving and where it is blocked.</p>
       <div class="feature-actions"><a class="feature-primary-action" href="#live-dashboard">Explore the dashboard <span>&darr;</span></a><a class="feature-secondary-action" href="/pricing#custom-plan-form">Book a Demo <span>&nearr;</span></a></div>
       <div class="dashboard-hero-states" aria-label="Project stages"><span>Artwork</span><span>Approval</span><span>Revision</span><span>Production</span></div>

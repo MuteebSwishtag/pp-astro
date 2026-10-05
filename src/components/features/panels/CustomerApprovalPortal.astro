@@ -4,8 +4,8 @@ const { active = false } = Astro.props;
 <section class:list={["feature-workflow-panel","approval-page"].concat(active ? ['is-active'] : [])} data-feature-panel="ApproveDesign" hidden={!active}>
 <section class="approval-hero">
     <div class="approval-hero-copy">
-      <p class="feature-kicker">Customer Approval Portal</p>
-      <h1>One link. One clear <strong>decision.</strong></h1>
+      <h1 class="feature-kicker">Customer Approval Portal</h1>
+      <h2>One link. One clear <strong>decision.</strong></h2>
       <p class="feature-lede">Share artwork through a secure online approval link. Customers can review mockups, approve designs, request revisions, and leave comments without endless email chains.</p>
       <div class="feature-actions"><a class="feature-primary" href="#approval-demo">Explore the portal ↓</a><a class="feature-secondary" href="/pricing#custom-plan-form">Book a Demo ↗</a></div>
     </div>

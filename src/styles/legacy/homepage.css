@@ -2462,7 +2462,7 @@ footer{gap: 12px; flex-direction: column; align-items: flex-start; padding: 24px
 @media (prefers-reduced-motion: reduce) {.rotation-section .production-proof-artifact .rotation-layer{transform: none !important;}}
 .pricing-section{padding-top: 100px; padding-bottom: 90px; background: rgb(252, 250, 252); color: rgb(33, 31, 36); scroll-margin-top: 100px; font-family: "Plus Jakarta Sans", sans-serif;}
 .pricing-intro{text-align: center; max-width: 850px; margin: 0px auto 48px;}
-.pricing-intro > p:first-child{font-size: 11px; letter-spacing: 0.12em; color: rgb(118, 91, 214);}
+.pricing-intro > h1:first-child{font-size: 11px; letter-spacing: 0.12em; color: rgb(118, 91, 214);}
 .pricing-intro h2{font-size: clamp(38px, 4.7vw, 66px); line-height: 1.08; letter-spacing: -0.045em; margin: 20px 0px;}
 .pricing-intro h2 span{color: rgb(118, 91, 214);}
 .pricing-intro > p:last-child{max-width: 610px; margin: auto; color: rgb(118, 107, 128); font-size: 16px; line-height: 1.6;}
@@ -2536,7 +2536,7 @@ main + footer a:hover{color: rgb(255, 255, 255);}
 @media (min-width: 761px) and (max-width: 1000px) {.faq-section{grid-template-columns: 1fr; gap: 40px;}
 .faq-section .faq-intro{position: static;}}/* Final color balance: neutral reading, purposeful status colors. */
 body{background:#F7F6F2}.pc-credibility,.pricing-section,.faq-section,.stack-section{background:#F7F6F2}
-.pricing-intro h2 span,.stack-section h2,.stack-section h2 span,.pp-hero h1{color:#202024!important}
+.pricing-intro h2 span,.stack-section h2,.stack-section h2 span,.pp-heading > h2{color:#202024!important}
 .rotation-section .rotation-copy h2 strong,.cta-section h2 em{color:#F7F6F2!important}
 .rotation-section .proof-ready-label small{background:#E5F3BC;color:#29341d}
 .rotation-section .proof-back-sheet{background:#F7F6F2!important}.rotation-section .proof-artwork-layer>span{background:#FFD4C0;color:#543d32}

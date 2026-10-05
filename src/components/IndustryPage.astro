@@ -37,10 +37,10 @@ const criteriaContains = 'contain' in industry.criteria && industry.criteria.con
   </Fragment>
   <Header active="industries" />
   <main id="main-content">
-    <section class="industry-hero">
+    <section class="industry-hero" aria-labelledby="industry-title">
       <div class="industry-hero-copy">
-        <p class="industry-kicker">{industry.kicker}</p>
-        <h1>{industry.headline[0]}<strong>{industry.headline[1]}</strong></h1>
+        <h1 class="industry-kicker" id="industry-title">{industry.kicker}</h1>
+        <h2>{industry.headline[0]}<strong>{industry.headline[1]}</strong></h2>
         <p class="industry-lede">{industry.lede}</p>
         <div class="industry-actions">
           <a class="industry-primary" href={industry.primaryHref}>{industry.primaryCta} <span aria-hidden="true">-&gt;</span></a>

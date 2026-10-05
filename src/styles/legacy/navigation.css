@@ -70,7 +70,7 @@ html{scroll-padding-top:90px}
  .pn-header.is-mobile-open{box-shadow:none}.pn-announcement{font-size:10px;gap:9px;padding:9px 12px;min-height:38px}.pn-announcement-link{font-size:10px;white-space:nowrap}
 }
 @media(max-width:560px){.pn-actions{display:none}}
-@media(max-width:420px){.pn-announcement{flex-wrap:wrap;gap:3px 8px;font-size:9px;padding:8px 12px}.pn-announcement-link{font-size:9px}.pn-bar{padding:0 16px;gap:9px}.pn-mobile-label{display:none}.pn-navigation{padding:12px 16px 28px}}
+@media(max-width:560px){.pn-announcement{flex-wrap:wrap;gap:3px 8px;font-size:9px;padding:8px 12px}.pn-announcement-link{font-size:9px}.pn-bar{justify-content:space-between;padding:0 16px;gap:9px}.pn-mobile-label{display:none}.pn-navigation{padding:12px 16px 28px}}
 @media(prefers-reduced-motion:reduce){.pn-header *{animation:none!important;transition:none!important}.pn-logo-frame{stroke-dashoffset:0}.pn-logo-mark,.pn-logo-word,.pn-logo-tagline{opacity:1;transform:none;filter:none}}
 
 /* Simplified Features / Insights / Pricing navigation. */
