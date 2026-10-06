@@ -340,7 +340,7 @@ initStorytelling();
 
 
 window.__promoWorkflowImages = {
-  "choose-products-v2.png": "/assets/people/hero-product-ui-model.png",
+  "choose-products-v2.png": "/assets/people/choose-products-v2.png",
   "create-mockups.png": "/assets/promoplus/hero-mockup-v2.png",
   "edit-artwork-v2.png": "/assets/promoplus/design-editor.png",
   "get-approval-v2.png": "/assets/promoplus/preview-feedback.png",
