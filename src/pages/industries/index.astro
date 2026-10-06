@@ -2,88 +2,94 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import '../../styles/legacy/hub-pages.css';
+import '../../styles/legacy/overview-pages.css';
 
 const industries = [
   {
     number: '01',
-    label: 'For Distributors',
-    title: 'Promotional Products Distributor Software',
-    text: 'Build mockups, collect client approvals, and hand decorators a proof that keeps the order moving.',
+    role: 'Distributors',
+    title: 'Keep client approvals moving.',
+    text: 'Create the product mockup, capture the client decision, and hand off a clear approved proof to the next team.',
     href: '/industries/promotional-products-distributor-software',
-    tone: 'violet',
+    image: '/assets/overview/industries/distributor-handoff.webp',
+    alt: 'Distributor and account team reviewing an approved promotional product handoff',
+    tags: ['Client approval', 'Mockup review', 'Clean handoff'],
+    link: 'Explore distributor software',
   },
   {
     number: '02',
-    label: 'For Suppliers',
-    title: 'Promotional Products Supplier Software',
-    text: 'Standardize product details, approved artwork, and production proof formats across incoming orders.',
+    role: 'Suppliers',
+    title: 'Standardize incoming jobs.',
+    text: 'Receive the product, artwork, imprint details, and approval record in one consistent workflow your team can trust.',
     href: '/industries/promotional-products-supplier-software',
-    tone: 'lime',
+    image: '/assets/overview/industries/supplier-spec-check.webp',
+    alt: 'Supplier team checking a decorated product and its specifications',
+    tags: ['Product specs', 'Approval record', 'Order clarity'],
+    link: 'Explore supplier software',
   },
   {
     number: '03',
-    label: 'For Decorators',
-    title: 'Promotional Products Decorator Software',
-    text: 'Start production with approved artwork, imprint size, colors, and product details in one trusted file.',
+    role: 'Decorators',
+    title: 'Start every job with clarity.',
+    text: 'Receive the approved artwork, placement, imprint size, and colors in one predictable proof before production begins.',
     href: '/industries/promotional-products-decorator-software',
-    tone: 'plum',
+    image: '/assets/overview/industries/decorator-production-proof.webp',
+    alt: 'Production proof and decorated garment prepared for the decorator',
+    tags: ['Approved artwork', 'Imprint details', 'Ready to run'],
+    link: 'Explore decorator software',
   },
 ];
 
-const sharedNeeds = [
-  ['Clear mockups', 'Show the product, artwork, placement, and product side before anyone approves.'],
-  ['Recorded approval', 'Keep the current version, comments, approval status, and timestamp together.'],
-  ['Production handoff', 'Send the approved proof and artwork inspection details in a consistent format.'],
-  ['Shared workspace', 'Keep sales, artwork, client decisions, and production context connected.'],
+const connections = [
+  ['Distributor', "Builds the mockup and collects the client's exact decision."],
+  ['Supplier', 'Receives consistent product, artwork, imprint, and color information.'],
+  ['Decorator', 'Starts production from the approved version and confirmed details.'],
 ];
 ---
 
 <BaseLayout
   title="Industries | PromoPlus"
   description="PromoPlus for promotional product distributors, suppliers, and decorators who need clearer mockups, approvals, and production-ready proofs."
-  bodyClass="hub-page industry-hub-page"
+  bodyClass="overview-page industry-overview-page"
 >
   <Header active="industries" />
   <main id="main-content">
-    <section class="hub-hero" aria-labelledby="industries-title">
-      <div class="hub-hero-copy">
-        <p class="hub-kicker">PromoPlus Industries</p>
-        <h1 id="industries-title">Built for every team touching <span>the promo order.</span></h1>
-        <p>Distributors, suppliers, and decorators all need the same thing: clear artwork, clean approval, and production details that are ready before the job reaches the line.</p>
-        <div class="hub-actions">
-          <a class="hub-primary" href="https://app.promoplus.io/signup">Start 30-Day Free Trial <span aria-hidden="true">-&gt;</span></a>
-          <a class="hub-secondary" href="#industry-list">Explore Industries <span aria-hidden="true">-&gt;</span></a>
+    <section class="overview-hero industries-home">
+      <div class="overview-hero-copy">
+        <p class="overview-kicker">PromoPlus Industries</p>
+        <h1>Distributors, suppliers, and decorators <strong>connected by <span class="industry-accent">one approval workflow.</span></strong></h1>
+        <p>PromoPlus gives every team touching the order the same clear product, artwork, approval, and production context.</p>
+        <div class="overview-actions">
+          <a class="overview-primary" href="#industry-list">Explore Industries <span aria-hidden="true">-&gt;</span></a>
+          <a class="overview-secondary" href="/pricing#custom-plan-form">Book a Demo <span aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
-      <div class="hub-hero-visual">
-        <div class="hub-hero-frame">
-          <img src="/assets/promoplus/hero-mockup-v2.png" alt="PromoPlus mockup workspace showing a promotional product approval workflow" />
-          <div class="hub-hero-label"><small>PROMO TEAMS</small><strong>One approval workflow across roles</strong></div>
+      <div class="overview-hero-visual">
+        <div class="overview-hero-frame">
+          <img src="/assets/overview/industries/industry-hero-team.webp" alt="Distributed promotional products team reviewing one project together" />
         </div>
-        <span class="hub-proof-chip">Distributor - supplier - decorator</span>
       </div>
     </section>
 
-    <section class="hub-section is-white" id="industry-list">
-      <div class="hub-shell">
-        <header class="hub-section-header">
-          <p class="hub-kicker">Industry Paths</p>
-          <h2>Choose the workflow closest to your team.</h2>
-          <p>Each page focuses on the same PromoPlus system from a different role in the promotional products process.</p>
+    <section class="overview-section industries-intro" id="industry-list">
+      <div class="overview-shell">
+        <header class="overview-heading">
+          <p class="overview-kicker">Built for the promo workflow</p>
+          <h2>Clearer handoffs for every role.</h2>
+          <p>Each team sees the same approved version, product context, and production details without reconstructing the order from separate files and messages.</p>
         </header>
-        <div class="hub-card-grid is-industries">
+        <div class="industry-overview-grid">
           {industries.map((industry) => (
-            <a class="hub-card" href={industry.href}>
-              <div class:list={['hub-card-color', `is-${industry.tone}`]} aria-hidden="true">
-                <span>{industry.number}</span>
-                <strong>{industry.label}</strong>
-              </div>
-              <div class="hub-card-body">
-                <div class="hub-card-top"><span>{industry.label}</span><span>{industry.number}</span></div>
-                <h3>{industry.title}</h3>
+            <a class="industry-overview-card" href={industry.href}>
+              <img src={industry.image} alt={industry.alt} loading="lazy" />
+              <div class="industry-overview-copy">
+                <span>{industry.number} / {industry.role}</span>
+                <h2>{industry.title}</h2>
                 <p>{industry.text}</p>
-                <span class="hub-card-cta">Explore industry -&gt;</span>
+                <div class="industry-tags">
+                  {industry.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <div class="industry-card-link">{industry.link} <b aria-hidden="true">-&gt;</b></div>
               </div>
             </a>
           ))}
@@ -91,16 +97,16 @@ const sharedNeeds = [
       </div>
     </section>
 
-    <section class="hub-section is-dark">
-      <div class="hub-shell">
-        <header class="hub-section-header">
-          <p class="hub-kicker">Shared workflow needs</p>
-          <h2>Different roles. The same need for clarity.</h2>
-          <p>PromoPlus keeps the approval record and the production handoff consistent no matter which side of the order you work on.</p>
+    <section class="overview-section connected-story">
+      <div class="overview-shell">
+        <header class="overview-heading">
+          <p class="overview-kicker">One connected system</p>
+          <h2>Clear at every handoff.</h2>
+          <p>The project gains context as it moves forward. Nobody has to reconstruct the decision from separate messages and files.</p>
         </header>
-        <div class="hub-flow">
-          {sharedNeeds.map(([title, text], index) => (
-            <article class="hub-flow-step">
+        <div class="connection-track">
+          {connections.map(([title, text], index) => (
+            <article class="connection-node">
               <span>{String(index + 1).padStart(2, '0')}</span>
               <h3>{title}</h3>
               <p>{text}</p>
@@ -110,18 +116,20 @@ const sharedNeeds = [
       </div>
     </section>
 
-    <section class="hub-final">
-      <div class="hub-final-panel">
-        <div>
-          <h2>Ready to make every handoff clearer?</h2>
-          <p>Use one connected workflow for mockups, approvals, and production-ready proofs across your promotional product team.</p>
-          <div class="hub-actions">
-            <a class="hub-primary" href="https://app.promoplus.io/signup">Start 30-Day Free Trial <span aria-hidden="true">-&gt;</span></a>
-            <a class="hub-secondary" href="/pricing#custom-plan-form">Book a Demo <span aria-hidden="true">-&gt;</span></a>
-          </div>
+    <section class="overview-contact-banner" id="industry-contact" aria-labelledby="industry-contact-title">
+      <div class="overview-shell">
+        <div class="overview-contact-copy">
+          <p class="overview-kicker">One connected workflow</p>
+          <h2 id="industry-contact-title">Bring every team into one clear workflow.</h2>
+          <p>See how PromoPlus fits your role and the partners you work with.</p>
+        </div>
+        <div class="overview-contact-actions">
+          <a class="overview-contact-primary" href="/pricing#custom-plan-form">Book a Demo <span aria-hidden="true">-&gt;</span></a>
+          <a class="overview-contact-secondary" href="/features">Explore Features <span aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
     </section>
   </main>
   <Footer top="#main-content" />
 </BaseLayout>
+

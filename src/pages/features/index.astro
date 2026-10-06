@@ -2,128 +2,146 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import '../../styles/legacy/hub-pages.css';
+import '../../styles/legacy/overview-pages.css';
 
 const features = [
   {
     number: '01',
-    group: 'Create',
-    title: 'Product Catalog Integration',
-    text: 'Search supplier products, keep the details together, and begin each job with the right item.',
+    heroTitle: 'Product Catalog',
+    heroText: 'Find the right supplier product',
+    cardTitle: 'Choose Product',
+    text: 'Search the supplier catalog, compare products, and begin every project with the correct item details.',
     href: '/features/product-catalog-integration',
-    tone: 'violet',
+    image: '/assets/overview/features/product-catalog.webp',
+    alt: 'Coordinated promotional product catalog',
   },
   {
     number: '02',
-    group: 'Create',
-    title: 'Online Mockup Designer',
-    text: 'Place artwork on product views and build customer-ready mockups inside the browser.',
+    heroTitle: 'Mockup Designer',
+    heroText: 'Build customer-ready visuals',
+    cardTitle: 'Create Mockup',
+    text: 'Place client artwork on the product, set the color and position, and build a proof the client can understand.',
     href: '/features/online-mockup-designer',
-    tone: 'cyan',
+    image: '/assets/overview/features/online-mockup-designer.webp',
+    alt: 'Promotional apparel mockup',
   },
   {
     number: '03',
-    group: 'Create',
-    title: 'Artwork Version Control',
-    text: 'Keep revisions, comments, and approvals attached to the right version of the artwork.',
+    heroTitle: 'Version Control',
+    heroText: 'Keep every revision clear',
+    cardTitle: 'Revise Artwork',
+    text: 'Save every change as a new version and keep earlier artwork available without confusing the current file.',
     href: '/features/artwork-version-control',
-    tone: 'plum',
+    image: '/assets/overview/features/artwork-version-control.webp',
+    alt: 'Artwork versions prepared for comparison',
   },
   {
     number: '04',
-    group: 'Align',
-    title: 'Customer Approval Portal',
-    text: 'Share one review link where clients can comment, request changes, or approve the mockup.',
+    heroTitle: 'Approval Portal',
+    heroText: 'Capture one clear decision',
+    cardTitle: 'Approve Design',
+    text: 'Share one secure link where the client can comment, request a revision, or approve the latest design.',
     href: '/features/customer-approval-portal',
-    tone: 'lime',
+    image: '/assets/overview/features/customer-approval-portal.webp',
+    alt: 'Customer approval portal',
   },
   {
     number: '05',
-    group: 'Align',
-    title: 'Centralized Project Workspace',
-    text: 'Keep products, artwork, customer details, notes, decisions, and files in one project record.',
+    heroTitle: 'Project Workspace',
+    heroText: 'Keep every detail together',
+    cardTitle: 'Organize Project',
+    text: 'Keep product selections, artwork, mockups, notes, decisions, and production output in one workspace.',
     href: '/features/centralized-project-workspace',
-    tone: 'lavender',
+    image: '/assets/overview/features/centralized-workspace.webp',
+    alt: 'Team using a centralized project workspace',
   },
   {
     number: '06',
-    group: 'Align',
-    title: 'Team Collaboration',
-    text: 'Give sales, design, operations, and production the same context as the project moves.',
+    heroTitle: 'Team Collaboration',
+    heroText: 'Align every role in context',
+    cardTitle: 'Collaborate',
+    text: 'Give sales, art, clients, and production the project context they need without scattered email threads.',
     href: '/features/team-collaboration',
-    tone: 'peach',
+    image: '/assets/overview/features/team-collaboration.webp',
+    alt: 'Promo team collaborating around a project',
   },
   {
     number: '07',
-    group: 'Deliver',
-    title: 'Workflow Progress Dashboard',
-    text: 'See what is waiting, what changed, what is approved, and what needs attention next.',
+    heroTitle: 'Workflow Dashboard',
+    heroText: 'See what is moving or waiting',
+    cardTitle: 'Monitor Progress',
+    text: 'See every active project, what is waiting, where approval is blocked, and what is ready to move forward.',
     href: '/features/workflow-progress-dashboard',
-    tone: 'ink',
+    image: '/assets/overview/features/workflow-dashboard.webp',
+    alt: 'PromoPlus workflow progress dashboard',
   },
   {
     number: '08',
-    group: 'Deliver',
-    title: 'Production-Ready File Generation',
-    text: 'Turn approved mockups and artwork details into a proof your production team can trust.',
+    heroTitle: 'Production Files',
+    heroText: 'Send the approved handoff',
+    cardTitle: 'Produce Files',
+    text: 'Turn the approved mockup and final artwork into a clean production-ready handoff with confirmed details.',
     href: '/features/production-ready-file-generation',
-    tone: 'green',
+    image: '/assets/overview/features/production-files.webp',
+    alt: 'Production-ready promotional product proof',
   },
-];
-
-const flowSteps = [
-  ['Choose', 'Start with the product, product sides, and artwork source.'],
-  ['Create', 'Build a mockup that shows the finished item clearly.'],
-  ['Approve', 'Collect feedback and approval in one focused client review.'],
-  ['Produce', 'Send the approved proof and artwork details into production.'],
 ];
 ---
 
 <BaseLayout
   title="Features | PromoPlus"
-  description="Explore PromoPlus features for promotional product mockups, approvals, project organization, workflow visibility, and production-ready files."
-  bodyClass="hub-page feature-hub-page"
+  description="Explore PromoPlus features for product selection, mockups, artwork revisions, client approvals, collaboration, workflow tracking, and production-ready files."
+  bodyClass="overview-page feature-overview-page"
 >
   <Header active="features" />
   <main id="main-content">
-    <section class="hub-hero" aria-labelledby="features-title">
-      <div class="hub-hero-copy">
-        <p class="hub-kicker">PromoPlus Features</p>
-        <h1 id="features-title">One workflow from mockup <span>to production.</span></h1>
-        <p>Create product mockups, collect clear approval, keep every version organized, and generate production-ready files from one connected workspace.</p>
-        <div class="hub-actions">
-          <a class="hub-primary" href="https://app.promoplus.io/signup">Start 30-Day Free Trial <span aria-hidden="true">-&gt;</span></a>
-          <a class="hub-secondary" href="#feature-list">Explore Features <span aria-hidden="true">-&gt;</span></a>
+    <section class="overview-hero feature-home">
+      <div class="overview-hero-copy">
+        <p class="overview-kicker">PromoPlus Features</p>
+        <h1>Features that keep<strong>every handoff connected.</strong></h1>
+        <p>Choose products, build mockups, collect a clear client decision, and send the approved files to production without losing context between tools.</p>
+        <div class="overview-actions">
+          <a class="overview-primary" href="#all-features">Explore All Features <span aria-hidden="true">-&gt;</span></a>
+          <a class="overview-secondary" href="/pricing#custom-plan-form">Book a Demo <span aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
-      <div class="hub-hero-visual">
-        <div class="hub-hero-frame is-contain">
-          <img src="/assets/promoplus/workflow-overview.png" alt="PromoPlus workflow overview from product setup through client approval and production-ready files" />
-          <div class="hub-hero-label"><small>CONNECTED WORKFLOW</small><strong>Mockup -&gt; approval -&gt; production proof</strong></div>
+      <div class="overview-hero-visual feature-list-visual" aria-label="PromoPlus feature list">
+        <div class="feature-hero-list">
+          <div class="feature-hero-list-head"><span>PromoPlus feature set</span><b>Connected</b></div>
+          <ol>
+            {features.map((feature) => (
+              <li>
+                <a href={feature.href}>
+                  <span>{feature.number}</span>
+                  <div>
+                    <strong>{feature.heroTitle}</strong>
+                    <small>{feature.heroText}</small>
+                  </div>
+                  <b>{feature.number}</b>
+                </a>
+              </li>
+            ))}
+          </ol>
         </div>
-        <span class="hub-proof-chip">8 connected features</span>
       </div>
     </section>
 
-    <section class="hub-section is-white" id="feature-list">
-      <div class="hub-shell">
-        <header class="hub-section-header">
-          <p class="hub-kicker">Feature Library</p>
-          <h2>Every feature supports the same production workflow.</h2>
-          <p>Use the full system, or open the feature that matches the bottleneck you are trying to fix first.</p>
+    <section class="overview-section all-features" id="all-features">
+      <div class="overview-shell">
+        <header class="feature-grid-heading">
+          <p class="overview-kicker">Explore the platform</p>
+          <h2>Features</h2>
+          <p>Eight connected tools carry each project from product selection to a production-ready handoff.</p>
         </header>
-        <div class="hub-card-grid">
+        <div class="feature-cards feature-grid">
           {features.map((feature) => (
-            <a class="hub-card" href={feature.href}>
-              <div class:list={['hub-card-color', `is-${feature.tone}`]} aria-hidden="true">
+            <a class="feature-overview-card" href={feature.href}>
+              <img src={feature.image} alt={feature.alt} loading="lazy" />
+              <div class="feature-card-copy">
                 <span>{feature.number}</span>
-                <strong>{feature.group}</strong>
-              </div>
-              <div class="hub-card-body">
-                <div class="hub-card-top"><span>{feature.group}</span><span>{feature.number}</span></div>
-                <h3>{feature.title}</h3>
+                <div><h3>{feature.cardTitle}</h3></div>
+                <b aria-hidden="true">-&gt;</b>
                 <p>{feature.text}</p>
-                <span class="hub-card-cta">Explore feature -&gt;</span>
               </div>
             </a>
           ))}
@@ -131,37 +149,20 @@ const flowSteps = [
       </div>
     </section>
 
-    <section class="hub-section is-dark">
-      <div class="hub-shell">
-        <header class="hub-section-header">
-          <p class="hub-kicker">How the pieces fit</p>
-          <h2>A clean path from first product choice to final handoff.</h2>
-          <p>PromoPlus keeps the creative decision, approval record, and production details connected as the order moves.</p>
-        </header>
-        <div class="hub-flow">
-          {flowSteps.map(([title, text], index) => (
-            <article class="hub-flow-step">
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
+    <section class="overview-contact-banner" aria-labelledby="feature-contact-title">
+      <div class="overview-shell">
+        <div class="overview-contact-copy">
+          <p class="overview-kicker">See it in your workflow</p>
+          <h2 id="feature-contact-title">Ready to make approvals easier?</h2>
+          <p>Walk through all eight connected features with a PromoPlus product specialist.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="hub-final">
-      <div class="hub-final-panel">
-        <div>
-          <h2>Ready to connect your approval workflow?</h2>
-          <p>Give your team one place to create mockups, manage revisions, collect approvals, and prepare production files.</p>
-          <div class="hub-actions">
-            <a class="hub-primary" href="https://app.promoplus.io/signup">Start 30-Day Free Trial <span aria-hidden="true">-&gt;</span></a>
-            <a class="hub-secondary" href="/pricing#custom-plan-form">Book a Demo <span aria-hidden="true">-&gt;</span></a>
-          </div>
+        <div class="overview-contact-actions">
+          <a class="overview-contact-primary" href="/pricing#custom-plan-form">Book a Demo <span aria-hidden="true">-&gt;</span></a>
+          <a class="overview-contact-secondary" href="/pricing">View Pricing <span aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
     </section>
   </main>
   <Footer top="#main-content" />
 </BaseLayout>
+
