@@ -3,7 +3,7 @@ const { active = false } = Astro.props;
 ---
 <section class:list={["feature-workflow-panel"].concat(active ? ['is-active'] : [])} data-feature-panel="CreateMockup" hidden={!active}>
 <section class="feature-hero feature-shell" aria-labelledby="feature-title">
-    <div class="feature-hero-copy"><h1 class="feature-kicker" id="feature-title">Online Mockup Designer</h1><h2 class="hero-title display-title">Create customer-ready mockups. <span>Directly in your browser.</span></h2><p class="feature-lede">Create professional product mockups directly in the browser without relying on Adobe Illustrator for every proof.</p><div class="feature-actions"><a class="button button-dark" href="#designer-workflow">See how it works <span>↓</span></a><a class="button button-light" href="/pricing#custom-plan-form">Book a demo <span>↗</span></a></div></div>
+    <div class="feature-hero-copy"><h1 class="feature-kicker" id="feature-title">Online Mockup Designer</h1><h2 class="hero-title display-title">Create customer-ready mockups. <span>Directly in your browser.</span></h2><p class="feature-lede">Create professional product mockups directly in the browser without relying on Adobe Illustrator for every proof.</p><div class="feature-actions"><a class="button button-dark" href="/contact">Talk to Sales <span>↗</span></a></div></div>
     <div class="designer-scene" data-tilt-scene aria-label="Interactive PromoPlus mockup designer illustration">
       <span class="designer-orbit orbit-a"></span><span class="designer-orbit orbit-b"></span>
       <article class="artwork-upload-card"><small>Artwork file</small><strong>logo-final.svg</strong><span>Vector · ready to place</span><i>Uploaded</i></article>
@@ -19,5 +19,5 @@ const { active = false } = Astro.props;
       <a href="/features/customer-approval-portal"><small>Send it through</small><h3>Customer Approval Portal</h3><p>Share the finished mockup for focused feedback and a recorded decision.</p><span>Explore approval ↗</span></a>
     </div></section>
   <section class="feature-cta feature-shell" id="feature-contact">
-    <div class="pp-cta-copy"><p class="feature-kicker">See it with your products</p><h2>Ready to create proofs without the long design handoff?</h2></div><a class="press-button" href="/pricing#custom-plan-form">Book a Demo <i>↗</i></a></section>
+    <div class="pp-cta-copy"><p class="feature-kicker">See it with your products</p><h2>Ready to create proofs without the long design handoff?</h2></div><a class="press-button" href="/contact">Talk to Sales <i>↗</i></a></section>
 </section>

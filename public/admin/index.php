@@ -48,34 +48,65 @@ $rows = [];
 $stats = ['total' => 0, 'new_count' => 0, 'latest' => null];
 $adminError = '';
 $query = trim((string)($_GET['q'] ?? ''));
+$activeTab = (string)($_GET['tab'] ?? '') === 'contact' ? 'contact' : 'custom';
+$isContactTab = $activeTab === 'contact';
+$pageTitle = $isContactTab ? 'Contact Messages' : 'Custom Plan Requests';
+$formHref = $isContactTab ? '/contact' : '/pricing#custom-plan-form';
 
 if ($isAuthed) {
     try {
         $pdo = pp_pdo();
         pp_ensure_custom_plan_table($pdo);
+        pp_ensure_contact_request_table($pdo);
 
-        $stats = $pdo->query("
-            SELECT
-                COUNT(*) AS total,
-                COALESCE(SUM(status = 'new'), 0) AS new_count,
-                MAX(created_at) AS latest
-            FROM custom_plan_requests
-        ")->fetch() ?: $stats;
+        if ($isContactTab) {
+            $stats = $pdo->query("
+                SELECT
+                    COUNT(*) AS total,
+                    COALESCE(SUM(status = 'new'), 0) AS new_count,
+                    MAX(created_at) AS latest
+                FROM contact_requests
+            ")->fetch() ?: $stats;
 
-        $where = '';
-        $params = [];
-        if ($query !== '') {
-            $where = "WHERE name LIKE :query OR email LIKE :query OR company LIKE :query OR needs LIKE :query";
-            $params[':query'] = '%' . $query . '%';
+            $where = '';
+            $params = [];
+            if ($query !== '') {
+                $where = "WHERE name LIKE :query OR email LIKE :query OR company LIKE :query OR message LIKE :query";
+                $params[':query'] = '%' . $query . '%';
+            }
+
+            $statement = $pdo->prepare("
+                SELECT id, inquiry_type, name, email, company, phone, message, status, ip_address, user_agent, created_at
+                FROM contact_requests
+                {$where}
+                ORDER BY created_at DESC, id DESC
+                LIMIT 200
+            ");
+        } else {
+            $stats = $pdo->query("
+                SELECT
+                    COUNT(*) AS total,
+                    COALESCE(SUM(status = 'new'), 0) AS new_count,
+                    MAX(created_at) AS latest
+                FROM custom_plan_requests
+            ")->fetch() ?: $stats;
+
+            $where = '';
+            $params = [];
+            if ($query !== '') {
+                $where = "WHERE name LIKE :query OR email LIKE :query OR company LIKE :query OR needs LIKE :query";
+                $params[':query'] = '%' . $query . '%';
+            }
+
+            $statement = $pdo->prepare("
+                SELECT id, source_plan, name, email, company, phone, needs, status, ip_address, user_agent, created_at
+                FROM custom_plan_requests
+                {$where}
+                ORDER BY created_at DESC, id DESC
+                LIMIT 200
+            ");
         }
 
-        $statement = $pdo->prepare("
-            SELECT id, source_plan, name, email, company, phone, needs, status, ip_address, user_agent, created_at
-            FROM custom_plan_requests
-            {$where}
-            ORDER BY created_at DESC, id DESC
-            LIMIT 200
-        ");
         $statement->execute($params);
         $rows = $statement->fetchAll();
     } catch (Throwable $error) {
@@ -118,7 +149,7 @@ function admin_console_config_debug(): array
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,nofollow">
-    <title>Custom Plan Requests | PromoPlus</title>
+    <title><?php echo pp_h($pageTitle); ?> | PromoPlus</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <style>
         @font-face{font-family:"Plus Jakarta Sans";src:url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
@@ -145,6 +176,9 @@ function admin_console_config_debug(): array
         .metric small{display:block;color:var(--muted);font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.08em}
         .metric strong{display:block;margin-top:8px;font-size:34px;letter-spacing:-.05em}
         .toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:22px 0 14px}
+        .admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+        .admin-tab{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);padding:10px 14px;color:var(--muted);font-size:12px;font-weight:800}
+        .admin-tab.is-active{background:var(--ink);border-color:var(--ink);color:#fff}
         .search{display:flex;gap:8px;flex:1;max-width:520px}
         .search input{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:13px 14px;color:var(--ink);outline:none}
         .search input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(118,91,214,.16)}
@@ -183,11 +217,11 @@ function admin_console_config_debug(): array
         <section class="login-card <?php echo !$isConfigured ? 'setup' : ''; ?>">
             <a class="brand" href="/"><span>+</span>PromoPlus</a>
             <p class="eyebrow">Admin</p>
-            <h1>Custom plan requests</h1>
+            <h1>Sales and contact requests</h1>
             <?php if (!$isConfigured): ?>
                 <p>Set <strong>PP_ADMIN_USER</strong> and <strong>PP_ADMIN_PASS</strong> in the Hostinger environment before this page can be used.</p>
             <?php else: ?>
-                <p>Sign in to view saved Custom Plan submissions.</p>
+                <p>Sign in to view saved Custom Plan and Contact submissions.</p>
                 <form method="post" action="/admin/">
                     <div class="field">
                         <label for="username">Name</label>
@@ -208,16 +242,21 @@ function admin_console_config_debug(): array
         <header class="admin-top">
             <a class="brand" href="/"><span>+</span>PromoPlus</a>
             <nav class="top-actions" aria-label="Admin actions">
-                <a class="ghost-link" href="/pricing#custom-plan-form">View Form</a>
+                <a class="ghost-link" href="<?php echo pp_h($formHref); ?>">View Form</a>
                 <a class="logout-link" href="/admin/?logout=1">Log Out</a>
             </nav>
         </header>
 
+        <nav class="admin-tabs" aria-label="Submission type">
+            <a class="admin-tab <?php echo !$isContactTab ? 'is-active' : ''; ?>" href="/admin/<?php echo $query !== '' ? '?q=' . urlencode($query) : ''; ?>">Custom Plan Requests</a>
+            <a class="admin-tab <?php echo $isContactTab ? 'is-active' : ''; ?>" href="/admin/?tab=contact<?php echo $query !== '' ? '&q=' . urlencode($query) : ''; ?>">Contact Messages</a>
+        </nav>
+
         <section class="hero">
             <div class="hero-main">
-                <p class="eyebrow">Custom Plan Admin</p>
-                <h1>Sales requests, captured cleanly.</h1>
-                <p>Review every Custom Plan submission from the pricing form. The latest 200 requests are shown, newest first.</p>
+                <p class="eyebrow"><?php echo $isContactTab ? 'Contact Admin' : 'Custom Plan Admin'; ?></p>
+                <h1><?php echo $isContactTab ? 'Contact messages, captured cleanly.' : 'Sales requests, captured cleanly.'; ?></h1>
+                <p><?php echo $isContactTab ? 'Review every message from the Contact page. The latest 200 messages are shown, newest first.' : 'Review every Custom Plan submission from the pricing form. The latest 200 requests are shown, newest first.'; ?></p>
             </div>
             <div class="metrics">
                 <article class="metric"><small>Total requests</small><strong><?php echo pp_h((string)($stats['total'] ?? 0)); ?></strong></article>
@@ -230,9 +269,10 @@ function admin_console_config_debug(): array
 
         <section class="toolbar" aria-label="Submission tools">
             <form class="search" method="get" action="/admin/">
-                <input name="q" value="<?php echo pp_h($query); ?>" placeholder="Search name, email, company, or needs">
+                <?php if ($isContactTab): ?><input type="hidden" name="tab" value="contact"><?php endif; ?>
+                <input name="q" value="<?php echo pp_h($query); ?>" placeholder="<?php echo $isContactTab ? 'Search name, email, company, or message' : 'Search name, email, company, or needs'; ?>">
                 <button type="submit">Search</button>
-                <?php if ($query !== ''): ?><a href="/admin/">Clear</a><?php endif; ?>
+                <?php if ($query !== ''): ?><a href="<?php echo $isContactTab ? '/admin/?tab=contact' : '/admin/'; ?>">Clear</a><?php endif; ?>
             </form>
         </section>
 
@@ -241,10 +281,10 @@ function admin_console_config_debug(): array
                 <table>
                     <thead>
                         <tr>
-                            <th scope="col">Request</th>
+                            <th scope="col"><?php echo $isContactTab ? 'Message' : 'Request'; ?></th>
                             <th scope="col">Contact</th>
                             <th scope="col">Company</th>
-                            <th scope="col">Needs</th>
+                            <th scope="col"><?php echo $isContactTab ? 'Message' : 'Needs'; ?></th>
                             <th scope="col">Submitted</th>
                             <th scope="col">Status</th>
                         </tr>
@@ -252,14 +292,14 @@ function admin_console_config_debug(): array
                     <tbody>
                     <?php foreach ($rows as $row): ?>
                         <tr>
-                            <td>#<?php echo pp_h((string)$row['id']); ?><br><span class="muted"><?php echo pp_h($row['source_plan']); ?></span></td>
+                            <td>#<?php echo pp_h((string)$row['id']); ?><br><span class="muted"><?php echo pp_h($isContactTab ? $row['inquiry_type'] : $row['source_plan']); ?></span></td>
                             <td class="person">
                                 <strong><?php echo pp_h($row['name']); ?></strong>
                                 <a href="mailto:<?php echo pp_h($row['email']); ?>"><?php echo pp_h($row['email']); ?></a>
                                 <?php if (!empty($row['phone'])): ?><br><span class="muted"><?php echo pp_h($row['phone']); ?></span><?php endif; ?>
                             </td>
-                            <td><?php echo pp_h($row['company']); ?><br><span class="muted"><?php echo pp_h($row['ip_address']); ?></span></td>
-                            <td class="needs"><?php echo pp_h($row['needs'] ?: 'Not provided'); ?></td>
+                            <td><?php echo pp_h($row['company'] ?: 'Not provided'); ?><br><span class="muted"><?php echo pp_h($row['ip_address']); ?></span></td>
+                            <td class="needs"><?php echo pp_h($isContactTab ? $row['message'] : ($row['needs'] ?: 'Not provided')); ?></td>
                             <td><?php echo pp_h(admin_date($row['created_at'])); ?></td>
                             <td><span class="badge"><?php echo pp_h($row['status']); ?></span></td>
                         </tr>
@@ -267,7 +307,7 @@ function admin_console_config_debug(): array
                     </tbody>
                 </table>
                 <?php if ($rows === [] && $adminError === ''): ?>
-                    <div class="empty">No custom plan submissions found<?php echo $query !== '' ? ' for this search' : ''; ?>.</div>
+                    <div class="empty">No <?php echo $isContactTab ? 'contact messages' : 'custom plan submissions'; ?> found<?php echo $query !== '' ? ' for this search' : ''; ?>.</div>
                 <?php endif; ?>
             </div>
         </section>
