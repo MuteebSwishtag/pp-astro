@@ -184,6 +184,36 @@
             "item": "https://promoplus.io/features/"
           }
         ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+          }
+        ]
       }
     ]
   },
@@ -231,6 +261,58 @@
             "position": 3,
             "name": "Product Catalog Integration",
             "item": "https://promoplus.io/features/product-catalog-integration"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/product-catalog-integration#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need to download product images?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Product images and details come from the catalog, so you only upload your customer's artwork."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the selected product carry into the rest of the workflow?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It moves straight into the Online Mockup Designer and stays attached to the project through approval and production."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
           }
         ]
       }
@@ -282,6 +364,66 @@
             "item": "https://promoplus.io/features/online-mockup-designer"
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/online-mockup-designer#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need Adobe Illustrator to make a mockup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. You upload the logo, position and resize it on the product, and generate the proof in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I preview every side of a product?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can place and preview artwork on each available side, such as front, back and sleeve."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I send the mockup straight to the customer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The finished proof moves into the Customer Approval Portal for review and sign-off."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+          }
+        ]
       }
     ]
   },
@@ -329,6 +471,74 @@
             "position": 3,
             "name": "Artwork Version Control",
             "item": "https://promoplus.io/features/artwork-version-control"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/artwork-version-control#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are artwork revisions saved automatically?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every change is saved and stays attached to the same product and project."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I compare versions or restore an earlier one?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can compare revisions side by side and restore previous artwork."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know which version the customer approved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The approved version is clearly marked and recorded in the project history, so there is no guessing between files like design_final_2.pdf."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does version history carry through to production?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The approved version is the one used to generate the production file."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
           }
         ]
       }
@@ -380,6 +590,74 @@
             "item": "https://promoplus.io/features/customer-approval-portal"
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/customer-approval-portal#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does a customer approve a mockup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You share a secure link. The customer reviews the mockup, leaves comments or requests a revision, and approves the design."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are comments tied to the exact mockup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Feedback pins and decisions stay attached to the specific version being reviewed, not a separate email thread."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is every approval recorded?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The decision is stored with the version, date and time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after approval?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PromoPlus can generate the production-ready PDF from the approved version."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+          }
+        ]
       }
     ]
   },
@@ -427,6 +705,66 @@
             "position": 3,
             "name": "Centralized Project Workspace",
             "item": "https://promoplus.io/features/centralized-project-workspace"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/centralized-project-workspace#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is stored in a project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Products, artwork, customer information, approvals, notes, production files and the full project history."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I see what happened on a project and when?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The project history lists each step in order, such as product added, artwork uploaded, version reviewed, customer approved and production file generated."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the product from the catalog stay attached to the project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Supplier details, imagery, sides and color choices stay with the project for everyone working on it."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
           }
         ]
       }
@@ -478,6 +816,66 @@
             "item": "https://promoplus.io/features/team-collaboration"
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/team-collaboration#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which roles can work in the same project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sales representatives, brand advisors, designers, operations teams and business owners."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do all roles see the same information?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Everyone works from the same project record, and each role can focus on the part its next decision depends on."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does this reduce rework?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Comments and decisions sit beside the work they refer to, so teams stop rebuilding context across email and separate tools."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+          }
+        ]
       }
     ]
   },
@@ -527,6 +925,66 @@
             "item": "https://promoplus.io/features/workflow-progress-dashboard"
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/workflow-progress-dashboard#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What stages can I see on the dashboard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pending artwork, awaiting approval, revision requests and production ready, with a count for each."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I filter projects by stage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can filter the workflow by stage and focus on the projects that need a decision now."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I spot blocked work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Projects show their current status and reason, such as source file missing or client link opened, so a blocker is visible before it becomes a delay."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+          }
+        ]
       }
     ]
   },
@@ -574,6 +1032,74 @@
             "position": 3,
             "name": "Production-Ready File Generation",
             "item": "https://promoplus.io/features/production-ready-file-generation"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/features/production-ready-file-generation#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When is the production file generated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Automatically, once the customer approves the final version."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is the file for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Decorators and production teams, so they receive the approved artwork and placement guidance in one file."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it include only the approved artwork?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Only the approved version is included, so earlier revisions never reach production."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What artwork specs does it include, such as vector files, colors or decoration method?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Page one lists the item, decoration, imprint size and colors, and page two is a vector artwork inspection sheet."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
           }
         ]
       }
@@ -928,6 +1454,52 @@
             "position": 2,
             "name": "Pricing",
             "item": "https://promoplus.io/pricing"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/pricing#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What counts as a production file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A production file is generated from an approved product mockup and includes the handoff information production needs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if I go over my monthly production files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Starter charges $3 per additional file and Pro charges $1 per additional file."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Starter plan includes a 30-day free trial."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are mockups and approvals limited?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Starter and Pro both include unlimited mockups and online approvals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get API access or integrations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "API and integrations are available on the Custom plan. Talk to Sales."
+            }
           }
         ]
       }

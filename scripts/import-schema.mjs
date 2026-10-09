@@ -10,8 +10,6 @@ const pages = {};
 for (const [, url, rawJson] of blocks) {
   if (url.includes('/insights/') && url !== 'https://promoplus.io/insights/') continue;
   const graph = JSON.parse(rawJson);
-  // FAQ markup is added separately only where matching questions are visible.
-  graph['@graph'] = graph['@graph'].filter((node) => node['@type'] !== 'FAQPage');
   pages[url.replace('https://promoplus.io', '').replace(/\/$/, '') || '/'] = graph;
 }
 
@@ -19,6 +17,22 @@ for (const [, url, rawJson] of blocks) {
 const homepage = pages['/']['@graph'].find((node) => node['@type'] === 'WebPage');
 homepage.name = 'Artwork Approval Software for Promotional Products | PromoPlus';
 homepage.description = 'Create promotional product mockups, get client artwork approvals, and send production-ready proofs in one place. Start your 30-day free trial.';
+
+// Feature URLs are validated independently, so include the same application
+// definition on each feature page as well as its reference from WebPage.about.
+const software = pages['/']['@graph'].find((node) => node['@type'] === 'SoftwareApplication');
+for (const [path, graph] of Object.entries(pages)) {
+  if (!path.startsWith('/features')) continue;
+  if (!graph['@graph'].some((node) => node['@type'] === 'SoftwareApplication')) {
+    graph['@graph'].push(structuredClone(software));
+  }
+  if (path !== '/features' && !graph['@graph'].some((node) => node['@type'] === 'FAQPage')) {
+    throw new Error(`Missing FAQPage for ${path}`);
+  }
+}
+if (!pages['/pricing']['@graph'].some((node) => node['@type'] === 'FAQPage')) {
+  throw new Error('Missing FAQPage for /pricing');
+}
 
 writeFileSync('src/data/pageSchema.json', `${JSON.stringify(pages, null, 2)}\n`);
 console.log(`Imported ${Object.keys(pages).length} page graphs into src/data/pageSchema.json`);

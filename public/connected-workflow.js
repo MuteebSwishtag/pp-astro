@@ -4,6 +4,7 @@ function initConnectedFeatureWorkflow() {
 
   const tabs = [...workflow.querySelectorAll('[data-feature-tab]')];
   const panels = [...workflow.querySelectorAll('[data-feature-panel]')];
+  const faqs = [...workflow.querySelectorAll('[data-feature-faq]')];
   const arrows = [...workflow.querySelectorAll('[data-feature-direction]')];
   const bodyClasses = tabs.map((tab) => tab.dataset.featureBodyClass).filter(Boolean);
   const normalizePath = (path) => {
@@ -33,6 +34,10 @@ function initConnectedFeatureWorkflow() {
       const active = panel.dataset.featurePanel === tab.dataset.featureTab;
       panel.hidden = !active;
       panel.classList.toggle('is-active', active);
+    });
+
+    faqs.forEach((faq) => {
+      faq.hidden = faq.dataset.featureFaq !== tab.dataset.featureTab;
     });
 
     if (bodyClasses.length) {

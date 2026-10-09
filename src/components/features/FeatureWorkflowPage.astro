@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../Header.astro';
 import Footer from '../Footer.astro';
+import SchemaFaq from '../SchemaFaq.astro';
 import ChooseProduct from './panels/ProductCatalogIntegration.astro';
 import CreateMockup from './panels/OnlineMockupDesigner.astro';
 import ReviseArtwork from './panels/ArtworkVersionControl.astro';
@@ -93,8 +94,10 @@ const featureDefinitions = [
 const features = featureDefinitions.map((feature) => {
   const schema = (pageSchema as Record<string, { '@graph': Array<Record<string, any>> }>)[feature.route];
   const page = schema?.['@graph'].find((node) => node['@type'] === 'WebPage');
+  const faq = schema?.['@graph'].find((node) => node['@type'] === 'FAQPage');
   return {
     ...feature,
+    faq,
     pageTitle: page?.name || feature.pageTitle,
     description: page?.description || feature.description,
     canonical: page?.url || '',
@@ -143,6 +146,19 @@ const activeFeature = features[activeIndex] ?? features[0];
       <Collaborate active={activeFeature.step === 'Collaborate'} />
       <MonitorProgress active={activeFeature.step === 'MonitorProgress'} />
       <ProduceFiles active={activeFeature.step === 'ProduceFiles'} />
+    </div>
+
+    <div class="feature-workflow-faqs">
+      {features.map((feature, index) => (
+        <SchemaFaq
+          faq={feature.faq}
+          title={`Questions about ${feature.title}`}
+          description={`Answers about ${feature.title.toLowerCase()} and how it fits into the PromoPlus workflow.`}
+          sectionId={`faq-${feature.step}`}
+          featureStep={feature.step}
+          hidden={index !== activeIndex}
+        />
+      ))}
     </div>
 
     <div class="feature-step-arrows" aria-label="Feature navigation">
