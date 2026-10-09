@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../Header.astro';
 import Footer from '../Footer.astro';
-import SchemaFaq from '../SchemaFaq.astro';
+import FAQ from '../FAQ.astro';
 import ChooseProduct from './panels/ProductCatalogIntegration.astro';
 import CreateMockup from './panels/OnlineMockupDesigner.astro';
 import ReviseArtwork from './panels/ArtworkVersionControl.astro';
@@ -150,8 +150,8 @@ const activeFeature = features[activeIndex] ?? features[0];
 
     <div class="feature-workflow-faqs">
       {features.map((feature, index) => (
-        <SchemaFaq
-          faq={feature.faq}
+        <FAQ
+          items={feature.faq.mainEntity.map((entry: { name: string; acceptedAnswer: { text: string } }) => [entry.name, entry.acceptedAnswer.text] as const)}
           title={`Questions about ${feature.title}`}
           description={`Answers about ${feature.title.toLowerCase()} and how it fits into the PromoPlus workflow.`}
           sectionId={`faq-${feature.step}`}

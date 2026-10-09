@@ -212,3 +212,7 @@
     transition: none;
   }
 }
+
+.feature-workflow-faqs .faq-section[hidden] {
+  display: none !important;
+}

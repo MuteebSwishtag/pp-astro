@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PricingPlans from '../components/PricingPlans.astro';
-import SchemaFaq from '../components/SchemaFaq.astro';
+import FAQ from '../components/FAQ.astro';
 import pageSchema from '../data/pageSchema.json';
 import '../styles/legacy/homepage.css';
 import '../styles/legacy/navigation.css';
@@ -16,7 +16,7 @@ const pricingFaq = pageSchema['/pricing']['@graph'].find((node) => node['@type']
   <Header active="pricing" />
   <main id="top">
     <PricingPlans />
-    <SchemaFaq faq={pricingFaq} title="Questions about PromoPlus pricing" description="Answers about production files, free trials, plan limits, and integrations." />
+    <FAQ items={pricingFaq.mainEntity.map((entry) => [entry.name, entry.acceptedAnswer.text] as const)} title="Questions about PromoPlus pricing" description="Answers about production files, free trials, plan limits, and integrations." />
   </main>
   <Footer />
   <script is:inline src="/custom-plan.js"></script>

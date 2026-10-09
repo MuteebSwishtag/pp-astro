@@ -11,19 +11,26 @@ const {
   title = 'Questions, answered before production starts.',
   description = 'Quick answers about product setup, artwork, approvals, and the final handoff.',
   items = defaultItems,
+  sectionId = 'faq',
+  featureStep,
+  hidden = false,
 } = Astro.props as {
   eyebrow?: string;
   title?: string;
   description?: string;
   items?: readonly (readonly [string, string])[];
+  sectionId?: string;
+  featureStep?: string;
+  hidden?: boolean;
 };
 const number = (index: number) => String(index + 1).padStart(2, '0');
 const cursorKinds = ['dashboard', 'dashboard', 'approval', 'version', 'dashboard'];
+const titleId = `${sectionId}-title`;
 ---
-<section class="faq-section section-shell" id="faq" aria-labelledby="faq-title">
+<section class="faq-section section-shell" id={sectionId} aria-labelledby={titleId} data-schema-faq data-feature-faq={featureStep} hidden={hidden}>
   <div class="faq-intro">
     <p class="eyebrow">{eyebrow}</p>
-    <h2 class="section-title" id="faq-title">{title}</h2>
+    <h2 class="section-title" id={titleId}>{title}</h2>
     <p>{description}</p>
   </div>
   <div class="faq-list">

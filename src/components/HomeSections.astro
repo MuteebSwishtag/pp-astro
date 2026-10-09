@@ -1,5 +1,6 @@
 ---
 import { homeFaqs } from '../data/homeFaqs';
+import FAQ from './FAQ.astro';
 ---
 <section class="pp-hero" aria-labelledby="hero-title" id="pp-hero">
   <div class="pp-hero-layout">
@@ -265,21 +266,12 @@ import { homeFaqs } from '../data/homeFaqs';
 
       
 
-      <section class="faq-section section-shell" id="faq" aria-labelledby="faq-title">
-        <div class="faq-intro">
-          <p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
-          <h2 class="section-title" id="faq-title">Questions, answered before production starts.</h2>
-          <p>Quick answers about mockups, artwork approval, and the production-ready proof.</p>
-        </div>
-        <div class="faq-list">
-          {homeFaqs.map(([question, answer], index) => (
-            <details open={index === 0}>
-              <summary data-cursor-kind={['dashboard', 'dashboard', 'approval', 'version', 'dashboard'][index]} data-cursor-label="OPEN"><span>{String(index + 1).padStart(2, '0')}</span><strong>{question}</strong></summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      <FAQ
+        eyebrow="FREQUENTLY ASKED QUESTIONS"
+        title="Questions, answered before production starts."
+        description="Quick answers about mockups, artwork approval, and the production-ready proof."
+        items={homeFaqs}
+      />
 
       <section class="cta-section section-shell" id="contact" aria-labelledby="cta-title">
         <div class="cta-panel">
