@@ -30,6 +30,20 @@ for (const [path, graph] of Object.entries(pages)) {
     throw new Error(`Missing FAQPage for ${path}`);
   }
 }
+
+// The source document predates the third article shown on the Insights hub.
+// Include its visible card in the hub's structured ItemList as well.
+const insightsList = pages['/insights']['@graph'].find((node) => node['@type'] === 'ItemList');
+const artworkProofArticle = {
+  '@type': 'ListItem',
+  position: 3,
+  name: 'What Is an Artwork Proof in Promotional Products?',
+  url: 'https://promoplus.io/insights/what-is-an-artwork-proof-in-promotional-products/',
+};
+if (!insightsList.itemListElement.some((item) => item.url === artworkProofArticle.url)) {
+  insightsList.itemListElement.push(artworkProofArticle);
+}
+
 if (!pages['/pricing']['@graph'].some((node) => node['@type'] === 'FAQPage')) {
   throw new Error('Missing FAQPage for /pricing');
 }

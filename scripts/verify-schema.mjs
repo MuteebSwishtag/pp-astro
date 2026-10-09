@@ -61,6 +61,23 @@ for (const path of paths) {
   if (!html.includes(`<link rel="canonical" href="${page.url}"`)) {
     throw new Error(`${path}: canonical does not match schema URL ${page.url}`);
   }
+  if (path === '/insights') {
+    const list = nodes.find((node) => node['@type'] === 'ItemList');
+    const cardUrls = [...html.matchAll(/<a class="story-card" href="([^"]+)"/g)]
+      .map((match) => new URL(match[1], 'https://promoplus.io').href);
+    const listedUrls = list?.itemListElement.map((item) => item.url) || [];
+    if (cardUrls.length !== listedUrls.length || cardUrls.some((url, index) => url !== listedUrls[index])) {
+      throw new Error(`${path}: ItemList must match the visible article cards`);
+    }
+  }
+  if (path.startsWith('/insights/')) {
+    const article = nodes.find((node) => node['@type'] === 'BlogPosting');
+    const heading = pageText(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1] || '');
+    if (!article || article.headline !== heading ||
+        article.mainEntityOfPage?.['@id'] !== page['@id'] || !article.datePublished) {
+      throw new Error(`${path}: BlogPosting must match the article and its page`);
+    }
+  }
   const faq = nodes.find((node) => node['@type'] === 'FAQPage');
   const shouldHaveFaq = path === '/' || path === '/pricing' ||
     path.startsWith('/industries/promotional-products-') || path.startsWith('/features/');
