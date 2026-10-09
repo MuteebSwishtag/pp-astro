@@ -1,5 +1,6 @@
 ---
 const { active = false } = Astro.props;
+const HeadingTag = active ? 'h1' : 'p';
 ---
 <section class:list={["feature-workflow-panel","version-page"].concat(active ? ['is-active'] : [])} data-feature-panel="ReviseArtwork" hidden={!active}>
 <section class="version-hero">
@@ -11,7 +12,7 @@ const { active = false } = Astro.props;
       <div class="version-hero-story"><small>Version history</small><b>Every change stays attached to the same product.</b></div>
     </div>
     <div class="version-hero-copy">
-      <h1 class="feature-kicker">Artwork Version Control</h1>
+      <HeadingTag data-feature-heading class="feature-kicker">Artwork version control for promotional product proofs</HeadingTag>
       <h2>Every revision stays <em>clear.</em></h2>
       <p class="feature-lede">Every revision is automatically saved. Track changes, compare versions, restore previous artwork, and always know which version was approved.</p>
       <div class="feature-actions">

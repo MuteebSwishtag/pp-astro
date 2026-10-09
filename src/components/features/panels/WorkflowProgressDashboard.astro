@@ -1,10 +1,11 @@
 ---
 const { active = false } = Astro.props;
+const HeadingTag = active ? 'h1' : 'p';
 ---
 <section class:list={["feature-workflow-panel","dashboard-page"].concat(active ? ['is-active'] : [])} data-feature-panel="MonitorProgress" hidden={!active}>
 <section class="dashboard-hero" aria-labelledby="dashboard-title">
     <div class="dashboard-hero-copy">
-      <h1 class="feature-kicker" id="dashboard-title">Workflow Progress Dashboard</h1>
+      <HeadingTag data-feature-heading class="feature-kicker" id="dashboard-title">Artwork workflow dashboard for promo teams</HeadingTag>
       <h2>See every project. <strong>Move the right work forward.</strong></h2>
       <p class="feature-lede">Track every artwork project from creation to production. Business owners always know where work is moving and where it is blocked.</p>
       <div class="feature-actions"><a class="feature-primary-action" href="/contact">Talk to Sales <span>&nearr;</span></a></div>

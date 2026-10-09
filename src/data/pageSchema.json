@@ -278,6 +278,22 @@
           },
           {
             "@type": "Question",
+            "name": "How can I search supplier products?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Search integrated supplier catalogs by vendor name, SKU or product keyword."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I add a product that isn't in a catalog?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can add a product manually to a PromoPlus project when it is not in a supplier catalog."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Does the selected product carry into the rest of the workflow?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -375,6 +391,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "No. You upload the logo, position and resize it on the product, and generate the proof in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What artwork files can I upload?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PromoPlus currently accepts SVG artwork files for the mockup designer."
             }
           },
           {
@@ -504,6 +528,14 @@
           },
           {
             "@type": "Question",
+            "name": "Is the approved version locked?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The approved version is locked against further edits."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Does version history carry through to production?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -605,6 +637,14 @@
           },
           {
             "@type": "Question",
+            "name": "Does the customer need an account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Anyone with the shared link and access code can view and approve the mockup without a PromoPlus account."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Are comments tied to the exact mockup?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -617,6 +657,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Yes. The decision is stored with the version, date and time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does PromoPlus send email notifications for review activity?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PromoPlus sends email notifications when a customer comments, requests a revision, or approves a mockup."
             }
           },
           {
@@ -735,6 +783,22 @@
               "@type": "Answer",
               "text": "Yes. Supplier details, imagery, sides and color choices stay with the project for everyone working on it."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I stop searching emails and shared folders for project files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That is the purpose. Files, comments and decisions live in one record instead of across inboxes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is customer information stored in the project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The project stores the customer's name and email address."
+            }
           }
         ]
       },
@@ -835,6 +899,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Everyone works from the same project record, and each role can focus on the part its next decision depends on."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can remote production partners work in the project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can add an outside production partner as an advisor to coordinate in the project."
             }
           },
           {
@@ -953,6 +1025,14 @@
               "@type": "Answer",
               "text": "Projects show their current status and reason, such as source file missing or client link opened, so a blocker is visible before it becomes a delay."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Who can see the dashboard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Owners and team members can access the dashboard, but their views differ."
+            }
           }
         ]
       },
@@ -1045,6 +1125,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Automatically, once the customer approves the final version."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is in the production PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Two pages: the approved product proof and an artwork inspection page, with placement details and the decision record."
             }
           },
           {

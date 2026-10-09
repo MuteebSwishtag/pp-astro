@@ -12,10 +12,10 @@ const pricingFaq = pageSchema['/pricing']['@graph'].find((node) => node['@type']
   mainEntity: Array<{ name: string; acceptedAnswer: { text: string } }>;
 };
 ---
-<BaseLayout title="Pricing | PromoPlus" description="Compare PromoPlus Starter, Pro, and Custom plans." bodyClass="pricing-page">
+<BaseLayout title="Pricing: Promo Mockup and Approval Software | PromoPlus" description="Starter at $30/month with a 30-day free trial, Pro at $100/month, or a custom plan. Starter and Pro include unlimited mockups and online approvals." bodyClass="pricing-page">
   <Header active="pricing" />
   <main id="top">
-    <PricingPlans />
+    <PricingPlans eyebrow="Simple pricing for promo mockups and approvals" />
     <FAQ items={pricingFaq.mainEntity.map((entry) => [entry.name, entry.acceptedAnswer.text] as const)} title="Questions about PromoPlus pricing" description="Answers about production files, free trials, plan limits, and integrations." />
   </main>
   <Footer />

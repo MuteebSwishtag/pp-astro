@@ -1,11 +1,12 @@
 ---
 const { active = false } = Astro.props;
+const HeadingTag = active ? 'h1' : 'p';
 ---
 <section class:list={["feature-workflow-panel","production-files-page"].concat(active ? ['is-active'] : [])} data-feature-panel="ProduceFiles" hidden={!active}>
 <section class="production-hero">
     <div class="production-hero-shade" aria-hidden="true"></div>
     <div class="production-hero-copy">
-      <h1 class="feature-kicker">Production-Ready File Generation</h1>
+      <HeadingTag data-feature-heading class="feature-kicker">Production-ready artwork files, generated after approval</HeadingTag>
       <h2>Approval becomes a <strong>confident handoff.</strong></h2>
       <p class="feature-lede">After customer approval, PromoPlus automatically generates production-ready PDF files with the approved artwork and placement details.</p>
       <div class="feature-actions">

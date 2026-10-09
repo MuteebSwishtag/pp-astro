@@ -166,6 +166,7 @@
   }
 
   async function init() {
+    if (document.querySelector('[data-static-article="true"]')) return;
     const slug = getSlugFromPath();
     const [posts, postBySlug] = await Promise.all([fetchPosts(), fetchPostBySlug(slug)]);
     const querySlug = new URLSearchParams(window.location.search).get('slug');

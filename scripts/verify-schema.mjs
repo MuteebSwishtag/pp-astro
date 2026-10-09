@@ -8,6 +8,24 @@ const articleSlugs = [
   'what-is-an-artwork-proof-in-promotional-products',
 ];
 const paths = [...Object.keys(pages), ...articleSlugs.map((slug) => `/insights/${slug}`)];
+const expectedHeadings = {
+  '/features': 'Features that keep every handoff connected.',
+  '/features/product-catalog-integration': 'Search supplier catalogs. Start your mockup in one click.',
+  '/features/online-mockup-designer': 'Online mockup software for promotional products',
+  '/features/artwork-version-control': 'Artwork version control for promotional product proofs',
+  '/features/customer-approval-portal': 'Artwork approval software for promotional products',
+  '/features/centralized-project-workspace': 'One project workspace for every promo order',
+  '/features/team-collaboration': 'Team collaboration for promotional product distributors',
+  '/features/workflow-progress-dashboard': 'Artwork workflow dashboard for promo teams',
+  '/features/production-ready-file-generation': 'Production-ready artwork files, generated after approval',
+  '/industries': 'Distributors, suppliers, and decorators connected by one approval workflow.',
+  '/pricing': 'Simple pricing for promo mockups and approvals',
+  '/contact': 'Talk with the PromoPlus team.',
+  '/insights': 'Promo product proofing and approval insights',
+  '/insights/from-artwork-to-production-a-better-promotional-product-proofing-workflow': 'From Artwork to Production: A Better Promotional Product Proofing Workflow',
+  '/insights/how-promotional-product-mockup-software-speeds-up-client-approvals': 'How Promotional Product Mockup Software Speeds Up Client Approvals',
+  '/insights/what-is-an-artwork-proof-in-promotional-products': 'What Is an Artwork Proof in Promotional Products?',
+};
 let checked = 0;
 
 const decodeHtml = (value) => value
@@ -29,6 +47,17 @@ for (const path of paths) {
     .find((node) => ['WebPage', 'CollectionPage', 'ContactPage'].includes(node['@type']));
   if (!page) throw new Error(`${path}: missing page schema`);
   if (!scripts.length) throw new Error(`${path}: no JSON-LD`);
+  if (expectedHeadings[path]) {
+    const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)];
+    if (headings.length !== 1 || pageText(headings[0][1]) !== expectedHeadings[path]) {
+      throw new Error(`${path}: expected one matching H1: ${expectedHeadings[path]}`);
+    }
+    const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1];
+    const description = html.match(/<meta name="description" content="([^"]*)"/)?.[1];
+    if (decodeHtml(title || '') !== page.name || decodeHtml(description || '') !== page.description) {
+      throw new Error(`${path}: title or meta description differs from page schema`);
+    }
+  }
   if (!html.includes(`<link rel="canonical" href="${page.url}"`)) {
     throw new Error(`${path}: canonical does not match schema URL ${page.url}`);
   }
@@ -58,4 +87,4 @@ for (const path of paths) {
   checked += 1;
 }
 
-console.log(`Verified JSON-LD types, visible FAQ text, and canonical URLs on ${checked} pages.`);
+console.log(`Verified JSON-LD, visible FAQ text, SEO headings, metadata, and canonical URLs on ${checked} pages.`);

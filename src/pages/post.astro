@@ -30,6 +30,37 @@ const excerpt = stripHtml(post?.excerpt || post?.content) || 'PromoPlus blog art
 const image = post?.image || DEFAULT_IMAGE;
 const canonical = post?.slug && `https://promoplus.io/insights/${post.slug}/`;
 const schema = post && articleSchema(post, title, excerpt);
+const articleAdditions: Record<string, string> = {
+  'from-artwork-to-production-a-better-promotional-product-proofing-workflow': `
+    <h2>Check the proof before requesting approval</h2>
+    <p>A useful proof starts with the right product record. Check the selected item, color, and available decoration sides before placing the customer's artwork. PromoPlus keeps the product and artwork in the same project, so the team can review the mockup in the context of the order.</p>
+    <p>Look at each side that needs artwork, such as the front, back, or sleeve. The proof should make the intended placement clear enough for the customer to spot a sizing or positioning problem before approval. If the artwork changes, keep the revision with the project instead of replacing an old attachment in an email thread.</p>
+    <h2>Keep the decision attached to a version</h2>
+    <p>Share the mockup through a customer review link and access code. The customer can comment, request a revision, or approve without creating a PromoPlus account. Feedback stays with the version under review, and the approval record identifies the version the customer accepted.</p>
+    <p>When a revision is requested, review the new version before sending it back. Earlier versions remain in the history, while the approved version is locked against further edits. That makes the final decision easier for sales, design, and production teams to trace.</p>
+    <h2>Prepare the approved production handoff</h2>
+    <p>Once the final version is approved, PromoPlus generates a two-page production PDF. The first page is the approved product proof with item and placement details, including decoration, imprint size, and colors. The second page is an artwork inspection sheet. The production team receives the approved version and the details needed to interpret it together.</p>
+  `,
+  'how-promotional-product-mockup-software-speeds-up-client-approvals': `
+    <h2>Begin with the product already in the project</h2>
+    <p>Search supplier products by vendor, SKU, or keyword, then carry the selected item into the mockup designer. Product images and details come from the catalog, which reduces the setup needed before artwork placement. If a product is not in a supplier catalog, a user can add it manually to the project.</p>
+    <p>Upload SVG artwork and place it on the available product sides. Reviewing the front, back, or sleeve in the browser helps the team prepare a customer-ready visual without rebuilding a separate image for every discussion.</p>
+    <h2>Make every review request specific</h2>
+    <p>Send the customer a link and access code for the current mockup. The customer can view the design, comment, request a revision, or approve without signing in. Comments stay attached to the version being reviewed, so a request to change size or placement does not get separated from the relevant proof.</p>
+    <p>Each change is saved as a new artwork version. Teams can compare revisions and restore earlier artwork when needed, while the approval record shows exactly which version received the customer's decision. That reduces the time spent resolving conflicting files and forwarded emails.</p>
+    <h2>Carry approval into production</h2>
+    <p>The approved version is locked against further edits and becomes the basis for the production-ready PDF. That file brings together the approved product proof and artwork inspection sheet, including placement details. The same project record connects the mockup, feedback, approval, and final handoff.</p>
+  `,
+  'what-is-an-artwork-proof-in-promotional-products': `
+    <h2>What should the customer check?</h2>
+    <p>The customer should review the selected product, the artwork on each available side, and the intended size and placement. A clear proof lets the customer request a change while the design is still being reviewed rather than after production has started.</p>
+    <p>PromoPlus keeps comments and revision requests with the mockup version they refer to. If artwork changes, the project history keeps the earlier versions available and makes the current version clear to everyone involved.</p>
+    <h2>What happens after the proof is approved?</h2>
+    <p>The approval record identifies the accepted version and the decision date and time. Once approved, that version is locked against further edits. PromoPlus then generates a two-page production PDF: an approved product proof with item, decoration, imprint size, and colors, followed by a vector artwork inspection sheet.</p>
+    <p>That handoff gives decorators and production teams the approved artwork and placement context in one file. The proof remains the shared reference between the customer decision and the work that follows.</p>
+  `,
+};
+const articleContent = `${post?.content || '<p>Loading article content...</p>'}${post?.slug ? articleAdditions[post.slug] || '' : ''}`;
 ---
 <BaseLayout title={`${title} | PromoPlus`} description={excerpt} bodyClass="feature-page insights-page blog-post-page">
   <Fragment slot="head">
@@ -37,17 +68,17 @@ const schema = post && articleSchema(post, title, excerpt);
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />}
   </Fragment>
   <Header active="insights" />
-  <main id="main-content" data-blog-post-page>
+  <main id="main-content" data-blog-post-page data-static-article={Boolean(post)}>
     <article class="blog-post-shell" aria-live="polite">
       <section class="blog-post-hero feature-shell">
         <div class="blog-post-copy">
           <a class="blog-back-link" href="/insights/"><span aria-hidden="true">&larr;</span> Back to insights</a>
-          <h1 class="feature-kicker" id="blogKicker">PromoPlus insight</h1>
-          <h2 id="blogTitle">{post ? title : 'Loading insight...'}</h2>
+          <p class="feature-kicker" id="blogKicker">PromoPlus insight</p>
+          <h1 id="blogTitle">{post ? title : 'Loading insight...'}</h1>
           <p class="blog-excerpt" id="blogExcerpt">{post ? excerpt : 'Fetching the selected article from the PromoPlus WordPress feed.'}</p>
           <div class="blog-meta">
             <span id="blogDate">{formatDate(post?.date)}</span>
-            <span id="blogReadingTime">{post ? readingTime(post.content) : 'Reading time'}</span>
+            <span id="blogReadingTime">{post ? readingTime(articleContent) : 'Reading time'}</span>
             <span id="blogSource">{post?.id ? `Post #${post.id}` : 'WordPress API'}</span>
           </div>
         </div>
@@ -66,7 +97,7 @@ const schema = post && articleSchema(post, title, excerpt);
             <span><b>Theme</b><i>PromoPlus workflow</i></span>
           </div>
         </aside>
-        <div class="blog-content" id="blogContent" set:html={sanitizeHtml(post?.content || '<p>Loading article content...</p>')} />
+        <div class="blog-content" id="blogContent" set:html={sanitizeHtml(articleContent)} />
       </section>
     </article>
 

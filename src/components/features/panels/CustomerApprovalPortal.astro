@@ -1,10 +1,11 @@
 ---
 const { active = false } = Astro.props;
+const HeadingTag = active ? 'h1' : 'p';
 ---
 <section class:list={["feature-workflow-panel","approval-page"].concat(active ? ['is-active'] : [])} data-feature-panel="ApproveDesign" hidden={!active}>
 <section class="approval-hero">
     <div class="approval-hero-copy">
-      <h1 class="feature-kicker">Customer Approval Portal</h1>
+      <HeadingTag data-feature-heading class="feature-kicker">Artwork approval software for promotional products</HeadingTag>
       <h2>One link. One clear <strong>decision.</strong></h2>
       <p class="feature-lede">Share artwork through a secure online approval link. Customers can review mockups, approve designs, request revisions, and leave comments without endless email chains.</p>
       <div class="feature-actions"><a class="feature-primary" href="/contact">Talk to Sales ↗</a></div>

@@ -1,9 +1,10 @@
 ---
 const { active = false } = Astro.props;
+const HeadingTag = active ? 'h1' : 'p';
 ---
 <section class:list={["feature-workflow-panel"].concat(active ? ['is-active'] : [])} data-feature-panel="CreateMockup" hidden={!active}>
 <section class="feature-hero feature-shell" aria-labelledby="feature-title">
-    <div class="feature-hero-copy"><h1 class="feature-kicker" id="feature-title">Online Mockup Designer</h1><h2 class="hero-title display-title">Create customer-ready mockups. <span>Directly in your browser.</span></h2><p class="feature-lede">Create professional product mockups directly in the browser without relying on Adobe Illustrator for every proof.</p><div class="feature-actions"><a class="button button-dark" href="/contact">Talk to Sales <span>↗</span></a></div></div>
+    <div class="feature-hero-copy"><HeadingTag data-feature-heading class="feature-kicker" id="feature-title">Online mockup software for promotional products</HeadingTag><h2 class="hero-title display-title">Create customer-ready mockups. <span>Directly in your browser.</span></h2><p class="feature-lede">Create professional product mockups directly in the browser without relying on Adobe Illustrator for every proof.</p><div class="feature-actions"><a class="button button-dark" href="/contact">Talk to Sales <span>↗</span></a></div></div>
     <div class="designer-scene" data-tilt-scene aria-label="Interactive PromoPlus mockup designer illustration">
       <span class="designer-orbit orbit-a"></span><span class="designer-orbit orbit-b"></span>
       <article class="artwork-upload-card"><small>Artwork file</small><strong>logo-final.svg</strong><span>Vector · ready to place</span><i>Uploaded</i></article>

@@ -1,10 +1,11 @@
 ---
 const { active = false } = Astro.props;
+const HeadingTag = active ? 'h1' : 'p';
 ---
 <section class:list={["feature-workflow-panel","workspace-page"].concat(active ? ['is-active'] : [])} data-feature-panel="OrganizeProject" hidden={!active}>
 <section class="workspace-hero feature-shell" aria-labelledby="workspace-title">
     <div class="workspace-hero-copy">
-      <h1 class="feature-kicker" id="workspace-title">Centralized Project Workspace</h1>
+      <HeadingTag data-feature-heading class="feature-kicker" id="workspace-title">One project workspace for every promo order</HeadingTag>
       <h2 class="hero-title display-title">One project. <span>Every detail stays connected.</span></h2>
       <p class="feature-lede">Every project lives in one place. Store products, artwork, customer information, approvals, notes, production files, and project history together.</p>
       <div class="feature-actions"><a class="button button-dark" href="/contact">Talk to Sales <span>↗</span></a></div>

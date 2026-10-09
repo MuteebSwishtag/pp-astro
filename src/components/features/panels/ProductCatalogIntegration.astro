@@ -1,10 +1,11 @@
 ---
 const { active = false } = Astro.props;
+const HeadingTag = active ? 'h1' : 'p';
 ---
 <section class:list={["feature-workflow-panel","catalog-page"].concat(active ? ['is-active'] : [])} data-feature-panel="ChooseProduct" hidden={!active}>
 <section class="catalog-hero feature-shell" aria-labelledby="catalog-title">
     <div class="catalog-hero-copy">
-      <h1 class="feature-kicker" id="catalog-title">Product Catalog Integration</h1>
+      <HeadingTag data-feature-heading class="feature-kicker" id="catalog-title">Search supplier catalogs. Start your mockup in one click.</HeadingTag>
       <h2 class="hero-title display-title">Find the right product. <span>Start designing instantly.</span></h2>
       <p class="feature-lede">Distributors can instantly search integrated supplier catalogs using vendor names, SKUs, or keywords—without downloading product images or manually rebuilding product data.</p>
       <div class="feature-actions"><a class="button button-dark" href="/contact">Talk to Sales <span>↗</span></a></div>

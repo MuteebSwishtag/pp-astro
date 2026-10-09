@@ -34,6 +34,16 @@ function initConnectedFeatureWorkflow() {
       const active = panel.dataset.featurePanel === tab.dataset.featureTab;
       panel.hidden = !active;
       panel.classList.toggle('is-active', active);
+      const heading = panel.querySelector('[data-feature-heading]');
+      const tagName = active ? 'h1' : 'p';
+      if (heading && heading.tagName.toLowerCase() !== tagName) {
+        const replacement = document.createElement(tagName);
+        for (const attribute of heading.attributes) {
+          replacement.setAttribute(attribute.name, attribute.value);
+        }
+        replacement.textContent = heading.textContent;
+        heading.replaceWith(replacement);
+      }
     });
 
     faqs.forEach((faq) => {

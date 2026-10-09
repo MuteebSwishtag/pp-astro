@@ -2,22 +2,6 @@
   const API_URL = 'https://dei.bcv.mybluehost.me/website_27c75ff3/wp-json/wp/v2/posts?per_page=100';
   const FALLBACK_POSTS = window.PROMOPLUS_BLOG_POSTS || [];
   const storyGrid = document.querySelector('#storyGrid');
-  const timestamp = document.querySelector('#liveTimestamp');
-  const heroPulse = document.querySelector('#heroPulse');
-  const pipelineHealth = document.querySelector('#pipelineHealth');
-  const activityStage = document.querySelector('#activityStage');
-  const activityList = document.querySelector('#liveActivity');
-  const metricNodes = [...document.querySelectorAll('[data-live-number]')];
-  const ageNodes = [...document.querySelectorAll('[data-live-age]')];
-
-  const activityItems = [
-    ['Approval', 'Retail opening staff hoodie approved for production.'],
-    ['Artwork', 'Version 3 locked for the conference travel mug.'],
-    ['Catalog', 'Drinkware shortlist added to Northline event project.'],
-    ['Mockup', 'Front placement generated for the Custom Hoodie Campaign.'],
-    ['Production', 'Approved PDF exported with placement and timestamp.'],
-    ['Team', 'Operations tagged design on a source-file question.'],
-  ];
   const postImages = [
     '/assets/features/approval-portal/approval-feedback.png',
     '/assets/features/workflow-dashboard/dashboard-hero.png',
@@ -28,51 +12,9 @@
   ];
   const imageBySlug = {
     'how-promotional-product-mockup-software-speeds-up-client-approvals': '/assets/features/approval-portal/approval-feedback.png',
+    'what-is-an-artwork-proof-in-promotional-products': '/assets/features/mockup-workflow-hands.png',
     'hello-world': '/assets/features/workflow-dashboard/dashboard-hero.png',
   };
-
-  function formatTime(date) {
-    return new Intl.DateTimeFormat([], {
-      hour: 'numeric',
-      minute: '2-digit',
-      second: '2-digit',
-    }).format(date);
-  }
-
-  function updateTimestamp() {
-    if (!timestamp) return;
-    const now = new Date();
-    timestamp.dateTime = now.toISOString();
-    timestamp.textContent = formatTime(now);
-  }
-
-  function updateMetrics() {
-    const minute = new Date().getMinutes();
-    metricNodes.forEach((node, index) => {
-      const base = Number(node.dataset.liveNumber || 0);
-      node.textContent = String(base + ((minute + index) % 3));
-    });
-    if (heroPulse) heroPulse.textContent = `${12 + (minute % 4)} projects need attention`;
-    if (pipelineHealth) pipelineHealth.textContent = `${74 + (minute % 5)}% clear`;
-  }
-
-  function updateActivity() {
-    if (!activityList) return;
-    const offset = Math.floor(Date.now() / 5000) % activityItems.length;
-    const visible = [0, 1, 2].map((step) => activityItems[(offset + step) % activityItems.length]);
-    activityList.innerHTML = visible.map(([stage, text], index) => (
-      `<li><span>${stage}</span><strong>${text}</strong><small>${index === 0 ? 'Now' : `${index * 3 + 1}m ago`}</small></li>`
-    )).join('');
-    if (activityStage) activityStage.textContent = visible[0][0];
-  }
-
-  function updateAges() {
-    const drift = Math.floor(Date.now() / 60000) % 4;
-    ageNodes.forEach((node) => {
-      const base = Number(node.dataset.liveAge || 1);
-      node.textContent = `${base + drift} min ago`;
-    });
-  }
 
   function decodeHtml(value = '') {
     const textarea = document.createElement('textarea');
@@ -107,7 +49,8 @@
       const response = await fetch(API_URL, { headers: { Accept: 'application/json' } });
       if (!response.ok) throw new Error(`WordPress API returned ${response.status}`);
       const posts = await response.json();
-      return Array.isArray(posts) && posts.length ? posts : FALLBACK_POSTS;
+      if (!Array.isArray(posts)) return FALLBACK_POSTS;
+      return [...new Map([...FALLBACK_POSTS, ...posts].map((post) => [post.slug, post])).values()];
     } catch (error) {
       console.warn('Using local PromoPlus blog fallback:', error);
       return FALLBACK_POSTS;
@@ -144,15 +87,5 @@
     }).join('');
   }
 
-  function tick() {
-    updateTimestamp();
-    updateMetrics();
-    updateAges();
-  }
-
-  tick();
-  updateActivity();
   fetchPosts().then(renderPostCards);
-  setInterval(tick, 1000);
-  setInterval(updateActivity, 5000);
 })();
