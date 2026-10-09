@@ -15,5 +15,10 @@ for (const [, url, rawJson] of blocks) {
   pages[url.replace('https://promoplus.io', '').replace(/\/$/, '') || '/'] = graph;
 }
 
+// The homepage copy was updated after the source schema document was prepared.
+const homepage = pages['/']['@graph'].find((node) => node['@type'] === 'WebPage');
+homepage.name = 'Artwork Approval Software for Promotional Products | PromoPlus';
+homepage.description = 'Create promotional product mockups, get client artwork approvals, and send production-ready proofs in one place. Start your 30-day free trial.';
+
 writeFileSync('src/data/pageSchema.json', `${JSON.stringify(pages, null, 2)}\n`);
 console.log(`Imported ${Object.keys(pages).length} page graphs into src/data/pageSchema.json`);

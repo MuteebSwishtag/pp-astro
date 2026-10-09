@@ -17,8 +17,14 @@ const faqSchema = {
   })),
 };
 ---
-<BaseLayout title="PromoPlus — Product approvals, made clear" description="PromoPlus — promotional product approval workflows.">
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<BaseLayout title="Artwork Approval Software for Promotional Products | PromoPlus" description="Create promotional product mockups, get client artwork approvals, and send production-ready proofs in one place. Start your 30-day free trial.">
+  <Fragment slot="head">
+    <meta property="og:title" content="PromoPlus: Artwork Approval Software for Promotional Products" />
+    <meta property="og:description" content="Create promotional product mockups, get client artwork approvals, and send production-ready proofs in one place. Start your 30-day free trial." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://promoplus.io/" />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
   <Header active="home" />
   <main id="top">
     <HomeSections />

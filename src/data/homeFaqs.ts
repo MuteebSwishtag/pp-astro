@@ -1,7 +1,7 @@
 export const homeFaqs = [
-  ['What kinds of custom products can PromoPlus manage?', 'Any item that needs artwork placement and approval, including apparel, bags, drinkware, signage, packaging, and more.'],
-  ['Can each product side be approved separately?', 'Yes. Front, Back, Sleeve, or any custom surface can keep its own artwork, comments, version, and approval status.'],
-  ['How do clients review and approve a mockup?', 'One shareable review link lets a client view the current mockup, leave comments, request changes, or approve the version.'],
-  ['What happens when the artwork changes?', 'Every revision remains connected to its product side, comments, and status, so the latest approved version is always clear.'],
-  ['What is included in the production-ready file?', 'The final handoff brings together the approved mockup, artwork, product sides, version, approver, and timestamp in one PDF.'],
+  ['What kinds of custom products can PromoPlus manage?', 'PromoPlus is promotional software for any product that needs artwork placement and approval: apparel, bags, drinkware, signage, packaging, and more.'],
+  ['Can each product side be approved separately?', "Yes. Front, back, and sleeve can each be approved separately, so mockup approval on one side doesn't reopen the others."],
+  ['How do clients review and approve a mockup?', 'Send one link from PromoPlus online artwork approval software. Clients see the latest mockup, comment, request revisions, or approve.'],
+  ['What happens when the artwork changes?', 'Each change creates a new version. Clients always review the latest one, and earlier versions stay in the history.'],
+  ['What is included in the production-ready file?', 'A two-page PDF from our artwork proofing tool: the product proof with item, decoration, imprint size, and colors, then the artwork inspection sheet.'],
 ] as const;
