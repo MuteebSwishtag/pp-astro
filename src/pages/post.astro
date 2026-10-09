@@ -8,6 +8,7 @@ import '../styles/feature-cursor.css';
 import '../styles/legacy/insights.css';
 import '../styles/legacy/blog-post.css';
 import { localBlogPosts } from '../data/blogPosts';
+import { articleSchema } from '../data/articleSchema';
 
 const DEFAULT_IMAGE = '/assets/features/workflow-dashboard/dashboard-hero.png';
 const post = Astro.props.post || localBlogPosts.find((item) => item.slug === (Astro.params.slug || Astro.url.searchParams.get('slug')));
@@ -27,8 +28,14 @@ const readingTime = (value = '') => `${Math.max(1, Math.ceil(stripHtml(value).sp
 const title = stripHtml(post?.title) || 'PromoPlus Insight';
 const excerpt = stripHtml(post?.excerpt || post?.content) || 'PromoPlus blog article.';
 const image = post?.image || DEFAULT_IMAGE;
+const canonical = post?.slug && `https://promoplus.io/insights/${post.slug}/`;
+const schema = post && articleSchema(post, title, excerpt);
 ---
 <BaseLayout title={`${title} | PromoPlus`} description={excerpt} bodyClass="feature-page insights-page blog-post-page">
+  <Fragment slot="head">
+    {canonical && <link rel="canonical" href={canonical} />}
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />}
+  </Fragment>
   <Header active="insights" />
   <main id="main-content" data-blog-post-page>
     <article class="blog-post-shell" aria-live="polite">

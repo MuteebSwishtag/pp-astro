@@ -13,8 +13,9 @@ import ProduceFiles from './panels/ProductionReadyFileGeneration.astro';
 import '../../styles/feature-cursor.css';
 import '../../styles/legacy/feature-reference.css';
 import '../../styles/legacy/connected-workflow.css';
+import pageSchema from '../../data/pageSchema.json';
 
-const features = [
+const featureDefinitions = [
   {
     step: 'ChooseProduct',
     shortLabel: 'Choose',
@@ -89,6 +90,17 @@ const features = [
   },
 ];
 
+const features = featureDefinitions.map((feature) => {
+  const schema = (pageSchema as Record<string, { '@graph': Array<Record<string, any>> }>)[feature.route];
+  const page = schema?.['@graph'].find((node) => node['@type'] === 'WebPage');
+  return {
+    ...feature,
+    pageTitle: page?.name || feature.pageTitle,
+    description: page?.description || feature.description,
+    canonical: page?.url || '',
+    schemaJson: schema ? JSON.stringify(schema).replace(/</g, '\\u003c') : '',
+  };
+});
 const { activeStep = 'ChooseProduct' } = Astro.props;
 const activeIndex = Math.max(0, features.findIndex((feature) => feature.step === activeStep));
 const activeFeature = features[activeIndex] ?? features[0];
@@ -110,6 +122,8 @@ const activeFeature = features[activeIndex] ?? features[0];
               data-feature-route={feature.route}
               data-feature-title={feature.pageTitle}
               data-feature-description={feature.description}
+              data-feature-canonical={feature.canonical}
+              data-feature-schema={feature.schemaJson}
               data-feature-body-class={feature.bodyClass}
             >
               <span aria-hidden="true">{index === activeIndex ? '✓' : String(index + 1).padStart(2, '0')}</span>

@@ -50,6 +50,10 @@ function initConnectedFeatureWorkflow() {
     if (tab.dataset.featureTitle) document.title = tab.dataset.featureTitle;
     const meta = document.querySelector('meta[name="description"]');
     if (meta && tab.dataset.featureDescription) meta.setAttribute('content', tab.dataset.featureDescription);
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical && tab.dataset.featureCanonical) canonical.href = tab.dataset.featureCanonical;
+    const schema = document.querySelector('script[data-page-schema]');
+    if (schema && tab.dataset.featureSchema) schema.textContent = tab.dataset.featureSchema;
 
     if (options.push) history.pushState({ featureIndex: activeIndex }, '', tab.dataset.featureRoute);
     if (options.scroll) {

@@ -14,6 +14,7 @@ const { industry, slug } = Astro.props as { industry: IndustryPageData; slug: In
 const faqJson = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': `https://promoplus.io/industries/promotional-products-${slug}-software#faq`,
   mainEntity: industry.faqs.map(([question, answer]: TextRow) => ({
     '@type': 'Question',
     name: question,
@@ -29,7 +30,6 @@ const criteriaContains = 'contain' in industry.criteria && industry.criteria.con
 ---
 <BaseLayout title={industry.title} description={industry.description} bodyClass={industry.bodyClass}>
   <Fragment slot="head">
-    <link rel="canonical" href={`https://promoplus.io/industries/promotional-products-${slug}-software`} />
     <meta property="og:title" content={industry.title} />
     <meta property="og:description" content={industry.description} />
     <meta property="og:type" content="website" />

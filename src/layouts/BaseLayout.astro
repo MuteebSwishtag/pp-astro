@@ -1,6 +1,15 @@
 ---
 import '../styles/global.css';
-const { title = 'PromoPlus', description = 'PromoPlus promotional product approval workflows.', bodyClass = '' } = Astro.props;
+import pageSchema from '../data/pageSchema.json';
+
+const { title: suppliedTitle = 'PromoPlus', description: suppliedDescription = 'PromoPlus promotional product approval workflows.', bodyClass = '' } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const schema = (pageSchema as Record<string, { '@graph': Array<Record<string, any>> }>)[path];
+const page = schema?.['@graph'].find((node) => ['WebPage', 'CollectionPage', 'ContactPage'].includes(node['@type']));
+const title = page?.name || suppliedTitle;
+const description = page?.description || suppliedDescription;
+const canonical = page?.url;
+const schemaJson = schema && JSON.stringify(schema).replace(/</g, '\\u003c');
 ---
 <!doctype html>
 <html lang="en">
@@ -69,6 +78,8 @@ const { title = 'PromoPlus', description = 'PromoPlus promotional product approv
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {schemaJson && <script type="application/ld+json" data-page-schema set:html={schemaJson} />}
     <meta name="theme-color" content="#F7F6F2" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>

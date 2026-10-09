@@ -14,7 +14,7 @@ export async function getStaticPaths() {
       const url = new URL(API_URL);
       url.searchParams.set('per_page', '100');
       url.searchParams.set('page', String(page));
-      url.searchParams.set('_fields', 'id,slug,date,status,title,excerpt,content,jetpack_featured_media_url');
+      url.searchParams.set('_fields', 'id,slug,date,modified,status,title,excerpt,content,jetpack_featured_media_url');
 
       const signal = AbortSignal.timeout?.(5000);
       const response = await fetch(url, { headers: { Accept: 'application/json' }, signal });
@@ -31,6 +31,7 @@ export async function getStaticPaths() {
             id: post.id,
             slug: post.slug,
             date: post.date,
+            modified: post.modified,
             status: post.status || 'Published',
             title: post.title?.rendered || 'PromoPlus insight',
             excerpt: post.excerpt?.rendered || '',

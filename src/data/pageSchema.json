@@ -1,0 +1,987 @@
+{
+  "/": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://promoplus.io/#organization",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://promoplus.io/favicon.svg"
+        },
+        "description": "PromoPlus is mockup, artwork approval and production-file software for promotional product distributors, suppliers and decorators."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://promoplus.io/#website",
+        "url": "https://promoplus.io/",
+        "name": "PromoPlus",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/#webpage",
+        "url": "https://promoplus.io/",
+        "name": "Promo Mockup and Artwork Approval Software | PromoPlus",
+        "description": "Create promo product mockups, collect client approvals and send production-ready files in one workspace. For distributors, suppliers and decorators.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          }
+        ]
+      }
+    ]
+  },
+  "/features": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://promoplus.io/features/#webpage",
+        "url": "https://promoplus.io/features/",
+        "name": "Mockup, Approval and Production Features | PromoPlus",
+        "description": "Explore PromoPlus features for product selection, mockups, artwork revisions, client approvals, collaboration, workflow tracking, and production-ready files.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        },
+        "mainEntity": {
+          "@id": "https://promoplus.io/features/#list"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://promoplus.io/features/#list",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Product Catalog Integration",
+            "url": "https://promoplus.io/features/product-catalog-integration"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Online Mockup Designer",
+            "url": "https://promoplus.io/features/online-mockup-designer"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Artwork Version Control",
+            "url": "https://promoplus.io/features/artwork-version-control"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Customer Approval Portal",
+            "url": "https://promoplus.io/features/customer-approval-portal"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Centralized Project Workspace",
+            "url": "https://promoplus.io/features/centralized-project-workspace"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Team Collaboration",
+            "url": "https://promoplus.io/features/team-collaboration"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Workflow Progress Dashboard",
+            "url": "https://promoplus.io/features/workflow-progress-dashboard"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Production-Ready File Generation",
+            "url": "https://promoplus.io/features/production-ready-file-generation"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/product-catalog-integration": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/product-catalog-integration#webpage",
+        "url": "https://promoplus.io/features/product-catalog-integration",
+        "name": "Supplier Catalog Search for Promo Products | PromoPlus",
+        "description": "Search supplier catalogs by vendor, SKU or keyword and start a mockup instantly. PromoPlus gives distributors product data and images without manual setup.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/product-catalog-integration#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/product-catalog-integration#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Product Catalog Integration",
+            "item": "https://promoplus.io/features/product-catalog-integration"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/online-mockup-designer": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/online-mockup-designer#webpage",
+        "url": "https://promoplus.io/features/online-mockup-designer",
+        "name": "Online Mockup Software for Promotional Products | PromoPlus",
+        "description": "Place logos on promo products, preview every side and generate customer-ready mockups in your browser. No Illustrator needed for every proof.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/online-mockup-designer#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/online-mockup-designer#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Online Mockup Designer",
+            "item": "https://promoplus.io/features/online-mockup-designer"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/artwork-version-control": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/artwork-version-control#webpage",
+        "url": "https://promoplus.io/features/artwork-version-control",
+        "name": "Artwork Version Control and Proof History | PromoPlus",
+        "description": "Every artwork revision is saved automatically. Compare versions, restore earlier artwork and always know which version the customer approved.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/artwork-version-control#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/artwork-version-control#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Artwork Version Control",
+            "item": "https://promoplus.io/features/artwork-version-control"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/customer-approval-portal": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/customer-approval-portal#webpage",
+        "url": "https://promoplus.io/features/customer-approval-portal",
+        "name": "Customer Artwork Approval Portal | PromoPlus",
+        "description": "Share a secure approval link. Customers review mockups, comment, request revisions and approve designs, and every decision is recorded.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/customer-approval-portal#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/customer-approval-portal#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Customer Approval Portal",
+            "item": "https://promoplus.io/features/customer-approval-portal"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/centralized-project-workspace": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/centralized-project-workspace#webpage",
+        "url": "https://promoplus.io/features/centralized-project-workspace",
+        "name": "Centralized Project Workspace for Promo Teams | PromoPlus",
+        "description": "Keep products, artwork, customer details, approvals, notes and production files in one project record, from first product to final file.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/centralized-project-workspace#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/centralized-project-workspace#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Centralized Project Workspace",
+            "item": "https://promoplus.io/features/centralized-project-workspace"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/team-collaboration": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/team-collaboration#webpage",
+        "url": "https://promoplus.io/features/team-collaboration",
+        "name": "Team Collaboration for Promo Distributors | PromoPlus",
+        "description": "Sales, design, operations and owners work in one shared project with the same artwork, approvals and status. Fewer handoffs, less rework.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/team-collaboration#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/team-collaboration#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Team Collaboration",
+            "item": "https://promoplus.io/features/team-collaboration"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/workflow-progress-dashboard": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/workflow-progress-dashboard#webpage",
+        "url": "https://promoplus.io/features/workflow-progress-dashboard",
+        "name": "Artwork Workflow Dashboard for Promo Teams | PromoPlus",
+        "description": "See every artwork project by stage: pending artwork, awaiting approval, revisions and production ready. Catch blocked work before deadlines slip.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/workflow-progress-dashboard#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/workflow-progress-dashboard#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Workflow Progress Dashboard",
+            "item": "https://promoplus.io/features/workflow-progress-dashboard"
+          }
+        ]
+      }
+    ]
+  },
+  "/features/production-ready-file-generation": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/features/production-ready-file-generation#webpage",
+        "url": "https://promoplus.io/features/production-ready-file-generation",
+        "name": "Production-Ready Artwork Files After Approval | PromoPlus",
+        "description": "After customer approval, PromoPlus generates a production-ready PDF with approved artwork and placement details for decorators and suppliers.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/features/production-ready-file-generation#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/features/production-ready-file-generation#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://promoplus.io/features/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Production-Ready File Generation",
+            "item": "https://promoplus.io/features/production-ready-file-generation"
+          }
+        ]
+      }
+    ]
+  },
+  "/industries": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://promoplus.io/industries/#webpage",
+        "url": "https://promoplus.io/industries/",
+        "name": "Software for Distributors, Suppliers, Decorators | PromoPlus",
+        "description": "PromoPlus connects promotional product distributors, suppliers and decorators with one approval workflow, from mockup to production-ready proof.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/industries/#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        },
+        "mainEntity": {
+          "@id": "https://promoplus.io/industries/#list"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://promoplus.io/industries/#list",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Promotional Products Distributor Software",
+            "url": "https://promoplus.io/industries/promotional-products-distributor-software"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Promotional Products Supplier Software",
+            "url": "https://promoplus.io/industries/promotional-products-supplier-software"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Promotional Products Decorator Software",
+            "url": "https://promoplus.io/industries/promotional-products-decorator-software"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/industries/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": "https://promoplus.io/industries/"
+          }
+        ]
+      }
+    ]
+  },
+  "/industries/promotional-products-distributor-software": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/industries/promotional-products-distributor-software#webpage",
+        "url": "https://promoplus.io/industries/promotional-products-distributor-software",
+        "name": "Promotional Products Distributor Software | PromoPlus",
+        "description": "Distributor software for promotional product mockups, client artwork approval and production-ready proofs, with a 30-day free trial.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/industries/promotional-products-distributor-software#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/industries/promotional-products-distributor-software#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": "https://promoplus.io/industries/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Promotional Products Distributor Software",
+            "item": "https://promoplus.io/industries/promotional-products-distributor-software"
+          }
+        ]
+      }
+    ]
+  },
+  "/industries/promotional-products-supplier-software": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/industries/promotional-products-supplier-software#webpage",
+        "url": "https://promoplus.io/industries/promotional-products-supplier-software",
+        "name": "Promotional Products Supplier Software | PromoPlus",
+        "description": "Supplier software for promotional product mockups, artwork approval and production-ready proofs, with a 30-day free trial.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/industries/promotional-products-supplier-software#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/industries/promotional-products-supplier-software#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": "https://promoplus.io/industries/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Promotional Products Supplier Software",
+            "item": "https://promoplus.io/industries/promotional-products-supplier-software"
+          }
+        ]
+      }
+    ]
+  },
+  "/industries/promotional-products-decorator-software": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/industries/promotional-products-decorator-software#webpage",
+        "url": "https://promoplus.io/industries/promotional-products-decorator-software",
+        "name": "Promotional Products Decorator Software | PromoPlus",
+        "description": "Decorator software that puts approved artwork, imprint size and colors on one production-ready proof, with a 30-day free trial.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/industries/promotional-products-decorator-software#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/industries/promotional-products-decorator-software#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": "https://promoplus.io/industries/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Promotional Products Decorator Software",
+            "item": "https://promoplus.io/industries/promotional-products-decorator-software"
+          }
+        ]
+      }
+    ]
+  },
+  "/insights": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://promoplus.io/insights/#webpage",
+        "url": "https://promoplus.io/insights/",
+        "name": "Promo Product Proofing and Approval Insights | PromoPlus",
+        "description": "Guides on promotional product mockups, artwork proofing, client approvals and production-ready files from the PromoPlus team.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/insights/#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        },
+        "mainEntity": {
+          "@id": "https://promoplus.io/insights/#list"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://promoplus.io/insights/#list",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "From Artwork to Production: A Better Promotional Product Proofing Workflow",
+            "url": "https://promoplus.io/insights/from-artwork-to-production-a-better-promotional-product-proofing-workflow/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "How Promotional Product Mockup Software Speeds Up Client Approvals",
+            "url": "https://promoplus.io/insights/how-promotional-product-mockup-software-speeds-up-client-approvals/"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/insights/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Insights",
+            "item": "https://promoplus.io/insights/"
+          }
+        ]
+      }
+    ]
+  },
+  "/pricing": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://promoplus.io/pricing#webpage",
+        "url": "https://promoplus.io/pricing",
+        "name": "Pricing: Promo Mockup and Approval Software | PromoPlus",
+        "description": "Starter at $30/month with a 30-day free trial, Pro at $100/month, or a custom plan. Starter and Pro include unlimited mockups and online approvals.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/pricing#breadcrumb"
+        },
+        "about": {
+          "@id": "https://promoplus.io/#software"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/#software",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "price": "30.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "100.00",
+            "priceCurrency": "USD",
+            "url": "https://promoplus.io/pricing",
+            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/pricing#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Pricing",
+            "item": "https://promoplus.io/pricing"
+          }
+        ]
+      }
+    ]
+  },
+  "/contact": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://promoplus.io/contact#webpage",
+        "url": "https://promoplus.io/contact",
+        "name": "Contact PromoPlus | Talk to Our Team",
+        "description": "Tell us what you want to improve: custom plans, product workflow or approval setup. The PromoPlus team will get back to you shortly.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@id": "https://promoplus.io/#website"
+        },
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://promoplus.io/contact#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://promoplus.io/contact#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://promoplus.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://promoplus.io/contact"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://promoplus.io/#organization",
+        "name": "PromoPlus",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://promoplus.io/contact",
+          "availableLanguage": "English"
+        }
+      }
+    ]
+  }
+}

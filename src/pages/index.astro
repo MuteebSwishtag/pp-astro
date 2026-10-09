@@ -4,9 +4,21 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HomeSections from '../components/HomeSections.astro';
 import ChromeEffects from '../components/ChromeEffects.astro';
+import { homeFaqs } from '../data/homeFaqs';
 import '../styles/legacy/home-shareable.css';
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': 'https://promoplus.io/#faq',
+  mainEntity: homeFaqs.map(([question, answer]) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+};
 ---
 <BaseLayout title="PromoPlus — Product approvals, made clear" description="PromoPlus — promotional product approval workflows.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Header active="home" />
   <main id="top">
     <HomeSections />
