@@ -6,7 +6,6 @@ import PricingPlans from '../components/PricingPlans.astro';
 import FAQ from '../components/FAQ.astro';
 import pageSchema from '../data/pageSchema.json';
 import '../styles/legacy/homepage.css';
-import '../styles/legacy/navigation.css';
 import '../styles/legacy/pricing-page.css';
 const pricingFaq = pageSchema['/pricing']['@graph'].find((node) => node['@type'] === 'FAQPage') as {
   mainEntity: Array<{ name: string; acceptedAnswer: { text: string } }>;
