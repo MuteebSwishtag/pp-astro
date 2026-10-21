@@ -8,7 +8,7 @@ const schema = getPageSchema(path);
 const page = schema?.['@graph'].find((node) => ['WebPage', 'CollectionPage', 'ContactPage'].includes(node['@type']));
 const title = page?.name || suppliedTitle;
 const description = page?.description || suppliedDescription;
-const canonical = page?.url;
+const canonical = page?.url || (path === '/' ? 'https://promoplus.io/' : undefined);
 const schemaJson = schema && JSON.stringify(schema).replace(/</g, '\\u003c');
 ---
 <!doctype html>

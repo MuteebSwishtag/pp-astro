@@ -5,25 +5,17 @@ import Footer from './Footer.astro';
 import PricingPlans from './PricingPlans.astro';
 import FAQ from './FAQ.astro';
 import type { IndustryPageData, IndustrySlug } from '../data/industries';
+import { getPageSchema } from '../data/schema';
 import '../styles/legacy/homepage.css';
 import '../styles/legacy/pricing-page.css';
 import '../styles/legacy/industry-page.css';
 
 type TextRow = readonly [string, string];
 const { industry, slug } = Astro.props as { industry: IndustryPageData; slug: IndustrySlug };
-const faqJson = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  '@id': `https://promoplus.io/industries/promotional-products-${slug}-software#faq`,
-  mainEntity: industry.faqs.map(([question, answer]: TextRow) => ({
-    '@type': 'Question',
-    name: question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: answer,
-    },
-  })),
-};
+const graph = getPageSchema(`/industries/promotional-products-${slug}-software`);
+const faq = graph?.['@graph'].find((node) => node['@type'] === 'FAQPage');
+const faqs = faq?.mainEntity.map((q: { name: string; acceptedAnswer: { text: string } }) =>
+  [q.name, q.acceptedAnswer.text] as const) || industry.faqs;
 
 const number = (index: number) => String(index + 1).padStart(2, '0');
 const criteriaContains = 'contain' in industry.criteria && industry.criteria.contain;
@@ -33,7 +25,6 @@ const criteriaContains = 'contain' in industry.criteria && industry.criteria.con
     <meta property="og:title" content={industry.title} />
     <meta property="og:description" content={industry.description} />
     <meta property="og:type" content="website" />
-    <script type="application/ld+json" set:html={JSON.stringify(faqJson)} />
   </Fragment>
   <Header active="industries" />
   <main id="main-content">
@@ -186,7 +177,7 @@ const criteriaContains = 'contain' in industry.criteria && industry.criteria.con
       </div>
     </section>
 
-    <FAQ title={industry.faqTitle} description={industry.faqText} items={industry.faqs} />
+    <FAQ title={industry.faqTitle} description={industry.faqText} items={faqs} />
   </main>
   <Footer top="#main-content" />
   <script is:inline src="/custom-plan.js"></script>

@@ -1,8 +1,19 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { isDeepStrictEqual } from 'node:util';
 import { join } from 'node:path';
 
 const pages = JSON.parse(readFileSync('src/data/pageSchema.json', 'utf8'));
 const shared = JSON.parse(readFileSync('src/data/sharedSchema.json', 'utf8'));
+const authoritative = new Map();
+if (existsSync('.tmp')) {
+  for (const file of readdirSync('.tmp').filter((name) => /^schema-.*\.txt$/.test(name))) {
+    const text = readFileSync(join('.tmp', file), 'utf8');
+    const url = text.match(/^URL:\s*(https:\/\/promoplus\.io\/\S*)/m)?.[1];
+    const raw = text.match(/<script\b[^>]*>([\s\S]*?)<\/script>/)?.[1];
+    if (!url || !raw) throw new Error(`Invalid schema brief: ${file}`);
+    authoritative.set(new URL(url).pathname.replace(/\/$/, '') || '/', JSON.parse(raw)['@graph']);
+  }
+}
 const articleSlugs = [
   'from-artwork-to-production-a-better-promotional-product-proofing-workflow',
   'how-promotional-product-mockup-software-speeds-up-client-approvals',
@@ -44,17 +55,25 @@ for (const path of paths) {
     .filter((match) => /type="application\/ld\+json"/.test(match[1]))
     .map((match) => JSON.parse(match[2]));
   const nodes = scripts.flatMap((script) => script['@graph'] || [script]);
+  if (authoritative.has(path)) {
+    const expectedNodes = authoritative.get(path);
+    if (nodes.length !== expectedNodes.length || expectedNodes.some((expected) =>
+      !nodes.some((node) => isDeepStrictEqual(node, expected)))) {
+      throw new Error(`${path}: generated schema differs from authoritative .tmp brief`);
+    }
+  }
   const ids = nodes.map((node) => node['@id']).filter(Boolean);
   if (new Set(ids).size !== ids.length) throw new Error(`${path}: duplicate schema IDs`);
   for (const node of nodes) {
     const expected = shared[node['@type']];
-    if (expected && (path === '/' || node['@type'] === 'SoftwareApplication') &&
+    if (expected && (path === '/' || node['@id'] === expected['@id']) &&
+        (path !== '/contact') &&
         JSON.stringify(node) !== JSON.stringify(expected)) {
       throw new Error(`${path}: ${node['@type']} differs from shared schema`);
     }
   }
   if (path === '/') {
-    for (const type of ['Organization', 'WebSite', 'SoftwareApplication', 'WebPage', 'BreadcrumbList', 'FAQPage']) {
+    for (const type of ['Organization', 'WebSite', 'SoftwareApplication', 'FAQPage']) {
       if (nodes.filter((node) => node['@type'] === type).length !== 1) {
         throw new Error(`Homepage: expected exactly one ${type}`);
       }
@@ -62,7 +81,7 @@ for (const path of paths) {
   }
   const page = nodes
     .find((node) => ['WebPage', 'CollectionPage', 'ContactPage'].includes(node['@type']));
-  if (!page) throw new Error(`${path}: missing page schema`);
+  if (!page && path !== '/') throw new Error(`${path}: missing page schema`);
   if (!scripts.length) throw new Error(`${path}: no JSON-LD`);
   if (expectedHeadings[path]) {
     const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)];
@@ -75,8 +94,9 @@ for (const path of paths) {
       throw new Error(`${path}: title or meta description differs from page schema`);
     }
   }
-  if (!html.includes(`<link rel="canonical" href="${page.url}"`)) {
-    throw new Error(`${path}: canonical does not match schema URL ${page.url}`);
+  const canonical = page?.url || 'https://promoplus.io/';
+  if (!html.includes(`<link rel="canonical" href="${canonical}"`)) {
+    throw new Error(`${path}: canonical does not match schema URL ${canonical}`);
   }
   if (path === '/insights') {
     const list = nodes.find((node) => node['@type'] === 'ItemList');
@@ -96,10 +116,11 @@ for (const path of paths) {
     }
   }
   const faq = nodes.find((node) => node['@type'] === 'FAQPage');
-  const shouldHaveFaq = path === '/' || path === '/pricing' ||
+  const shouldHaveFaq = path === '/' ||
     path.startsWith('/industries/promotional-products-') || path.startsWith('/features/');
   if (Boolean(faq) !== shouldHaveFaq) throw new Error(`${path}: unexpected FAQ state`);
-  if ((path === '/' || path === '/pricing' || path.startsWith('/features')) &&
+  if ((path === '/' || path === '/pricing' || path.startsWith('/features/') ||
+      path.startsWith('/industries/promotional-products-')) &&
       !nodes.some((node) => node['@type'] === 'SoftwareApplication')) {
     throw new Error(`${path}: missing SoftwareApplication`);
   }

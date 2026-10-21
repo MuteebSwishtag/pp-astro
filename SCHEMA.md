@@ -4,10 +4,10 @@
 
 Edit `src/data/sharedSchema.json` for company information, social profiles,
 software description, image, features, and pricing range. `src/data/schema.ts`
-uses these definitions when rendering the homepage, and the shared software
-definition wherever an existing page graph includes SoftwareApplication
-(the feature pages and pricing page). Shared definitions override the older
-copies in `pageSchema.json`, including after running the legacy importer.
+uses these definitions when rendering the homepage and any software node with
+the homepage software ID. Page-specific software IDs keep their own complete
+definitions: pricing has plan-level monthly offers, and industry pages have
+their own audience, description, image, and price range.
 
 Organization and WebSite are fully defined on the homepage. Other pages link
 to their stable IDs: `https://promoplus.io/#organization` and
@@ -16,8 +16,22 @@ Organization contact information.
 
 Homepage FAQ questions and answers come from `src/data/homeFaqs.ts`, which
 also renders the visible FAQs. Update this file once to change both.
-The homepage emits one JSON-LD graph with six sibling entities, preserving
-WebPage and BreadcrumbList alongside the four types in the new brief.
+The homepage emits exactly the four entities in `schema-home.txt`:
+Organization, WebSite, SoftwareApplication, and FAQPage. Its canonical and
+metadata are still rendered by BaseLayout without requiring a WebPage entity.
+
+## Import the authoritative briefs
+
+The eight `schema-*.txt` files in `.tmp` are the source of truth for their URLs.
+Run `npm run import:schema -- .tmp` after updating them, then build and verify.
+The importer replaces those page graphs and updates shared homepage facts and
+homepage FAQ content. Pages without a new brief retain their existing graphs.
+Use this importer instead of the legacy `scripts/import-schema.mjs`, which
+imports the superseded all-pages document.
+
+Pricing FAQ content is preserved in `src/data/pricingFaqs.json`; its new brief
+does not include FAQPage markup. Industry visible FAQ answers are rendered
+directly from the imported page graph to prevent conflicting copies.
 
 ## Add or update another page
 
@@ -27,10 +41,11 @@ WebPage and BreadcrumbList alongside the four types in the new brief.
    breadcrumb items, and FAQ text. Keep company and website IDs pointing home.
 3. Use `BaseLayout` for the page. It automatically looks up the route and renders
    its schema, canonical URL, title, and description. No script needs pasting.
-4. If a software definition is needed, add `{ "@type": "SoftwareApplication" }`
-   to the page's `@graph`; the resolver expands it from the shared file.
-5. Keep FAQ schema consistent with visible answers. Feature and pricing FAQs
-   already read from the registry. For homepage FAQs, use `homeFaqs.ts`.
+4. For shared software, add `{ "@type": "SoftwareApplication" }` to `@graph`;
+   the resolver expands it from the shared file. For a page-specific software
+   definition, provide its full node with a unique `<page URL>#software` ID.
+5. Keep FAQ schema consistent with visible answers. Feature and industry FAQs
+   read from the registry. For homepage FAQs, use `homeFaqs.ts`.
 
 Articles use `src/data/articleSchema.ts` and the existing article template,
 which generates WebPage, BreadcrumbList, and BlogPosting from article data.
@@ -45,7 +60,8 @@ npm run verify:schema
 npm run check
 ```
 
-The schema check parses built JSON-LD, compares shared definitions, rejects
+The schema check compares generated graphs with the authoritative `.tmp`
+briefs when present, parses built JSON-LD, compares shared definitions, rejects
 duplicate entity IDs, checks homepage entity coverage, and checks existing
 FAQ text, canonical URLs, and article metadata. Newly registered pages are
 automatically included; extend the FAQ policy in the script for new page types.

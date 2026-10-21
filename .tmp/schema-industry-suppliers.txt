@@ -1,0 +1,136 @@
+PROMOPLUS - SUPPLIERS PAGE SCHEMA
+URL: https://promoplus.io/industries/promotional-products-supplier-software
+Where to paste: inside <head> of this page.
+Types: WebPage, SoftwareApplication (supplier audience), FAQPage (7 questions), BreadcrumbList
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://promoplus.io/industries/promotional-products-supplier-software#webpage",
+      "url": "https://promoplus.io/industries/promotional-products-supplier-software",
+      "name": "Promotional Products Supplier Software | PromoPlus",
+      "description": "Promotional products supplier software for mockups, artwork approval, and production-ready proofs. Get artwork right the first time. Start your 30-day free trial.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://promoplus.io/#website" },
+      "breadcrumb": { "@id": "https://promoplus.io/industries/promotional-products-supplier-software#breadcrumb" },
+      "mainEntity": { "@id": "https://promoplus.io/industries/promotional-products-supplier-software#software" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://promoplus.io/industries/promotional-products-supplier-software#software",
+      "name": "PromoPlus for Promotional Products Suppliers",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://promoplus.io/industries/promotional-products-supplier-software",
+      "description": "Promotional products supplier software that helps you show your products with real decoration, share mockups with distributors, and give production the approved artwork and product details together.",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Promotional products suppliers"
+      },
+      "image": "https://promoplus.io/assets/features/catalog/catalog-search-buyer.png",
+      "publisher": { "@id": "https://promoplus.io/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "30",
+        "highPrice": "100",
+        "offerCount": "2",
+        "url": "https://promoplus.io/pricing"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://promoplus.io/industries/promotional-products-supplier-software#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is promotional products supplier software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is software that helps suppliers work with artwork and production details. With PromoPlus, that means showing products with decoration, tracking artwork approvals, and receiving production-ready proofs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What information does the production file include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The product proof lists the item, decoration, imprint size, and colors. The second page is the artwork inspection sheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know the artwork is approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Approvals are tracked with timestamps in PromoPlus, and only approved artwork is turned into the production file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when artwork changes after approval?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each change creates a new version. Earlier versions stay in the history, so you can see which one is current."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can each side of the product be approved separately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Front, back, and sleeve can each be approved separately, so approving one side doesn't reopen the others."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer pricing for high production volumes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our Custom plan covers higher production volume, additional storage, team controls, and integrations. Talk to Sales for volume pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Starter plan includes a 30-day free trial."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://promoplus.io/industries/promotional-products-supplier-software#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://promoplus.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://promoplus.io/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Suppliers",
+          "item": "https://promoplus.io/industries/promotional-products-supplier-software"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- FAQ text matches the visible page word for word. Update if the page copy changes.
+- This page's "Talk to Sales" buttons use mailto:hello@swishtag.com, while the other pages link to /contact. Worth asking the client which is correct and making them consistent.

@@ -1,0 +1,103 @@
+PROMOPLUS - FEATURES PAGE SCHEMA
+URL: https://promoplus.io/features/
+Where to paste: inside <head> of the features index page.
+Types: CollectionPage, ItemList (8 features), BreadcrumbList
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://promoplus.io/features/#webpage",
+      "url": "https://promoplus.io/features/",
+      "name": "Features | PromoPlus",
+      "description": "Explore PromoPlus features for product selection, mockups, artwork revisions, client approvals, collaboration, workflow tracking, and production-ready files.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://promoplus.io/#website" },
+      "about": { "@id": "https://promoplus.io/#software" },
+      "breadcrumb": { "@id": "https://promoplus.io/features/#breadcrumb" },
+      "mainEntity": { "@id": "https://promoplus.io/features/#featurelist" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://promoplus.io/features/#featurelist",
+      "name": "PromoPlus features",
+      "numberOfItems": 8,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Product Catalog",
+          "url": "https://promoplus.io/features/product-catalog-integration"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mockup Designer",
+          "url": "https://promoplus.io/features/online-mockup-designer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Version Control",
+          "url": "https://promoplus.io/features/artwork-version-control"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Approval Portal",
+          "url": "https://promoplus.io/features/customer-approval-portal"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Project Workspace",
+          "url": "https://promoplus.io/features/centralized-project-workspace"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Team Collaboration",
+          "url": "https://promoplus.io/features/team-collaboration"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Workflow Dashboard",
+          "url": "https://promoplus.io/features/workflow-progress-dashboard"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Production Files",
+          "url": "https://promoplus.io/features/production-ready-file-generation"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://promoplus.io/features/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://promoplus.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://promoplus.io/features/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- The "about" and "isPartOf" lines point to the SoftwareApplication and WebSite blocks on the home page via @id. They only resolve if the home page schema is live too.
+- Feature URLs use the exact slugs linked on the live site (no trailing slash, no .html).
+- Each of the 8 individual feature pages can get its own BreadcrumbList (Home > Features > Feature name) using the same pattern.

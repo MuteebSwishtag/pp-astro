@@ -1,0 +1,72 @@
+PROMOPLUS - INDUSTRIES PAGE SCHEMA
+URL: https://promoplus.io/industries/
+Where to paste: inside <head> of the industries index page.
+Types: CollectionPage, ItemList (3 industry pages), BreadcrumbList
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://promoplus.io/industries/#webpage",
+      "url": "https://promoplus.io/industries/",
+      "name": "Software for Distributors, Suppliers, Decorators | PromoPlus",
+      "description": "PromoPlus connects promotional product distributors, suppliers and decorators with one approval workflow, from mockup to production-ready proof.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://promoplus.io/#website" },
+      "about": { "@id": "https://promoplus.io/#software" },
+      "breadcrumb": { "@id": "https://promoplus.io/industries/#breadcrumb" },
+      "mainEntity": { "@id": "https://promoplus.io/industries/#industrylist" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://promoplus.io/industries/#industrylist",
+      "name": "PromoPlus industries",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Distributors",
+          "url": "https://promoplus.io/industries/promotional-products-distributor-software"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Suppliers",
+          "url": "https://promoplus.io/industries/promotional-products-supplier-software"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Decorators",
+          "url": "https://promoplus.io/industries/promotional-products-decorator-software"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://promoplus.io/industries/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://promoplus.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://promoplus.io/industries/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- Links to the home page schema through @id (software, website). Home page schema must be live too.
+- The page has no FAQ, so no FAQPage block.

@@ -1,0 +1,70 @@
+PROMOPLUS - CONTACT PAGE SCHEMA
+URL: https://promoplus.io/contact
+Where to paste: inside <head> of the contact page.
+Types: ContactPage, Organization (address + contact point), BreadcrumbList
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://promoplus.io/contact#webpage",
+      "url": "https://promoplus.io/contact",
+      "name": "Contact Us | PromoPlus",
+      "description": "Contact PromoPlus to talk about promotional product mockups, approvals, and production workflow.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://promoplus.io/#website" },
+      "breadcrumb": { "@id": "https://promoplus.io/contact#breadcrumb" },
+      "mainEntity": { "@id": "https://promoplus.io/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://promoplus.io/#organization",
+      "name": "PromoPlus",
+      "url": "https://promoplus.io/",
+      "logo": "https://promoplus.io/favicon.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "90 State St Ste 700 Office 40",
+        "addressLocality": "Albany",
+        "addressRegion": "NY",
+        "postalCode": "12207",
+        "addressCountry": "US"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+1-518-650-1201",
+          "url": "https://promoplus.io/contact",
+          "availableLanguage": "English"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://promoplus.io/contact#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://promoplus.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://promoplus.io/contact"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- No email is included. The contact page shows only a form, and the email found during the earlier audit (hello@promoplus.app) is on a different domain from promoplus.io. Once the client confirms the correct address, add it to the contactPoint as:  "email": "CONFIRMED-ADDRESS"
+- The Organization block repeats the same @id as the home page. Keep the details identical on both pages (name, address, phone), or the home page version wins.
+- Opening hours are not listed on the site, so none are added.

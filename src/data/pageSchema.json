@@ -7,17 +7,43 @@
         "@id": "https://promoplus.io/#organization",
         "name": "PromoPlus",
         "url": "https://promoplus.io/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://promoplus.io/favicon.svg"
+        "logo": "https://promoplus.io/favicon.svg",
+        "description": "Artwork approval software for promotional products. Create mockups, get client approvals, and send production-ready proofs in one workspace.",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Swishtag",
+          "url": "https://swishtag.com"
         },
-        "description": "PromoPlus is mockup, artwork approval and production-file software for promotional product distributors, suppliers and decorators."
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "90 State St Ste 700 Office 40",
+          "addressLocality": "Albany",
+          "addressRegion": "NY",
+          "postalCode": "12207",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+1-518-650-1201",
+          "url": "https://promoplus.io/contact",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://x.com/helloswishtag",
+          "https://www.youtube.com/@helloswishtag",
+          "https://www.pinterest.com/helloswishtag/",
+          "https://www.facebook.com/helloswishtag",
+          "https://www.instagram.com/helloswishtag/",
+          "https://www.linkedin.com/company/helloswishtag"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://promoplus.io/#website",
         "url": "https://promoplus.io/",
         "name": "PromoPlus",
+        "description": "Artwork approval software for promotional products.",
         "inLanguage": "en-US",
         "publisher": {
           "@id": "https://promoplus.io/#organization"
@@ -27,61 +53,76 @@
         "@type": "SoftwareApplication",
         "@id": "https://promoplus.io/#software",
         "name": "PromoPlus",
-        "url": "https://promoplus.io/",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
-        },
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Starter",
-            "price": "30.00",
-            "priceCurrency": "USD",
-            "url": "https://promoplus.io/pricing",
-            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
-          },
-          {
-            "@type": "Offer",
-            "name": "Pro",
-            "price": "100.00",
-            "priceCurrency": "USD",
-            "url": "https://promoplus.io/pricing",
-            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
-          }
-        ]
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://promoplus.io/#webpage",
         "url": "https://promoplus.io/",
-        "name": "Artwork Approval Software for Promotional Products | PromoPlus",
-        "description": "Create promotional product mockups, get client artwork approvals, and send production-ready proofs in one place. Start your 30-day free trial.",
-        "inLanguage": "en-US",
-        "isPartOf": {
-          "@id": "https://promoplus.io/#website"
-        },
+        "description": "Create promotional product mockups, collect client artwork approvals, manage artwork versions, and generate production-ready proof files for distributors, decorators, and suppliers.",
+        "image": "https://promoplus.io/assets/promoplus/hero-mockup-v2.png",
         "publisher": {
           "@id": "https://promoplus.io/#organization"
         },
-        "breadcrumb": {
-          "@id": "https://promoplus.io/#breadcrumb"
-        },
-        "about": {
-          "@id": "https://promoplus.io/#software"
+        "featureList": [
+          "Product catalog",
+          "Online mockup designer",
+          "Artwork version control",
+          "Customer approval portal",
+          "Centralized project workspace",
+          "Team collaboration",
+          "Workflow progress dashboard",
+          "Production-ready file generation"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "30",
+          "highPrice": "100",
+          "offerCount": "2",
+          "url": "https://promoplus.io/pricing"
         }
       },
       {
-        "@type": "BreadcrumbList",
-        "@id": "https://promoplus.io/#breadcrumb",
-        "itemListElement": [
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/#faq",
+        "mainEntity": [
           {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://promoplus.io/"
+            "@type": "Question",
+            "name": "What kinds of custom products can PromoPlus manage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PromoPlus is promotional software for any product that needs artwork placement and approval: apparel, bags, drinkware, signage, packaging, and more."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can each product side be approved separately?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Front, back, and sleeve can each be approved separately, so mockup approval on one side doesn't reopen the others."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do clients review and approve a mockup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Send one link from PromoPlus online artwork approval software. Clients see the latest mockup, comment, request revisions, or approve."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens when the artwork changes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each change creates a new version. Clients always review the latest one, and earlier versions stay in the history."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in the production-ready file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A two-page PDF from our artwork proofing tool: the product proof with item, decoration, imprint size, and colors, then the artwork inspection sheet."
+            }
           }
         ]
       }
@@ -94,57 +135,56 @@
         "@type": "CollectionPage",
         "@id": "https://promoplus.io/features/#webpage",
         "url": "https://promoplus.io/features/",
-        "name": "Mockup, Approval and Production Features | PromoPlus",
+        "name": "Features | PromoPlus",
         "description": "Explore PromoPlus features for product selection, mockups, artwork revisions, client approvals, collaboration, workflow tracking, and production-ready files.",
         "inLanguage": "en-US",
         "isPartOf": {
           "@id": "https://promoplus.io/#website"
         },
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
+        "about": {
+          "@id": "https://promoplus.io/#software"
         },
         "breadcrumb": {
           "@id": "https://promoplus.io/features/#breadcrumb"
         },
-        "about": {
-          "@id": "https://promoplus.io/#software"
-        },
         "mainEntity": {
-          "@id": "https://promoplus.io/features/#list"
+          "@id": "https://promoplus.io/features/#featurelist"
         }
       },
       {
         "@type": "ItemList",
-        "@id": "https://promoplus.io/features/#list",
+        "@id": "https://promoplus.io/features/#featurelist",
+        "name": "PromoPlus features",
+        "numberOfItems": 8,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Product Catalog Integration",
+            "name": "Product Catalog",
             "url": "https://promoplus.io/features/product-catalog-integration"
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Online Mockup Designer",
+            "name": "Mockup Designer",
             "url": "https://promoplus.io/features/online-mockup-designer"
           },
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Artwork Version Control",
+            "name": "Version Control",
             "url": "https://promoplus.io/features/artwork-version-control"
           },
           {
             "@type": "ListItem",
             "position": 4,
-            "name": "Customer Approval Portal",
+            "name": "Approval Portal",
             "url": "https://promoplus.io/features/customer-approval-portal"
           },
           {
             "@type": "ListItem",
             "position": 5,
-            "name": "Centralized Project Workspace",
+            "name": "Project Workspace",
             "url": "https://promoplus.io/features/centralized-project-workspace"
           },
           {
@@ -156,13 +196,13 @@
           {
             "@type": "ListItem",
             "position": 7,
-            "name": "Workflow Progress Dashboard",
+            "name": "Workflow Dashboard",
             "url": "https://promoplus.io/features/workflow-progress-dashboard"
           },
           {
             "@type": "ListItem",
             "position": 8,
-            "name": "Production-Ready File Generation",
+            "name": "Production Files",
             "url": "https://promoplus.io/features/production-ready-file-generation"
           }
         ]
@@ -182,36 +222,6 @@
             "position": 2,
             "name": "Features",
             "item": "https://promoplus.io/features/"
-          }
-        ]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://promoplus.io/#software",
-        "name": "PromoPlus",
-        "url": "https://promoplus.io/",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
-        },
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Starter",
-            "price": "30.00",
-            "priceCurrency": "USD",
-            "url": "https://promoplus.io/pricing",
-            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
-          },
-          {
-            "@type": "Offer",
-            "name": "Pro",
-            "price": "100.00",
-            "priceCurrency": "USD",
-            "url": "https://promoplus.io/pricing",
-            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
           }
         ]
       }
@@ -1206,39 +1216,38 @@
         "isPartOf": {
           "@id": "https://promoplus.io/#website"
         },
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
+        "about": {
+          "@id": "https://promoplus.io/#software"
         },
         "breadcrumb": {
           "@id": "https://promoplus.io/industries/#breadcrumb"
         },
-        "about": {
-          "@id": "https://promoplus.io/#software"
-        },
         "mainEntity": {
-          "@id": "https://promoplus.io/industries/#list"
+          "@id": "https://promoplus.io/industries/#industrylist"
         }
       },
       {
         "@type": "ItemList",
-        "@id": "https://promoplus.io/industries/#list",
+        "@id": "https://promoplus.io/industries/#industrylist",
+        "name": "PromoPlus industries",
+        "numberOfItems": 3,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Promotional Products Distributor Software",
+            "name": "Distributors",
             "url": "https://promoplus.io/industries/promotional-products-distributor-software"
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Promotional Products Supplier Software",
+            "name": "Suppliers",
             "url": "https://promoplus.io/industries/promotional-products-supplier-software"
           },
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Promotional Products Decorator Software",
+            "name": "Decorators",
             "url": "https://promoplus.io/industries/promotional-products-decorator-software"
           }
         ]
@@ -1271,20 +1280,104 @@
         "@id": "https://promoplus.io/industries/promotional-products-distributor-software#webpage",
         "url": "https://promoplus.io/industries/promotional-products-distributor-software",
         "name": "Promotional Products Distributor Software | PromoPlus",
-        "description": "Distributor software for promotional product mockups, client artwork approval and production-ready proofs, with a 30-day free trial.",
+        "description": "Promotional products distributor software for mockups, client artwork approval, and production-ready proofs. Close orders faster. Start your 30-day free trial.",
         "inLanguage": "en-US",
         "isPartOf": {
           "@id": "https://promoplus.io/#website"
         },
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
-        },
         "breadcrumb": {
           "@id": "https://promoplus.io/industries/promotional-products-distributor-software#breadcrumb"
         },
-        "about": {
-          "@id": "https://promoplus.io/#software"
+        "mainEntity": {
+          "@id": "https://promoplus.io/industries/promotional-products-distributor-software#software"
         }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/industries/promotional-products-distributor-software#software",
+        "name": "PromoPlus for Promotional Products Distributors",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://promoplus.io/industries/promotional-products-distributor-software",
+        "description": "Promo distributor software that helps you create mockups, get client artwork approved with one link, and hand your decorator a production-ready proof.",
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Promotional products distributors"
+        },
+        "image": "https://promoplus.io/assets/promoplus/hero-mockup-v2.png",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "30",
+          "highPrice": "100",
+          "offerCount": "2",
+          "url": "https://promoplus.io/pricing"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/industries/promotional-products-distributor-software#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is promotional products distributor software?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is software that helps distributors manage the work between a client request and production. With PromoPlus, that means creating mockups, collecting artwork approvals, and sending production-ready proofs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does PromoPlus replace my quoting and order management system?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PromoPlus focuses on the mockup, artwork approval, and production-ready proof workflow. Talk to our team about how it fits alongside the tools you already use."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do my clients approve a mockup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Send one link. Clients see the latest mockup, comment on the exact side, request revisions, or approve."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get approval on each side separately?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Front, back, and sleeve can each be approved separately, so approving one side doesn't reopen the others."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if the client changes the artwork?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each change creates a new version. Clients always review the latest one, and earlier versions stay in the history."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does my decorator receive?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A two-page PDF: the product proof with item, decoration, imprint size, and colors, then the artwork inspection sheet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Starter plan includes a 30-day free trial."
+            }
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -1305,7 +1398,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Promotional Products Distributor Software",
+            "name": "Distributors",
             "item": "https://promoplus.io/industries/promotional-products-distributor-software"
           }
         ]
@@ -1320,20 +1413,104 @@
         "@id": "https://promoplus.io/industries/promotional-products-supplier-software#webpage",
         "url": "https://promoplus.io/industries/promotional-products-supplier-software",
         "name": "Promotional Products Supplier Software | PromoPlus",
-        "description": "Supplier software for promotional product mockups, artwork approval and production-ready proofs, with a 30-day free trial.",
+        "description": "Promotional products supplier software for mockups, artwork approval, and production-ready proofs. Get artwork right the first time. Start your 30-day free trial.",
         "inLanguage": "en-US",
         "isPartOf": {
           "@id": "https://promoplus.io/#website"
         },
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
-        },
         "breadcrumb": {
           "@id": "https://promoplus.io/industries/promotional-products-supplier-software#breadcrumb"
         },
-        "about": {
-          "@id": "https://promoplus.io/#software"
+        "mainEntity": {
+          "@id": "https://promoplus.io/industries/promotional-products-supplier-software#software"
         }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/industries/promotional-products-supplier-software#software",
+        "name": "PromoPlus for Promotional Products Suppliers",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://promoplus.io/industries/promotional-products-supplier-software",
+        "description": "Promotional products supplier software that helps you show your products with real decoration, share mockups with distributors, and give production the approved artwork and product details together.",
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Promotional products suppliers"
+        },
+        "image": "https://promoplus.io/assets/features/catalog/catalog-search-buyer.png",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "30",
+          "highPrice": "100",
+          "offerCount": "2",
+          "url": "https://promoplus.io/pricing"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/industries/promotional-products-supplier-software#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is promotional products supplier software?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is software that helps suppliers work with artwork and production details. With PromoPlus, that means showing products with decoration, tracking artwork approvals, and receiving production-ready proofs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What information does the production file include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The product proof lists the item, decoration, imprint size, and colors. The second page is the artwork inspection sheet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know the artwork is approved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Approvals are tracked with timestamps in PromoPlus, and only approved artwork is turned into the production file."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens when artwork changes after approval?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each change creates a new version. Earlier versions stay in the history, so you can see which one is current."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can each side of the product be approved separately?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Front, back, and sleeve can each be approved separately, so approving one side doesn't reopen the others."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer pricing for high production volumes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Our Custom plan covers higher production volume, additional storage, team controls, and integrations. Talk to Sales for volume pricing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Starter plan includes a 30-day free trial."
+            }
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -1354,7 +1531,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Promotional Products Supplier Software",
+            "name": "Suppliers",
             "item": "https://promoplus.io/industries/promotional-products-supplier-software"
           }
         ]
@@ -1369,20 +1546,104 @@
         "@id": "https://promoplus.io/industries/promotional-products-decorator-software#webpage",
         "url": "https://promoplus.io/industries/promotional-products-decorator-software",
         "name": "Promotional Products Decorator Software | PromoPlus",
-        "description": "Decorator software that puts approved artwork, imprint size and colors on one production-ready proof, with a 30-day free trial.",
+        "description": "Promotional products decorator software that puts approved artwork, imprint size, and colors on one production-ready proof. Start your 30-day free trial.",
         "inLanguage": "en-US",
         "isPartOf": {
           "@id": "https://promoplus.io/#website"
         },
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
-        },
         "breadcrumb": {
           "@id": "https://promoplus.io/industries/promotional-products-decorator-software#breadcrumb"
         },
-        "about": {
-          "@id": "https://promoplus.io/#software"
+        "mainEntity": {
+          "@id": "https://promoplus.io/industries/promotional-products-decorator-software#software"
         }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://promoplus.io/industries/promotional-products-decorator-software#software",
+        "name": "PromoPlus for Promotional Products Decorators",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://promoplus.io/industries/promotional-products-decorator-software",
+        "description": "Promotional products decorator software that gives you the approved artwork, imprint size, and colors together in one proof, so you can get to production without the back-and-forth.",
+        "audience": {
+          "@type": "BusinessAudience",
+          "audienceType": "Promotional products decorators, screen printers and embroiderers"
+        },
+        "image": "https://promoplus.io/assets/features/production-files/production-hero.png",
+        "publisher": {
+          "@id": "https://promoplus.io/#organization"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "30",
+          "highPrice": "100",
+          "offerCount": "2",
+          "url": "https://promoplus.io/pricing"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://promoplus.io/industries/promotional-products-decorator-software#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is promotional products decorator software?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is software that helps decorators start jobs with clear, approved artwork. With PromoPlus, that means receiving a production-ready proof with the item, decoration, imprint size, and colors, plus an artwork inspection sheet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does the production-ready proof include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A two-page PDF. The first page is the product proof with item, decoration, imprint size, and colors. The second page is the artwork inspection sheet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know the artwork is approved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Approvals are tracked with timestamps in PromoPlus, and only approved artwork is turned into the production file."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if the client changes the artwork after approval?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each change creates a new version. Earlier versions stay in the history, so you can see which one is current."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can each side of the product be approved separately?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Front, back, and sleeve can each be approved separately, so approving one side doesn't reopen the others."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What kinds of products does PromoPlus support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PromoPlus works for any product that needs artwork placement and approval: apparel, bags, drinkware, signage, packaging, and more."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The Starter plan includes a 30-day free trial."
+            }
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -1403,7 +1664,7 @@
           {
             "@type": "ListItem",
             "position": 3,
-            "name": "Promotional Products Decorator Software",
+            "name": "Decorators",
             "item": "https://promoplus.io/industries/promotional-products-decorator-software"
           }
         ]
@@ -1487,30 +1748,27 @@
         "@type": "WebPage",
         "@id": "https://promoplus.io/pricing#webpage",
         "url": "https://promoplus.io/pricing",
-        "name": "Pricing: Promo Mockup and Approval Software | PromoPlus",
-        "description": "Starter at $30/month with a 30-day free trial, Pro at $100/month, or a custom plan. Starter and Pro include unlimited mockups and online approvals.",
+        "name": "Pricing | PromoPlus",
+        "description": "Compare PromoPlus Starter, Pro, and Custom plans.",
         "inLanguage": "en-US",
         "isPartOf": {
           "@id": "https://promoplus.io/#website"
         },
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
-        },
         "breadcrumb": {
           "@id": "https://promoplus.io/pricing#breadcrumb"
         },
-        "about": {
-          "@id": "https://promoplus.io/#software"
+        "mainEntity": {
+          "@id": "https://promoplus.io/pricing#software"
         }
       },
       {
         "@type": "SoftwareApplication",
-        "@id": "https://promoplus.io/#software",
+        "@id": "https://promoplus.io/pricing#software",
         "name": "PromoPlus",
-        "url": "https://promoplus.io/",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "Web software for creating promotional product mockups, collecting customer artwork approvals and generating production-ready files.",
+        "description": "Artwork approval software for promotional products with unlimited mockups, unlimited online approvals, and production-ready proof files.",
+        "url": "https://promoplus.io/",
         "publisher": {
           "@id": "https://promoplus.io/#organization"
         },
@@ -1518,18 +1776,34 @@
           {
             "@type": "Offer",
             "name": "Starter",
-            "price": "30.00",
-            "priceCurrency": "USD",
+            "description": "For individuals and smaller promo teams getting their approval workflow organized. Includes 30 production files per month and 30 GB cloud storage, with a 30-day free trial. Additional production files are $3 each.",
             "url": "https://promoplus.io/pricing",
-            "description": "$30 per month with a 30-day free trial. Includes 30 production files and 30 GB cloud storage per month, then $3 per additional production file."
+            "priceCurrency": "USD",
+            "price": "30",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "30",
+              "priceCurrency": "USD",
+              "billingDuration": "P1M",
+              "unitCode": "MON"
+            },
+            "availability": "https://schema.org/InStock"
           },
           {
             "@type": "Offer",
             "name": "Pro",
-            "price": "100.00",
-            "priceCurrency": "USD",
+            "description": "For growing teams producing more mockups and production files every month. Includes 100 production files per month and 100 GB cloud storage. Additional production files are $1 each.",
             "url": "https://promoplus.io/pricing",
-            "description": "$100 per month. Includes 100 production files and 100 GB cloud storage per month, then $1 per additional production file."
+            "priceCurrency": "USD",
+            "price": "100",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100",
+              "priceCurrency": "USD",
+              "billingDuration": "P1M",
+              "unitCode": "MON"
+            },
+            "availability": "https://schema.org/InStock"
           }
         ]
       },
@@ -1550,52 +1824,6 @@
             "item": "https://promoplus.io/pricing"
           }
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://promoplus.io/pricing#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What counts as a production file?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A production file is generated from an approved product mockup and includes the handoff information production needs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What happens if I go over my monthly production files?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Starter charges $3 per additional file and Pro charges $1 per additional file."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is there a free trial?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. The Starter plan includes a 30-day free trial."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are mockups and approvals limited?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Starter and Pro both include unlimited mockups and online approvals."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I get API access or integrations?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "API and integrations are available on the Custom plan. Talk to Sales."
-            }
-          }
-        ]
       }
     ]
   },
@@ -1606,18 +1834,42 @@
         "@type": "ContactPage",
         "@id": "https://promoplus.io/contact#webpage",
         "url": "https://promoplus.io/contact",
-        "name": "Contact PromoPlus | Talk to Our Team",
-        "description": "Tell us what you want to improve: custom plans, product workflow or approval setup. The PromoPlus team will get back to you shortly.",
+        "name": "Contact Us | PromoPlus",
+        "description": "Contact PromoPlus to talk about promotional product mockups, approvals, and production workflow.",
         "inLanguage": "en-US",
         "isPartOf": {
           "@id": "https://promoplus.io/#website"
         },
-        "publisher": {
-          "@id": "https://promoplus.io/#organization"
-        },
         "breadcrumb": {
           "@id": "https://promoplus.io/contact#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://promoplus.io/#organization"
         }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://promoplus.io/#organization",
+        "name": "PromoPlus",
+        "url": "https://promoplus.io/",
+        "logo": "https://promoplus.io/favicon.svg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "90 State St Ste 700 Office 40",
+          "addressLocality": "Albany",
+          "addressRegion": "NY",
+          "postalCode": "12207",
+          "addressCountry": "US"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": "+1-518-650-1201",
+            "url": "https://promoplus.io/contact",
+            "availableLanguage": "English"
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -1636,17 +1888,6 @@
             "item": "https://promoplus.io/contact"
           }
         ]
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://promoplus.io/#organization",
-        "name": "PromoPlus",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "url": "https://promoplus.io/contact",
-          "availableLanguage": "English"
-        }
       }
     ]
   }

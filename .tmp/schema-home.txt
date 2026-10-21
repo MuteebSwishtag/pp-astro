@@ -1,0 +1,137 @@
+PROMOPLUS - HOME PAGE SCHEMA
+URL: https://promoplus.io/
+Where to paste: inside <head> of the home page (index.html), exactly as below.
+Types: Organization, WebSite, SoftwareApplication, FAQPage
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://promoplus.io/#organization",
+      "name": "PromoPlus",
+      "url": "https://promoplus.io/",
+      "logo": "https://promoplus.io/favicon.svg",
+      "description": "Artwork approval software for promotional products. Create mockups, get client approvals, and send production-ready proofs in one workspace.",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Swishtag",
+        "url": "https://swishtag.com"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "90 State St Ste 700 Office 40",
+        "addressLocality": "Albany",
+        "addressRegion": "NY",
+        "postalCode": "12207",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+1-518-650-1201",
+        "url": "https://promoplus.io/contact",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://x.com/helloswishtag",
+        "https://www.youtube.com/@helloswishtag",
+        "https://www.pinterest.com/helloswishtag/",
+        "https://www.facebook.com/helloswishtag",
+        "https://www.instagram.com/helloswishtag/",
+        "https://www.linkedin.com/company/helloswishtag"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://promoplus.io/#website",
+      "url": "https://promoplus.io/",
+      "name": "PromoPlus",
+      "description": "Artwork approval software for promotional products.",
+      "inLanguage": "en-US",
+      "publisher": { "@id": "https://promoplus.io/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://promoplus.io/#software",
+      "name": "PromoPlus",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://promoplus.io/",
+      "description": "Create promotional product mockups, collect client artwork approvals, manage artwork versions, and generate production-ready proof files for distributors, decorators, and suppliers.",
+      "image": "https://promoplus.io/assets/promoplus/hero-mockup-v2.png",
+      "publisher": { "@id": "https://promoplus.io/#organization" },
+      "featureList": [
+        "Product catalog",
+        "Online mockup designer",
+        "Artwork version control",
+        "Customer approval portal",
+        "Centralized project workspace",
+        "Team collaboration",
+        "Workflow progress dashboard",
+        "Production-ready file generation"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "30",
+        "highPrice": "100",
+        "offerCount": "2",
+        "url": "https://promoplus.io/pricing"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://promoplus.io/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What kinds of custom products can PromoPlus manage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PromoPlus is promotional software for any product that needs artwork placement and approval: apparel, bags, drinkware, signage, packaging, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can each product side be approved separately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Front, back, and sleeve can each be approved separately, so mockup approval on one side doesn't reopen the others."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do clients review and approve a mockup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Send one link from PromoPlus online artwork approval software. Clients see the latest mockup, comment, request revisions, or approve."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when the artwork changes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each change creates a new version. Clients always review the latest one, and earlier versions stay in the history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in the production-ready file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A two-page PDF from our artwork proofing tool: the product proof with item, decoration, imprint size, and colors, then the artwork inspection sheet."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- Organization + WebSite appear ONLY on the home page. Other pages reference them by @id.
+- The FAQ text matches the visible on-page FAQ word for word. If the FAQ copy changes, update this too.
+- No AggregateRating/Review added: the Trustpilot/REVIEWS.io badges and testimonials are self-published, which Google does not accept for rich results.

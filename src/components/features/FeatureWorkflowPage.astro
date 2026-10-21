@@ -14,7 +14,7 @@ import ProduceFiles from './panels/ProductionReadyFileGeneration.astro';
 import '../../styles/feature-cursor.css';
 import '../../styles/legacy/feature-reference.css';
 import '../../styles/legacy/connected-workflow.css';
-import pageSchema from '../../data/pageSchema.json';
+import { getPageSchema } from '../../data/schema';
 
 const featureDefinitions = [
   {
@@ -92,7 +92,7 @@ const featureDefinitions = [
 ];
 
 const features = featureDefinitions.map((feature) => {
-  const schema = (pageSchema as Record<string, { '@graph': Array<Record<string, any>> }>)[feature.route];
+  const schema = getPageSchema(feature.route);
   const page = schema?.['@graph'].find((node) => node['@type'] === 'WebPage');
   const faq = schema?.['@graph'].find((node) => node['@type'] === 'FAQPage');
   return {

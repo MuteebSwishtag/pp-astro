@@ -1,0 +1,91 @@
+PROMOPLUS - PRICING PAGE SCHEMA
+URL: https://promoplus.io/pricing
+Where to paste: inside <head> of the pricing page.
+Types: WebPage, SoftwareApplication (Starter + Pro offers), BreadcrumbList
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://promoplus.io/pricing#webpage",
+      "url": "https://promoplus.io/pricing",
+      "name": "Pricing | PromoPlus",
+      "description": "Compare PromoPlus Starter, Pro, and Custom plans.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://promoplus.io/#website" },
+      "breadcrumb": { "@id": "https://promoplus.io/pricing#breadcrumb" },
+      "mainEntity": { "@id": "https://promoplus.io/pricing#software" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://promoplus.io/pricing#software",
+      "name": "PromoPlus",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Artwork approval software for promotional products with unlimited mockups, unlimited online approvals, and production-ready proof files.",
+      "url": "https://promoplus.io/",
+      "publisher": { "@id": "https://promoplus.io/#organization" },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "description": "For individuals and smaller promo teams getting their approval workflow organized. Includes 30 production files per month and 30 GB cloud storage, with a 30-day free trial. Additional production files are $3 each.",
+          "url": "https://promoplus.io/pricing",
+          "priceCurrency": "USD",
+          "price": "30",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "30",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M",
+            "unitCode": "MON"
+          },
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "description": "For growing teams producing more mockups and production files every month. Includes 100 production files per month and 100 GB cloud storage. Additional production files are $1 each.",
+          "url": "https://promoplus.io/pricing",
+          "priceCurrency": "USD",
+          "price": "100",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "100",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M",
+            "unitCode": "MON"
+          },
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://promoplus.io/pricing#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://promoplus.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pricing",
+          "item": "https://promoplus.io/pricing"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- The Custom plan ("Talk to Sales") has no fixed price, so it is NOT included as an Offer. Google requires a price on every Offer.
+- Prices, file limits and storage match the live pricing table. If prices change, update both the page and this schema.
+- The 30-day free trial is described in the Starter description text. It is not a separate $0 offer, because the trial converts to the $30/month plan.
+- This SoftwareApplication has a different @id (pricing#software) from the home page one on purpose, so the home page keeps its price-range offer and this page holds the plan-level offers.

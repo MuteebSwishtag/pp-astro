@@ -11,20 +11,24 @@ export function getPageSchema(pathname: string): SchemaGraph | undefined {
   const source = (pageSchema as Record<string, SchemaGraph>)[path];
   if (!source) return undefined;
   const nodes = source['@graph'].map((node): SchemaNode => {
-    if (node['@type'] === 'SoftwareApplication') return shared.SoftwareApplication;
+    if (node['@type'] === 'SoftwareApplication' &&
+        (!node['@id'] || node['@id'] === shared.SoftwareApplication['@id'])) return shared.SoftwareApplication;
     if (path === '/' && node['@type'] === 'Organization') return shared.Organization;
     if (path === '/' && node['@type'] === 'WebSite') return shared.WebSite;
     return node;
   });
   if (path === '/') {
-    nodes.push({
+    const faq = {
       '@type': 'FAQPage',
       '@id': 'https://promoplus.io/#faq',
       mainEntity: homeFaqs.map(([name, text]) => ({
         '@type': 'Question', name,
         acceptedAnswer: { '@type': 'Answer', text },
       })),
-    });
+    };
+    const faqIndex = nodes.findIndex((node) => node['@type'] === 'FAQPage');
+    if (faqIndex >= 0) nodes[faqIndex] = faq;
+    else nodes.push(faq);
   }
   return { '@context': 'https://schema.org', '@graph': nodes };
 }

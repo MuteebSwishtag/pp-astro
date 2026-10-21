@@ -4,7 +4,8 @@
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
-    "verify:schema": "node scripts/verify-schema.mjs"
+    "verify:schema": "node scripts/verify-schema.mjs",
+    "import:schema": "node scripts/import-current-schema.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

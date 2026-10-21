@@ -1,0 +1,135 @@
+PROMOPLUS - DECORATORS PAGE SCHEMA
+URL: https://promoplus.io/industries/promotional-products-decorator-software
+Where to paste: inside <head> of this page.
+Types: WebPage, SoftwareApplication (decorator audience), FAQPage (7 questions), BreadcrumbList
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://promoplus.io/industries/promotional-products-decorator-software#webpage",
+      "url": "https://promoplus.io/industries/promotional-products-decorator-software",
+      "name": "Promotional Products Decorator Software | PromoPlus",
+      "description": "Promotional products decorator software that puts approved artwork, imprint size, and colors on one production-ready proof. Start your 30-day free trial.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://promoplus.io/#website" },
+      "breadcrumb": { "@id": "https://promoplus.io/industries/promotional-products-decorator-software#breadcrumb" },
+      "mainEntity": { "@id": "https://promoplus.io/industries/promotional-products-decorator-software#software" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://promoplus.io/industries/promotional-products-decorator-software#software",
+      "name": "PromoPlus for Promotional Products Decorators",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://promoplus.io/industries/promotional-products-decorator-software",
+      "description": "Promotional products decorator software that gives you the approved artwork, imprint size, and colors together in one proof, so you can get to production without the back-and-forth.",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Promotional products decorators, screen printers and embroiderers"
+      },
+      "image": "https://promoplus.io/assets/features/production-files/production-hero.png",
+      "publisher": { "@id": "https://promoplus.io/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "30",
+        "highPrice": "100",
+        "offerCount": "2",
+        "url": "https://promoplus.io/pricing"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://promoplus.io/industries/promotional-products-decorator-software#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is promotional products decorator software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is software that helps decorators start jobs with clear, approved artwork. With PromoPlus, that means receiving a production-ready proof with the item, decoration, imprint size, and colors, plus an artwork inspection sheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the production-ready proof include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A two-page PDF. The first page is the product proof with item, decoration, imprint size, and colors. The second page is the artwork inspection sheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know the artwork is approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Approvals are tracked with timestamps in PromoPlus, and only approved artwork is turned into the production file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if the client changes the artwork after approval?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each change creates a new version. Earlier versions stay in the history, so you can see which one is current."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can each side of the product be approved separately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Front, back, and sleeve can each be approved separately, so approving one side doesn't reopen the others."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What kinds of products does PromoPlus support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PromoPlus works for any product that needs artwork placement and approval: apparel, bags, drinkware, signage, packaging, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Starter plan includes a 30-day free trial."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://promoplus.io/industries/promotional-products-decorator-software#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://promoplus.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://promoplus.io/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Decorators",
+          "item": "https://promoplus.io/industries/promotional-products-decorator-software"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- FAQ text matches the visible page word for word. Update if the page copy changes.

@@ -1,0 +1,136 @@
+PROMOPLUS - DISTRIBUTORS PAGE SCHEMA
+URL: https://promoplus.io/industries/promotional-products-distributor-software
+Where to paste: inside <head> of this page.
+Types: WebPage, SoftwareApplication (distributor audience), FAQPage (7 questions), BreadcrumbList
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://promoplus.io/industries/promotional-products-distributor-software#webpage",
+      "url": "https://promoplus.io/industries/promotional-products-distributor-software",
+      "name": "Promotional Products Distributor Software | PromoPlus",
+      "description": "Promotional products distributor software for mockups, client artwork approval, and production-ready proofs. Close orders faster. Start your 30-day free trial.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://promoplus.io/#website" },
+      "breadcrumb": { "@id": "https://promoplus.io/industries/promotional-products-distributor-software#breadcrumb" },
+      "mainEntity": { "@id": "https://promoplus.io/industries/promotional-products-distributor-software#software" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://promoplus.io/industries/promotional-products-distributor-software#software",
+      "name": "PromoPlus for Promotional Products Distributors",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://promoplus.io/industries/promotional-products-distributor-software",
+      "description": "Promo distributor software that helps you create mockups, get client artwork approved with one link, and hand your decorator a production-ready proof.",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Promotional products distributors"
+      },
+      "image": "https://promoplus.io/assets/promoplus/hero-mockup-v2.png",
+      "publisher": { "@id": "https://promoplus.io/#organization" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "30",
+        "highPrice": "100",
+        "offerCount": "2",
+        "url": "https://promoplus.io/pricing"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://promoplus.io/industries/promotional-products-distributor-software#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is promotional products distributor software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is software that helps distributors manage the work between a client request and production. With PromoPlus, that means creating mockups, collecting artwork approvals, and sending production-ready proofs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PromoPlus replace my quoting and order management system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PromoPlus focuses on the mockup, artwork approval, and production-ready proof workflow. Talk to our team about how it fits alongside the tools you already use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do my clients approve a mockup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Send one link. Clients see the latest mockup, comment on the exact side, request revisions, or approve."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get approval on each side separately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Front, back, and sleeve can each be approved separately, so approving one side doesn't reopen the others."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if the client changes the artwork?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each change creates a new version. Clients always review the latest one, and earlier versions stay in the history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does my decorator receive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A two-page PDF: the product proof with item, decoration, imprint size, and colors, then the artwork inspection sheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Starter plan includes a 30-day free trial."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://promoplus.io/industries/promotional-products-distributor-software#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://promoplus.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://promoplus.io/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Distributors",
+          "item": "https://promoplus.io/industries/promotional-products-distributor-software"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+NOTES
+- FAQ text matches the visible page word for word. Update if the page copy changes.
+- No AggregateRating: the Trustpilot / REVIEWS.io badges are third-party ratings shown on the site, not verifiable reviews on this page, and self-published rating markup is not eligible for rich results.
