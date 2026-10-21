@@ -55,6 +55,9 @@ for (const path of paths) {
     .filter((match) => /type="application\/ld\+json"/.test(match[1]))
     .map((match) => JSON.parse(match[2]));
   const nodes = scripts.flatMap((script) => script['@graph'] || [script]);
+  if (pages[path] && (scripts.length !== 1 || !isDeepStrictEqual(scripts[0], pages[path]))) {
+    throw new Error(`${path}: expected exactly the registered graph, with no extra schema`);
+  }
   if (authoritative.has(path)) {
     const expectedNodes = authoritative.get(path);
     if (nodes.length !== expectedNodes.length || expectedNodes.some((expected) =>
@@ -66,8 +69,7 @@ for (const path of paths) {
   if (new Set(ids).size !== ids.length) throw new Error(`${path}: duplicate schema IDs`);
   for (const node of nodes) {
     const expected = shared[node['@type']];
-    if (expected && (path === '/' || node['@id'] === expected['@id']) &&
-        (path !== '/contact') &&
+    if (expected && path === '/' &&
         JSON.stringify(node) !== JSON.stringify(expected)) {
       throw new Error(`${path}: ${node['@type']} differs from shared schema`);
     }
