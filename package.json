@@ -3,7 +3,8 @@
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1",
-    "check": "astro check"
+    "check": "astro check",
+    "verify:schema": "node scripts/verify-schema.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

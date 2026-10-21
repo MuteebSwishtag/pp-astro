@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const pages = JSON.parse(readFileSync('src/data/pageSchema.json', 'utf8'));
+const shared = JSON.parse(readFileSync('src/data/sharedSchema.json', 'utf8'));
 const articleSlugs = [
   'from-artwork-to-production-a-better-promotional-product-proofing-workflow',
   'how-promotional-product-mockup-software-speeds-up-client-approvals',
@@ -43,6 +44,22 @@ for (const path of paths) {
     .filter((match) => /type="application\/ld\+json"/.test(match[1]))
     .map((match) => JSON.parse(match[2]));
   const nodes = scripts.flatMap((script) => script['@graph'] || [script]);
+  const ids = nodes.map((node) => node['@id']).filter(Boolean);
+  if (new Set(ids).size !== ids.length) throw new Error(`${path}: duplicate schema IDs`);
+  for (const node of nodes) {
+    const expected = shared[node['@type']];
+    if (expected && (path === '/' || node['@type'] === 'SoftwareApplication') &&
+        JSON.stringify(node) !== JSON.stringify(expected)) {
+      throw new Error(`${path}: ${node['@type']} differs from shared schema`);
+    }
+  }
+  if (path === '/') {
+    for (const type of ['Organization', 'WebSite', 'SoftwareApplication', 'WebPage', 'BreadcrumbList', 'FAQPage']) {
+      if (nodes.filter((node) => node['@type'] === type).length !== 1) {
+        throw new Error(`Homepage: expected exactly one ${type}`);
+      }
+    }
+  }
   const page = nodes
     .find((node) => ['WebPage', 'CollectionPage', 'ContactPage'].includes(node['@type']));
   if (!page) throw new Error(`${path}: missing page schema`);

@@ -1,10 +1,10 @@
 ---
 import '../styles/global.css';
-import pageSchema from '../data/pageSchema.json';
+import { getPageSchema } from '../data/schema';
 
 const { title: suppliedTitle = 'PromoPlus', description: suppliedDescription = 'PromoPlus promotional product approval workflows.', bodyClass = '' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const schema = (pageSchema as Record<string, { '@graph': Array<Record<string, any>> }>)[path];
+const schema = getPageSchema(path);
 const page = schema?.['@graph'].find((node) => ['WebPage', 'CollectionPage', 'ContactPage'].includes(node['@type']));
 const title = page?.name || suppliedTitle;
 const description = page?.description || suppliedDescription;

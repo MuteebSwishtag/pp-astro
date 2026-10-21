@@ -4,18 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HomeSections from '../components/HomeSections.astro';
 import ChromeEffects from '../components/ChromeEffects.astro';
-import { homeFaqs } from '../data/homeFaqs';
 import '../styles/legacy/home-shareable.css';
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  '@id': 'https://promoplus.io/#faq',
-  mainEntity: homeFaqs.map(([question, answer]) => ({
-    '@type': 'Question',
-    name: question,
-    acceptedAnswer: { '@type': 'Answer', text: answer },
-  })),
-};
 ---
 <BaseLayout title="Artwork Approval Software for Promotional Products | PromoPlus" description="Create promotional product mockups, get client artwork approvals, and send production-ready proofs in one place. Start your 30-day free trial.">
   <Fragment slot="head">
@@ -23,7 +12,6 @@ const faqSchema = {
     <meta property="og:description" content="Create promotional product mockups, get client artwork approvals, and send production-ready proofs in one place. Start your 30-day free trial." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://promoplus.io/" />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
   <Header active="home" />
   <main id="top">

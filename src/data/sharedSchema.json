@@ -1,0 +1,80 @@
+{
+  "Organization": {
+    "@type": "Organization",
+    "@id": "https://promoplus.io/#organization",
+    "name": "PromoPlus",
+    "url": "https://promoplus.io/",
+    "logo": "https://promoplus.io/favicon.svg",
+    "description": "Artwork approval software for promotional products. Create mockups, get client approvals, and send production-ready proofs in one workspace.",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Swishtag",
+      "url": "https://swishtag.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "90 State St Ste 700 Office 40",
+      "addressLocality": "Albany",
+      "addressRegion": "NY",
+      "postalCode": "12207",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "telephone": "+1-518-650-1201",
+      "url": "https://promoplus.io/contact",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://x.com/helloswishtag",
+      "https://www.youtube.com/@helloswishtag",
+      "https://www.pinterest.com/helloswishtag/",
+      "https://www.facebook.com/helloswishtag",
+      "https://www.instagram.com/helloswishtag/",
+      "https://www.linkedin.com/company/helloswishtag"
+    ]
+  },
+  "WebSite": {
+    "@type": "WebSite",
+    "@id": "https://promoplus.io/#website",
+    "url": "https://promoplus.io/",
+    "name": "PromoPlus",
+    "description": "Artwork approval software for promotional products.",
+    "inLanguage": "en-US",
+    "publisher": {
+      "@id": "https://promoplus.io/#organization"
+    }
+  },
+  "SoftwareApplication": {
+    "@type": "SoftwareApplication",
+    "@id": "https://promoplus.io/#software",
+    "name": "PromoPlus",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://promoplus.io/",
+    "description": "Create promotional product mockups, collect client artwork approvals, manage artwork versions, and generate production-ready proof files for distributors, decorators, and suppliers.",
+    "image": "https://promoplus.io/assets/promoplus/hero-mockup-v2.png",
+    "publisher": {
+      "@id": "https://promoplus.io/#organization"
+    },
+    "featureList": [
+      "Product catalog",
+      "Online mockup designer",
+      "Artwork version control",
+      "Customer approval portal",
+      "Centralized project workspace",
+      "Team collaboration",
+      "Workflow progress dashboard",
+      "Production-ready file generation"
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "30",
+      "highPrice": "100",
+      "offerCount": "2",
+      "url": "https://promoplus.io/pricing"
+    }
+  }
+}
