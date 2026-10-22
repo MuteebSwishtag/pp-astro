@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://promoplus.io/sitemap.xml
+
 User-agent: ClaudeBot
 Allow: /
 

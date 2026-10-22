@@ -5,6 +5,7 @@
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
     "verify:schema": "node scripts/verify-schema.mjs",
+    "verify:sitemap": "node scripts/verify-sitemap.mjs",
     "import:schema": "node scripts/import-current-schema.mjs"
   },
   "dependencies": {

@@ -7,6 +7,16 @@ Astro rebuild of PromoPlus combining the human-v2 navbar, home page, and pricing
 - `npm run dev` - local Astro dev server
 - `npm run build` - production build
 - `npm run preview` - preview built output
+- `npm run verify:sitemap` - verify the built sitemap against canonical, indexable HTML pages and its robots.txt reference
+
+Production builds generate `dist/sitemap.xml` for `https://promoplus.io/sitemap.xml`.
+The sitemap uses the exact canonical URLs from generated HTML, including articles
+rendered from the WordPress feed (or the local fallback). Pages without canonicals,
+pages pointing to another canonical path, redirects, and pages marked `noindex`
+are excluded and reported during the build. PHP endpoints and admin files are not
+included. New indexable pages should provide a self-referencing canonical URL.
+Modification dates are omitted because build times do not establish when content
+was last changed.
 
 The PHP demo endpoint is preserved in `public/book-demo.php`. It requires a PHP-capable production host; Astro's dev server serves it as a static file.
 
