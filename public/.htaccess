@@ -1,5 +1,10 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # 301 any /index.html request (root or subfolder) to its clean trailing-slash URL
+  RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+  RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L,NC]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^insights/([^/]+)/?$ /post/?slug=$1 [L,QSA]
